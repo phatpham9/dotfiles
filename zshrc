@@ -1,0 +1,5 @@
+alias fuck="thefuck"
+alias d="docker"
+alias dc="docker-compose"
+alias mini="minikube"
+alias kube="kubectl"
