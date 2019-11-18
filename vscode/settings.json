@@ -46,5 +46,8 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.rendererType": "dom",
   "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true
+  "files.trimFinalNewlines": true,
+  "npm.packageManager": "yarn",
+  "breadcrumbs.enabled": false,
+  "editor.formatOnPaste": true
 }
