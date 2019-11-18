@@ -26,7 +26,9 @@ ln -s ${DIR}/zsh/zshrc ~/.zshrc
 # git
 ln -s ${DIR}/git/gitconfig ~/.gitconfig
 ln -s ${DIR}/git/gitignore_global ~/.gitignore_global
-# vscodes
+# minikube
+ln -s ${DIR}/minikube/config.json ~/.minikube/config/config.json
+# vscode
 ln -s ${DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 echo '-> Symlinks created!'
 
