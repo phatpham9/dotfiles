@@ -30,6 +30,7 @@ ln -s ${DIR}/git/gitignore_global ~/.gitignore_global
 ln -s ${DIR}/minikube/config.json ~/.minikube/config/config.json
 # vscode
 ln -s ${DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+cp ${DIR}/vscode/projects.json ~/Library/Application\ Support/Code/User/projects.json
 echo '-> Symlinks created!'
 
 # Restart

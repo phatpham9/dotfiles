@@ -1,0 +1,16 @@
+[
+  {
+    "name": "my/dotfiles",
+    "rootPath": "$home/repos/my/dotfiles",
+    "paths": [],
+    "group": "",
+    "enabled": true
+  },
+	{
+		"name": "my/onroads.xyz",
+		"rootPath": "$home/repos/my/onroads.xyz",
+		"paths": [],
+		"group": "",
+		"enabled": true
+	}
+]
