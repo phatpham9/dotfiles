@@ -15,7 +15,6 @@
   "files.associations": {
     "*.tsx": "typescriptreact"
   },
-  "editor.wordWrapColumn": 360,
 
   // auto close tag
   "auto-close-tag.activationOnLanguage": [
@@ -39,19 +38,6 @@
   "projectManager.openInNewWindowWhenClickingInStatusBar": true,
   "projectManager.treeview.visible": false,
 
-  // settings sync
-  "sync.gist": "59be966dccfe2676a48b1e26adbbe86a",
-  "sync.lastUpload": "2018-03-29T07:13:34.335Z",
-  "sync.autoDownload": false,
-  "sync.autoUpload": false,
-  "sync.lastDownload": "",
-  "sync.forceDownload": false,
-  "sync.host": "",
-  "sync.pathPrefix": "",
-  "sync.quietSync": true,
-  "sync.askGistName": false,
-  "sync.removeExtensions": true,
-  "sync.syncExtensions": true,
   "window.zoomLevel": 0,
   "swaggerViewer.defaultPort": 9999,
   "update.channel": "none",
@@ -60,6 +46,5 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.rendererType": "dom",
   "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "git.detectSubmodulesLimit": 25
+  "files.trimFinalNewlines": true
 }
