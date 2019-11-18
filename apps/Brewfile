@@ -1,0 +1,17 @@
+brew yarn
+brew minikube
+brew thefuck
+brew mkcert
+
+cask docker
+cask station
+cask brave-browser
+cask visual-studio-code
+cask sequel-pro
+cask mongotron
+cask postman
+cask alfred
+cask spectacle
+cask the-unarchiver
+cask vlc
+cask webtorrent

@@ -1,0 +1,65 @@
+{
+  // general
+  "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.detectIndentation": false,
+  "workbench.colorTheme": "Oceanic Next",
+  "workbench.iconTheme": "ayu",
+  "workbench.startupEditor": "none",
+  "explorer.openEditors.visible": 0,
+  "explorer.confirmDragAndDrop": false,
+  "terminal.integrated.shellArgs.osx": ["-l"],
+  "extensions.ignoreRecommendations": true,
+  "git.autofetch": true,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.tsx": "typescriptreact"
+  },
+  "editor.wordWrapColumn": 360,
+
+  // auto close tag
+  "auto-close-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "php",
+    "blade",
+    "ejs",
+    "handlebars",
+    "jinja",
+    "javascriptreact",
+    "typescriptreact",
+    "plaintext",
+    "markdown",
+    "razor",
+    "vue"
+  ],
+
+  // project manager
+  "projectManager.groupList": true,
+  "projectManager.openInNewWindowWhenClickingInStatusBar": true,
+  "projectManager.treeview.visible": false,
+
+  // settings sync
+  "sync.gist": "59be966dccfe2676a48b1e26adbbe86a",
+  "sync.lastUpload": "2018-03-29T07:13:34.335Z",
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.lastDownload": "",
+  "sync.forceDownload": false,
+  "sync.host": "",
+  "sync.pathPrefix": "",
+  "sync.quietSync": true,
+  "sync.askGistName": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "window.zoomLevel": 0,
+  "swaggerViewer.defaultPort": 9999,
+  "update.channel": "none",
+  "update.enableWindowsBackgroundUpdates": false,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.rendererType": "dom",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "git.detectSubmodulesLimit": 25
+}
