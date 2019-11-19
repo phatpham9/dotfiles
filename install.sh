@@ -33,6 +33,7 @@ ln -s ${DIR}/docker/config.json ~/.docker/config.json
 ln -s ${DIR}/minikube/config.json ~/.minikube/config/config.json
 # vscode
 ln -s ${DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s ${DIR}/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 cp ${DIR}/vscode/projects.json ~/Library/Application\ Support/Code/User/projects.json
 echo '-> Symlinks created!'
 
