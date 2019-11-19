@@ -1,9 +1,55 @@
-alias d="docker"
-alias dc="docker-compose"
-alias mini="minikube"
-alias kube="kubectl"
-alias fuck="thefuck"
-
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# aliases
+
+# git
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gpt"git push --follow-tags"
+
+# docker
+alias d="docker"
+alias di="docker images"
+alias dri="docker rmi"
+alias dp="docker ps"
+alias dpa="docker ps -a"
+alias dl="docker logs"
+alias dlf="docker logs -f"
+alias dk="docker kill"
+alias ds="docker stop"
+alias dr="docker rm"
+
+# docker compose
+alias dc="docker-compose"
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down"
+
+# minikube
+alias mk="minikube"
+
+# kubectl
+alias k="kubectl"
+
+# change dir
+alias repos="cd ~/repos"
+alias my="cd ~/repos/my"
+
+# open app
+alias finder="open -a finder"
+alias photos="open -a photos"
+alias station="open -a station"
+alias brave="open -a brave\ browser"
+alias sequel="open -a sequel\ pro"
+alias robo="open -a robo\ 3t"
+alias medis="open -a medis"
+alias postman="open -a postman"
+alias terminal="open -a terminal"
+
+# other
+alias f="thefuck"
