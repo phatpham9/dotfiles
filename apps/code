@@ -3,12 +3,13 @@ christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
 deerawan.vscode-hasher
-formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 naumovs.theme-oceanicnext
+redhat.vscode-yaml
 streetsidesoftware.code-spell-checker
 teabyii.ayu
+wayou.vscode-todo-highlight
 wix.vscode-import-cost
 yzhang.markdown-all-in-one
