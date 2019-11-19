@@ -1,6 +1,4 @@
 {
-  // general
-  "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
   "editor.detectIndentation": false,
   "workbench.colorTheme": "Oceanic Next",
@@ -49,5 +47,8 @@
   "files.trimFinalNewlines": true,
   "npm.packageManager": "yarn",
   "breadcrumbs.enabled": false,
-  "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "workbench.tree.indent": 16,
+  "workbench.tree.renderIndentGuides": "always"
 }
