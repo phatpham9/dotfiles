@@ -1,15 +1,19 @@
-# cli
+# cli tools
+brew nvm
 brew yarn
+brew docker
+brew docker-compose
 brew minikube
 brew mkcert
 brew thefuck
+
+# macos apps
 
 # browser
 cask station
 cask brave-browser
 
 # development
-cask docker
 cask visual-studio-code
 cask sequel-pro
 cask robo-3t

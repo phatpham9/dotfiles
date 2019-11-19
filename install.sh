@@ -26,6 +26,9 @@ ln -s ${DIR}/zsh/zshrc ~/.zshrc
 # git
 ln -s ${DIR}/git/gitconfig ~/.gitconfig
 ln -s ${DIR}/git/gitignore_global ~/.gitignore_global
+# docker
+ln -s ${DIR}/docker/daemon.json ~/.docker/daemon.json
+ln -s ${DIR}/docker/config.json ~/.docker/config.json
 # minikube
 ln -s ${DIR}/minikube/config.json ~/.minikube/config/config.json
 # vscode
