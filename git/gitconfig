@@ -3,3 +3,26 @@
 	email = phatpham9@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
+[alias]
+	cl = clone
+	co = checkout
+  cob = checkout -b
+  b = branch
+  ba = branch -a
+  bd = branch -d
+  bdf = branch -d -f
+  p = pull
+  pom = pull origin master
+  pod = pull origin develop
+  a = add
+  aa = add -A
+  c = commit
+  cm = commit -m
+  pu = push
+  puft = push --follow-tags
+  l = log
+  cam = !git add -A && git commit -m
+  tmp = !git add -A && git commit -m 'TMP'
+  wip = !git add -u && git commit -m "WIP"
+  undo = reset HEAD~1 --mixed
+  wipe = !git add -A && git commit -qm 'TMP' && git reset HEAD~1 --hard

@@ -6,30 +6,24 @@ export NVM_DIR="$HOME/.nvm"
 # aliases
 
 # git
-alias ga="git add"
-alias gaa="git add ."
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gaacm="git add . && git commit -m"
-alias gp="git push"
-alias gpt"git push --follow-tags"
+alias g="git"
 
 # docker
 alias d="docker"
 alias di="docker images"
 alias dri="docker rmi"
 alias dp="docker ps"
-alias dpa="docker ps -a"
 alias dl="docker logs"
-alias dlf="docker logs -f"
 alias dk="docker kill"
 alias ds="docker stop"
 alias dr="docker rm"
+alias drs="docker restart"
 
 # docker compose
 alias dc="docker-compose"
-alias dcu="docker-compose up -d"
+alias dcu="docker-compose up"
 alias dcd="docker-compose down"
+alias dcrs="docker-compose down && docker-compose up"
 
 # minikube
 alias mk="minikube"
