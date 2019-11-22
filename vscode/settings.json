@@ -2,7 +2,6 @@
   "editor.wordWrap": "wordWrapColumn",
   "editor.detectIndentation": false,
   "workbench.colorTheme": "Oceanic Next (dimmed bg)",
-  "workbench.iconTheme": "ayu",
   "workbench.startupEditor": "none",
   "explorer.openEditors.visible": 0,
   "explorer.confirmDragAndDrop": false,
@@ -53,5 +52,6 @@
   "tslint.packageManager": "yarn",
   "path-intellisense.autoSlashAfterDirectory": true,
   "html.format.endWithNewline": true,
-  "eslint.packageManager": "yarn"
+  "eslint.packageManager": "yarn",
+  "editor.wordWrapColumn": 100
 }
