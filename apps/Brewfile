@@ -6,6 +6,7 @@ brew docker-compose
 brew minikube
 brew mkcert
 brew thefuck
+brew httpie
 
 # macos apps
 
