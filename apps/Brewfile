@@ -18,6 +18,7 @@ cask brave-browser
 cask visual-studio-code
 cask sequel-pro
 cask robo-3t
+cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/7ceeedb95e3351006ab1376772eaac8d3745aabb/Casks/medis.rb
 cask postman
 
 # utilities

@@ -17,7 +17,7 @@ brew bundle
 # install npm cli tools
 yarn global add $(cat ${DIR}/yarn | tr '\n' ' ')
 
-# install extensions
+# install brave extensions
 # wip
 
 # install station apps
