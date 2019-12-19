@@ -15,7 +15,7 @@ xcode-select --install
 brew bundle
 
 # install npm cli tools
-yarn global add $(cat ${DIR}/yarn | tr '\n' ' ')
+yarn global add $(cat ${DIR}/npm | tr '\n' ' ')
 
 # install brave extensions
 # wip
