@@ -2,7 +2,7 @@
 
 My dotfiles
 
-## Installation
+## Install
 
 Simply run the following command:
 
@@ -12,7 +12,11 @@ Simply run the following command:
 
 ### Git-free install
 
+Download the repository by running:
+
 ```bash
 
 curl -#L https://github.com/phatpham9/dotfiles/tarball/master | tar -xzv --strip-components 1
 ```
+
+Then run the install command. That's it!
