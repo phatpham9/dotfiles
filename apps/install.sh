@@ -24,4 +24,4 @@ yarn global add $(cat ${DIR}/yarn | tr '\n' ' ')
 # wip
 
 # install vscode extensions
-code --install-extension $(cat ${DIR}/code | tr '\n' ' ')
+code --install-extension $(cat ${DIR}/vscode | tr '\n' ' ')
