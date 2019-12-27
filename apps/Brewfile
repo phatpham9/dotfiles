@@ -26,5 +26,4 @@ cask alfred
 cask spectacle
 cask the-unarchiver
 cask vlc
-cask webtorrent
-cask progressive-downloader
+cask motrix
