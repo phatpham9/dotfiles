@@ -1,14 +1,14 @@
 alefragnani.project-manager
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
-dbaeumer.vscode-eslint
 deerawan.vscode-hasher
+esbenp.prettier-vscode
 formulahendry.auto-rename-tag
-HookyQR.beautify
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 naumovs.theme-oceanicnext
 redhat.vscode-yaml
+SimonSiefke.svg-preview
 streetsidesoftware.code-spell-checker
 wayou.vscode-todo-highlight
 wix.vscode-import-cost
