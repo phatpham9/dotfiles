@@ -1,16 +1,23 @@
 [
   {
-    "name": "my/dotfiles",
-    "rootPath": "$home/repos/my/dotfiles",
+    "name": "my",
+    "rootPath": "$home/repos/my",
     "paths": [],
     "group": "",
     "enabled": true
   },
-	{
-		"name": "my/onroads.xyz",
-		"rootPath": "$home/repos/my/onroads.xyz",
-		"paths": [],
-		"group": "",
-		"enabled": true
-	}
+  {
+    "name": "gorillab",
+    "rootPath": "$home/repos/gorillab",
+    "paths": [],
+    "group": "",
+    "enabled": true
+  },
+  {
+    "name": "boringcodes",
+    "rootPath": "$home/repos/boringcodes",
+    "paths": [],
+    "group": "",
+    "enabled": true
+  }
 ]
