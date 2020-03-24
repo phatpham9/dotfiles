@@ -1,9 +1,7 @@
 {
   "editor.wordWrap": "wordWrapColumn",
-  "editor.detectIndentation": false,
   "workbench.colorTheme": "Oceanic Next (dimmed bg)",
   "workbench.startupEditor": "none",
-  "explorer.openEditors.visible": 0,
   "explorer.confirmDragAndDrop": false,
   "terminal.integrated.shellArgs.osx": ["-l"],
   "extensions.ignoreRecommendations": true,
@@ -12,46 +10,19 @@
   "files.associations": {
     "*.tsx": "typescriptreact"
   },
-
-  // auto close tag
-  "auto-close-tag.activationOnLanguage": [
-    "html",
-    "xml",
-    "php",
-    "blade",
-    "ejs",
-    "handlebars",
-    "jinja",
-    "javascriptreact",
-    "typescriptreact",
-    "plaintext",
-    "markdown",
-    "razor",
-    "vue"
-  ],
-
-  // project manager
-  "projectManager.groupList": true,
-  "projectManager.treeview.visible": false,
-
-  "window.zoomLevel": 0,
-  "swaggerViewer.defaultPort": 9999,
-  "update.channel": "none",
-  "update.enableWindowsBackgroundUpdates": false,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.rendererType": "dom",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "npm.packageManager": "yarn",
-  "breadcrumbs.enabled": false,
   "editor.formatOnPaste": true,
   "editor.tabSize": 2,
   "workbench.tree.indent": 16,
   "workbench.tree.renderIndentGuides": "always",
   "tslint.packageManager": "yarn",
-  "path-intellisense.autoSlashAfterDirectory": true,
-  "html.format.endWithNewline": true,
   "eslint.packageManager": "yarn",
-  "editor.wordWrapColumn": 100
+  "prettier.packageManager": "yarn",
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "explorer.openEditors.visible": 0
 }
