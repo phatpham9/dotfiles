@@ -5,6 +5,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # aliases
 
+# thefuck
+eval $(thefuck --alias)
+alias f="thefuck"
+
 # git
 alias g="git"
 
@@ -47,6 +51,3 @@ alias robo="open -a robo\ 3t"
 alias medis="open -a medis"
 alias postman="open -a postman"
 alias terminal="open -a terminal"
-
-# other
-alias f="thefuck"
