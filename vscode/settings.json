@@ -21,8 +21,8 @@
   "workbench.tree.renderIndentGuides": "always",
   "tslint.packageManager": "yarn",
   "eslint.packageManager": "yarn",
+  "explorer.openEditors.visible": 0,
   "prettier.packageManager": "yarn",
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
-  "explorer.openEditors.visible": 0
+  "prettier.trailingComma": "all"
 }
