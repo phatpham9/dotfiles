@@ -2,6 +2,7 @@
 alefragnani.project-manager
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
+dbaeumer.vscode-eslint
 deerawan.vscode-hasher
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
