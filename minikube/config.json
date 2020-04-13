@@ -1,3 +1,6 @@
 {
-  "vm-driver": "hyperkit"
+    "cpus": 3,
+    "disk-size": "10000MB",
+    "memory": 4096,
+    "vm-driver": "hyperkit"
 }
