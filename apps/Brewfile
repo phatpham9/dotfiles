@@ -6,7 +6,10 @@ brew nvm
 brew yarn
 brew docker
 brew docker-compose
+brew kubectl
 brew minikube
+brew skaffold
+brew helm
 brew mkcert
 brew httpie
 
