@@ -2,30 +2,56 @@
 	name = phatpham9
 	email = phatpham9@gmail.com
   signingkey = 5B526D9EC2002D64
+
 [commit]
 	gpgsign = true
+
 [core]
 	excludesfile = ~/.gitignore_global
+
 [alias]
-	cl = clone
-	co = checkout
-  cob = checkout -b
   b = branch
   ba = branch -a
   bd = branch -d
   bdf = branch -d -f
-  p = pull
-  pom = pull origin master
-  pod = pull origin develop
+
+  co = checkout
+  com = checkout master
+  cod = checkout develop
+  cob = checkout -b
+
+  pl = pull
+  plm = pull origin master
+  pld = pull origin develop
+
   a = add
   aa = add -A
+
   c = commit
   cm = commit -m
-  pu = push
-  puft = push --follow-tags
+
+  p = push
+  pft = push --follow-tags
+  pnv = push --no-verify
+
+  m = merge
+  mm = merge master
+  md = merge develop
+
+  s = stash
+  sl = stash list
+  sp = stash pop
+
+  t = tag
+  tl = tag -l
+  td = tag -d
+
   l = log
-  cam = !git add -A && git commit -m
-  tmp = !git add -A && git commit -m 'TMP'
-  wip = !git add -u && git commit -m "WIP"
-  undo = reset HEAD~1 --mixed
-  wipe = !git add -A && git commit -qm 'TMP' && git reset HEAD~1 --hard
+
+  rs = reset
+
+  ac = "!f() { git add -A && git commit -m \"$@\"; }; f"
+  cp = "!f() { git commit -m \"$@\" && git push; }; f"
+  acp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
+  tmp = "!git add -A && git commit -m \"TMP\""
+  undo = "!git reset HEAD~1 --mixed"
