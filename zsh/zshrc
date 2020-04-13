@@ -5,43 +5,105 @@ export NVM_DIR="$HOME/.nvm"
 
 # aliases
 
-# thefuck
+## thefuck
 eval $(thefuck --alias)
 alias f="thefuck"
 
-# git
+## git
 alias g="git"
+alias gb="g b"
+alias gba="g ba"
+alias gbd="g bd"
+alias gbdf="g bdf"
+alias gco="g co"
+alias gcom="g com"
+alias gcod="g cod"
+alias gcob="g cob"
+alias gpl="g pl"
+alias gplm="g plm"
+alias gpld="g pld"
+alias ga="g a"
+alias gaa="g aa"
+alias gc="g c"
+alias gcm="g cm"
+alias gp="g p"
+alias gpft="g pft"
+alias gpnv="g pnv"
+alias gm="g m"
+alias gmm="g mm"
+alias gmd="g md"
+alias gs="g s"
+alias gsl="g sl"
+alias gsp="g sp"
+alias gt="g t"
+alias gtl="g tl"
+alias gtd="g td"
+alias gl="g l"
+alias grs="g rs"
+alias gac="g ac"
+alias gcp="g cp"
+alias gacp="g acp"
+alias gtmp="g tmp"
+alias gundo="g undo"
 
-# docker
+## yarn
+alias y="yarn"
+alias yg="y global"
+alias ygl="y global list --depth=0"
+alias yga="y global add"
+alias ygr="y global remove"
+alias ygu="y global upgrade"
+alias yl="y list"
+alias ya="y add"
+alias yad="y add --dev"
+alias yr="y remove"
+alias yu="y upgrade"
+alias ycc="y cache clean"
+
+## docker
 alias d="docker"
-alias di="docker images"
-alias dri="docker rmi"
-alias dp="docker ps"
-alias dl="docker logs"
-alias dlf="docker logs -f"
-alias dk="docker kill"
-alias ds="docker stop"
-alias dr="docker rm"
-alias drs="docker restart"
+alias dpl="d pull"
+alias di="d images"
+alias dri="d rmi"
+drid() { d rmi $(d images -f "dangling=true" -q); }
+alias dps="d ps"
+alias dpsa="d ps -a"
+alias dl="d logs"
+alias dlf="d logs -f"
+alias dk="d kill"
+alias ds="d stop"
+alias dr="d rm"
+dsr() { d stop "$@" && d rm "$@"; }
+alias drs="d restart"
 
-# docker compose
+## docker compose
 alias dc="docker-compose"
-alias dcu="docker-compose up"
-alias dcud="docker-compose up -d"
-alias dcd="docker-compose down"
-alias dcrs="docker-compose down && docker-compose up"
+alias dcp="dc pull"
+alias dcu="dc up"
+alias dcud="dc up -d"
+alias dcd="dc down"
+alias dcrs="dc restart"
 
-# minikube
+## minikube
 alias mk="minikube"
+alias mkst="mk start"
+alias mksp="mk stop"
+alias mkrs="mk stop && mk start"
+alias mkd="mk delete"
+alias mkdb="mk dashboard"
 
-# kubectl
+## kubectl
 alias k="kubectl"
+alias kaf="k apply -f"
+alias kak="k apply -k"
+alias kdf="k delete -f"
+alias kdk="k delete -k"
 
-# change dir
+## change dir
 alias repos="cd ~/repos"
 alias my="cd ~/repos/my"
 
-# open app
+## open app
 alias finder="open -a finder"
 alias photos="open -a photos"
 alias station="open -a station"
@@ -51,3 +113,10 @@ alias robo="open -a robo\ 3t"
 alias medis="open -a medis"
 alias postman="open -a postman"
 alias terminal="open -a terminal"
+alias portainer="open https://localhost:9999"
+
+## other
+alias reload="source ~/.zshrc"
+alias myip="curl http://ipecho.net/plain; echo"
+alias md="mkdir"
+alias rd="rm -rf"
