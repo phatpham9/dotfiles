@@ -100,6 +100,8 @@ alias kdf="k delete -f"
 alias kdk="k delete -k"
 
 ## change dir
+alias ..="cd .."
+alias ...="cd ../.."
 alias repos="cd ~/repos"
 alias my="cd ~/repos/my"
 
