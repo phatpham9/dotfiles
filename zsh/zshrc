@@ -113,10 +113,10 @@ alias robo="open -a robo\ 3t"
 alias medis="open -a medis"
 alias postman="open -a postman"
 alias terminal="open -a terminal"
-alias portainer="open https://localhost:9999"
+alias portainer="open http://localhost:9999"
 
 ## other
 alias reload="source ~/.zshrc"
-alias myip="curl http://ipecho.net/plain; echo"
+alias myip="curl https://ipecho.net/plain; echo"
 alias md="mkdir"
 alias rd="rm -rf"
