@@ -29,6 +29,7 @@
 
   c = commit
   cm = commit -m
+  cmnv = commit --no-verify -m
 
   p = push
   pft = push --follow-tags
@@ -51,7 +52,10 @@
   rs = reset
 
   ac = "!f() { git add -A && git commit -m \"$@\"; }; f"
+  acnv = "!f() { git add -A && git commit -m \"$@\" --no-verify; }; f"
   cp = "!f() { git commit -m \"$@\" && git push; }; f"
+  cpnv = "!f() { git commit -m \"$@\" --no-verify && git push --no-verify; }; f"
   acp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
-  tmp = "!git add -A && git commit -m \"TMP\""
+  acpnv = "!f() { git add -A && git commit -m \"$@\" --no-verify && git push --no-verify; }; f"
+  tmp = "!git add -A && git commit -m \"TMP\" --no-verify"
   undo = "!git reset HEAD~1 --mixed"
