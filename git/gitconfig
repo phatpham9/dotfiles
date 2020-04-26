@@ -34,6 +34,7 @@
   p = push
   pft = push --follow-tags
   pnv = push --no-verify
+  pftnv = push --follow-tags --no-verify
 
   m = merge
   mm = merge master
