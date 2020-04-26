@@ -132,6 +132,12 @@ alias postman="open -a postman"
 alias terminal="open -a terminal"
 alias portainer="open http://localhost:9999"
 
+## ssh
+ssha() { eval $(ssh-agent -s) && ssh-add $@; }
+alias ssht="ssh -T"
+alias sshtgh="ssh -T git@github.com"
+alias sshtgl="ssh -T git@gitlab.com"
+
 ## other
 alias reload="source ~/.zshrc"
 alias myip="curl https://ipecho.net/plain; echo"
