@@ -6,9 +6,11 @@ dbaeumer.vscode-eslint
 deerawan.vscode-hasher
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
+GitHub.github-vscode-theme
+hediet.vscode-drawio
+ms-azuretools.vscode-docker
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
-naumovs.theme-oceanicnext
 redhat.vscode-yaml
 SimonSiefke.svg-preview
 streetsidesoftware.code-spell-checker
