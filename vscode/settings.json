@@ -1,6 +1,6 @@
 {
   "editor.wordWrap": "wordWrapColumn",
-  "workbench.colorTheme": "Oceanic Next (dimmed bg)",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.startupEditor": "none",
   "explorer.confirmDragAndDrop": false,
   "terminal.integrated.shellArgs.osx": ["-l"],
@@ -24,5 +24,8 @@
   "explorer.openEditors.visible": 0,
   "prettier.packageManager": "yarn",
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "all"
+  "prettier.trailingComma": "all",
+  "prettier.arrowParens": "avoid",
+  "window.zoomLevel": 0,
+  "diffEditor.ignoreTrimWhitespace": true
 }
