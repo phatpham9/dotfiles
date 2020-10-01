@@ -11,5 +11,14 @@
   {
     "key": "alt+cmd+p",
     "command": "-projectManager.listProjects"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.scm.focus"
   }
 ]

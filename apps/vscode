@@ -1,5 +1,5 @@
 # extensions
-alefragnani.project-manager
+lefragnani.project-manager
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
@@ -8,7 +8,7 @@ esbenp.prettier-vscode
 formulahendry.auto-rename-tag
 GitHub.github-vscode-theme
 hediet.vscode-drawio
-ms-azuretools.vscode-docker
+mikestead.dotenv
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 redhat.vscode-yaml
