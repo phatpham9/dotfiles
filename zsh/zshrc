@@ -99,6 +99,13 @@ alias dcud="dc up -d"
 alias dcd="dc down"
 alias dcrs="dc restart"
 
+## kubectl
+alias k="kubectl"
+alias kaf="k apply -f"
+alias kak="k apply -k"
+alias kdf="k delete -f"
+alias kdk="k delete -k"
+
 ## minikube
 alias mk="minikube"
 alias mkst="mk start"
@@ -106,13 +113,6 @@ alias mksp="mk stop"
 alias mkrs="mk stop && mk start"
 alias mkd="mk delete"
 alias mkdb="mk dashboard"
-
-## kubectl
-alias k="kubectl"
-alias kaf="k apply -f"
-alias kak="k apply -k"
-alias kdf="k delete -f"
-alias kdk="k delete -k"
 
 ## change dir
 alias ..="cd .."
@@ -129,6 +129,7 @@ alias sequel="open -a sequel\ pro"
 alias robo="open -a robo\ 3t"
 alias medis="open -a medis"
 alias postman="open -a postman"
+alias lens="open -a lens"
 alias terminal="open -a terminal"
 alias portainer="open http://localhost:9999"
 
