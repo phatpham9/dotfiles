@@ -8,8 +8,8 @@ brew docker
 brew docker-compose
 brew kubectl
 brew minikube
+brew kustomize
 # brew skaffold
-# brew kustomize
 # brew helm
 brew mkcert
 brew httpie
