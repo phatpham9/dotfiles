@@ -1,42 +1,15 @@
 {
-  "editor.wordWrap": "wordWrapColumn",
-  "workbench.colorTheme": "GitHub Dark",
-  "workbench.startupEditor": "none",
-  "explorer.confirmDragAndDrop": false,
-  "terminal.integrated.shellArgs.osx": ["-l"],
-  "extensions.ignoreRecommendations": true,
-  "git.autofetch": true,
-  "files.trimTrailingWhitespace": true,
-  "files.associations": {
-    "*.tsx": "typescriptreact"
-  },
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "npm.packageManager": "yarn",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "extensions.ignoreRecommendations": true,
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.startupEditor": "none",
   "workbench.tree.indent": 16,
-  "workbench.tree.renderIndentGuides": "always",
-  "tslint.packageManager": "yarn",
-  "eslint.packageManager": "yarn",
-  "explorer.openEditors.visible": 0,
-  "prettier.packageManager": "yarn",
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
-  "prettier.arrowParens": "avoid",
-  "window.zoomLevel": 0,
-  "diffEditor.ignoreTrimWhitespace": true,
   "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltcIjMzMzNGRlwiLFwiRkYzMzMzXCIsXCJGRkQ5NjZcIixcIjAwMDAwMFwiXSxcImZvcm1hdFdpZHRoXCI6XCIyNDBcIixcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNlMGUwZTBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
-  "hediet.vscode-drawio.theme": "min",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "npm.packageManager": "yarn",
+  "prettier.packageManager": "yarn",
+  "eslint.packageManager": "yarn"
 }
