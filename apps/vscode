@@ -9,6 +9,7 @@ esbenp.prettier-vscode
 formulahendry.auto-rename-tag
 GitHub.github-vscode-theme-dark-classic
 hediet.vscode-drawio
+ms-vscode-remote.remote-containers
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 redhat.vscode-yaml
