@@ -10,53 +10,70 @@
 	excludesfile = ~/.gitignore_global
 
 [alias]
+  # branch
   b = branch
   ba = branch -a
   bd = branch -d
   bdf = branch -d -f
-
+  
+  # checkout
   co = checkout
   com = checkout master
   cod = checkout develop
   cob = checkout -b
-
+  
+  # pull
   pl = pull
   plm = pull origin master
   pld = pull origin develop
-
+  
+  # add
   a = add
   aa = add -A
-
+  
+  # commit
   c = commit
   cm = commit -m
   cmnv = commit --no-verify -m
-
+  
+  # push
   p = push
-  pft = push --follow-tags
   pnv = push --no-verify
+  pft = push --follow-tags
   pftnv = push --follow-tags --no-verify
-
+  
+  # merge
   m = merge
   mm = merge master
   md = merge develop
-
+  
+  # stash
   s = stash
   sl = stash list
   sp = stash pop
-
+  
+  # tag
   t = tag
   tl = tag -l
   td = tag -d
-
+  
+  # log
   l = log
-
+  
+  # reset
   rs = reset
-
+  
+  # combination
+  ## add, commit -m
   ac = "!f() { git add -A && git commit -m \"$@\"; }; f"
   acnv = "!f() { git add -A && git commit -m \"$@\" --no-verify; }; f"
+  ## commit -m, push
   cp = "!f() { git commit -m \"$@\" && git push; }; f"
   cpnv = "!f() { git commit -m \"$@\" --no-verify && git push --no-verify; }; f"
+  ## add, commit -m, push
   acp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
   acpnv = "!f() { git add -A && git commit -m \"$@\" --no-verify && git push --no-verify; }; f"
+  ## add, commit -m "TMP"
   tmp = "!git add -A && git commit -m \"TMP\" --no-verify"
+  ## reset "TMP"
   undo = "!git reset HEAD~1 --mixed"
