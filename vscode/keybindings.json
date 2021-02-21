@@ -20,5 +20,9 @@
   {
     "key": "shift+cmd+g",
     "command": "workbench.scm.focus"
+  },
+  {
+    "key": "shift+cmd+r",
+    "command": "targetsContainers.focus"
   }
 ]
