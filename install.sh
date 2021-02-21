@@ -9,8 +9,9 @@ sudo -v
 
 # Set up macos
 echo '1. Configuring MacOS...'
-./macos/install.sh
-echo '-> MacOS configured!'
+echo '-> MacOS configuration skipped!'
+# ./macos/install.sh
+# echo '-> MacOS configured!'
 
 
 # Install apps
