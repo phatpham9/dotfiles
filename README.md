@@ -2,6 +2,12 @@
 
 My dotfiles
 
+## Features
+
+- [ ] Configure MacOS
+- [x] Install applications (brew, cask, npm & vscode extensions)
+- [x] Configure zsh, git, docker, minukube & vscode
+
 ## Install
 
 Simply run the following command:
