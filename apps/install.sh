@@ -12,7 +12,7 @@ xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # install brew cli tools & cask macos apps
-brew bundle
+brew bundle --file=${DIR}/
 
 # install npm cli tools
 yarn global add $(cat ${DIR}/npm | tr '\n' ' ')
