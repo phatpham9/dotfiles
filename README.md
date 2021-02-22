@@ -26,3 +26,17 @@ curl -#L https://github.com/phatpham9/dotfiles/tarball/master | tar -xzv --strip
 ```
 
 Then run the install command. That's it!
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Authors
+
+[Phat Pham](https://github.com/phatpham9)
+
+## License
+
+[MIT](https://github.com/phatpham9/dotfiles/blob/master/LICENSE)
