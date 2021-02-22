@@ -5,12 +5,12 @@ My dotfiles
 ## Features
 
 - [ ] Configure MacOS
-- [x] Install applications (brew, cask, npm & vscode extensions)
-- [x] Configure zsh, git, docker, minukube & vscode
+- [x] Install applications (Brewfile apps, npm global packages & vscode extensions)
+- [x] Create symlinks of config files (zsh, git, docker, minukube & vscode)
 
 ## Install
 
-Simply run the following command:
+Clone the repo then simply run the following command:
 
 ```bash
 ./install.sh
@@ -18,7 +18,7 @@ Simply run the following command:
 
 ### Git-free install
 
-Download the repository by running:
+Download the repository's tarball by running:
 
 ```bash
 
