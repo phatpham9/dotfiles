@@ -20,7 +20,8 @@ brew "thefuck"
 # macos apps
 
 ## browser
-cask "station"
+# station is deleted https://github.com/Homebrew/homebrew-cask/pull/89215
+# cask "station"
 cask "brave-browser"
 
 ## software development
@@ -28,7 +29,7 @@ cask "lens"
 cask "visual-studio-code"
 cask "sequel-pro"
 cask "robo-3t"
-cask "https://raw.githubusercontent.com/Homebrew/homebrew-cask/7ceeedb95e3351006ab1376772eaac8d3745aabb/Casks/medis.rb"
+cask "Casks/medis.rb"
 cask "postman"
 
 ## utility
