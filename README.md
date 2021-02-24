@@ -1,14 +1,29 @@
-# dotfiles
+<div align="center">
+  <h1>dotfiles</h1>
+  <p>My dotfiles</p>
 
-My dotfiles
+  <p>
+    <a href="https://github.com/phatpham9/dotfiles/commits" aria-label="Commitizen Friendly">
+      <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square">
+    </a>
+    <a href="https://github.com/phatpham9/dotfiles/blob/master/LICENSE" aria-label="MIT License">
+      <img src="https://img.shields.io/github/license/phatpham9/dotfiles?color=brightgreen&style=flat-square">
+    </a>
+  </p>
+</div>
+
+## Concepts
+
+- Use `bash` to run installation commands but `zsh` will be the main shell after all
+- Use `homebrew` to install all GUI/CLI applications, it's easier to upgrade or uninstall the apps later
 
 ## Features
 
-This repo contains the automatic installation/configuration of the following features:
+This repo contains the automatic installation/configuration of the following steps:
 
-- [ ] Configure macOS
-- [x] Install applications (brew/cask apps, nvm node binaries, npm global packages & vscode extensions)
-- [x] Create symlinks of applications config files (zsh, git, docker, minukube & vscode)
+1. [ ] Configure `macos`
+2. [x] Install applications (`brew`/`cask` apps, `nvm` node binaries, `npm` global packages & `vscode` extensions)
+3. [x] Create symlinks of applications config files (`zsh`, `git`, `docker`, `minukube` & `vscode`)
 
 ## Install
 
@@ -24,10 +39,8 @@ Download the repository's tarball by running:
 
 ```bash
 
-curl -#L https://github.com/phatpham9/dotfiles/tarball/master | tar -xzv --strip-components 1
+curl -#L https://github.com/phatpham9/dotfiles/tarball/master | tar -xzv --strip-components 1 && ./install.sh
 ```
-
-Then run the install command. That's it!
 
 ## Contributing
 
