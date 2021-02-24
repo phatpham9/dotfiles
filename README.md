@@ -4,9 +4,11 @@ My dotfiles
 
 ## Features
 
-- [ ] Configure MacOS
-- [x] Install applications (Brewfile apps, npm global packages & vscode extensions)
-- [x] Create symlinks of config files (zsh, git, docker, minukube & vscode)
+This repo contains the automatic installation/configuration of the following features:
+
+- [ ] Configure macOS
+- [x] Install applications (brew/cask apps, nvm node binaries, npm global packages & vscode extensions)
+- [x] Create symlinks of applications config files (zsh, git, docker, minukube & vscode)
 
 ## Install
 

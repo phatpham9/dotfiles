@@ -16,10 +16,10 @@ brew update
 brew bundle --file=${DIR}/
 
 # install node binaries
-nvm install 12
+for node in $(cat "${DIR}/nvm" | tr "\n" " "); do nvm install "${node}"; done
 
 # install npm cli tools
-yarn global add $(cat ${DIR}/npm | tr '\n' ' ')
+yarn global add $(cat "${DIR}/npm" | tr "\n" " ")
 
 # install station apps
 # wip
@@ -28,4 +28,4 @@ yarn global add $(cat ${DIR}/npm | tr '\n' ' ')
 # wip
 
 # install vscode extensions
-code --install-extension $(cat ${DIR}/vscode | tr '\n' ' ')
+code --install-extension $(cat "${DIR}/vscode" | tr "\n" " ")
