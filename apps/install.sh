@@ -10,17 +10,21 @@ xcode-select --install
 
 # install brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
 
 # install brew cli tools & cask macos apps
 brew bundle --file=${DIR}/
 
+# install node binaries
+nvm install 12
+
 # install npm cli tools
 yarn global add $(cat ${DIR}/npm | tr '\n' ' ')
 
-# install brave extensions
+# install station apps
 # wip
 
-# install station apps
+# install brave extensions
 # wip
 
 # install vscode extensions
