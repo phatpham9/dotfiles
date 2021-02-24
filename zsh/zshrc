@@ -119,30 +119,36 @@ alias mkdb="mk dashboard"
 ## change dir
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~"
+alias dt="cd ~/Desktop"
+alias dl="cd ~/Downloads"
 alias repos="cd ~/repos"
 alias my="cd ~/repos/my"
 
 ## open app
 alias finder="open -a finder"
 alias photos="open -a photos"
-alias station="open -a station"
+alias messages="open -a messages"
+# alias station="open -a station"
 alias brave="open -a brave\ browser"
+alias vscode="open -a visual\ studio\ code"
 alias sequel="open -a sequel\ pro"
 alias robo="open -a robo\ 3t"
 alias medis="open -a medis"
 alias postman="open -a postman"
-alias lens="open -a lens"
 alias terminal="open -a terminal"
 alias portainer="open http://localhost:9999"
 
 ## ssh
-ssha() { eval $(ssh-agent -s) && ssh-add $@; }
+ssha() { eval $(ssh-agent -s) && ssh-add "$@"; }
 alias ssht="ssh -T"
 alias sshtgh="ssh -T git@github.com"
 alias sshtgl="ssh -T git@gitlab.com"
 
 ## other
-alias reload="source ~/.zshrc"
+alias reload="exec $SHELL -l"
 alias myip="curl https://ipecho.net/plain; echo"
-alias md="mkdir"
+md() { mkdir -p "$@" && cd -P "$@"; }
 alias rd="rm -rf"
