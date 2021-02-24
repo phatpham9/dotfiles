@@ -12,7 +12,7 @@
   </p>
 </div>
 
-## Concepts
+## Concept
 
 - Use `bash` to run installation commands but `zsh` will be the main shell after all
 - Use `homebrew` to install all GUI/CLI applications, it's easier to upgrade or uninstall the apps later
