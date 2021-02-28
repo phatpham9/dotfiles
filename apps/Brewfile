@@ -19,11 +19,8 @@ brew "thefuck"
 
 # gui apps
 
-## browsers
-# cask "station" # station is deleted https://github.com/Homebrew/homebrew-cask/pull/89215
-cask "brave-browser"
-
 ## software development
+cask "brave-browser"
 cask "docker"
 cask "lens"
 cask "visual-studio-code"

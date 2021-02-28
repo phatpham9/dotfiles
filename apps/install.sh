@@ -21,9 +21,6 @@ for node in $(cat "${DIR}/nvm" | tr "\n" " "); do nvm install "${node}"; done
 # install npm cli tools
 yarn global add $(cat "${DIR}/npm" | tr "\n" " ")
 
-# install station apps
-# wip
-
 # install brave extensions
 # wip
 
