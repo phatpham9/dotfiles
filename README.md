@@ -23,7 +23,7 @@
 This repo contains the automatic installation/configuration of the following steps:
 
 1. [x] Install applications (`brew`/`cask` apps, `nvm` node binaries, `npm` global packages & `vscode` extensions)
-2. [x] Configure applications by creating symlinks (`zsh`, `git`, `docker`, `minukube` & `vscode`)
+2. [x] Configure applications by creating symlinks (`zsh`, `ssh`, `git`, `docker`, `minukube` & `vscode`)
 3. [ ] Configure `macos` preferences
 
 ## Installation

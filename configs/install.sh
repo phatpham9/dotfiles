@@ -6,6 +6,11 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ln -s ${DIR}/zsh/zshrc ~/.zshrc
 echo "-> zsh configured!"
 
+# ssh
+ssh-keygen -t ed25519 -C "phatpham9@gmail.com" -f "${HOME}/.ssh/id_ed25519" -P ""
+ln -s ${DIR}/ssh/config ~/.ssh/config
+echo "-> ssh configured!"
+
 # git
 ln -s ${DIR}/git/gitconfig ~/.gitconfig
 ln -s ${DIR}/git/gitignore_global ~/.gitignore_global
@@ -25,8 +30,3 @@ ln -s ${DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/setti
 ln -s ${DIR}/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 cp ${DIR}/vscode/projects.json ~/Library/Application\ Support/Code/User/projects.json
 echo "-> vscode configured!"
-
-# ssh
-ssh-keygen -t ed25519 -C "phatpham9@gmail.com" -f "${HOME}/.ssh/id_ed25519" -P ""
-ln -s ${DIR}/ssh/config ~/.ssh/config
-echo "-> ssh configured!"
