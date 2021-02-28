@@ -12,7 +12,7 @@
   </p>
 </div>
 
-## Concept
+## Concepts
 
 - Use `bash` to run installation commands but `zsh` will be the main shell after all
 - Use `homebrew` to install all GUI/CLI applications, it's easier to upgrade or uninstall the apps later
@@ -25,7 +25,7 @@ This repo contains the automatic installation/configuration of the following ste
 2. [x] Configure applications by creating symlinks (`zsh`, `git`, `docker`, `minukube` & `vscode`)
 3. [ ] Configure `macos` preferences
 
-## Install
+## Installation
 
 Clone the repo then simply run the following command:
 
