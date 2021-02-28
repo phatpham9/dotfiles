@@ -1,6 +1,6 @@
 <div align="center">
   <h1>dotfiles</h1>
-  <p>My dotfiles</p>
+  <p>My dotfiles setup automation</p>
 
   <p>
     <a href="https://github.com/phatpham9/dotfiles/commits" aria-label="Commitizen Friendly">
@@ -14,6 +14,7 @@
 
 ## Concepts
 
+- Setup new dev machine in minutes not hours
 - Use `bash` to run installation commands but `zsh` will be the main shell after all
 - Use `homebrew` to install all GUI/CLI applications, it's easier to upgrade or uninstall the apps later
 
