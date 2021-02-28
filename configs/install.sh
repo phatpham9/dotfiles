@@ -8,8 +8,14 @@ echo "-> zsh configured!"
 
 # ssh
 ssh-keygen -t ed25519 -C "phatpham9@gmail.com" -f "${HOME}/.ssh/id_ed25519" -P ""
+cat "${HOME}/.ssh/id_ed25519"
 ln -s ${DIR}/ssh/config ~/.ssh/config
-echo "-> ssh configured!"
+echo "-> ssh key generated & configured! copy the printed public key & add it to github.com/gitlab.com."
+
+# gpg
+gpg --batch --generate-key "gpg/generate-key"
+gpg --armor --export phatpham9@gmail.com
+echo "-> gpg key generated! copy the printed public key & add it to github.com/gitlab.com."
 
 # git
 ln -s ${DIR}/git/gitconfig ~/.gitconfig
