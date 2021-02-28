@@ -1,13 +1,13 @@
 [user]
-	name = phatpham9
-	email = phatpham9@gmail.com
+  name = phatpham9
+  email = phatpham9@gmail.com
   signingkey = 5B526D9EC2002D64
 
 [commit]
-	gpgsign = true
+  gpgsign = true
 
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 
 [alias]
   # branch
