@@ -1,4 +1,4 @@
-# cli tools
+# cli apps
 
 ## software development
 brew "gpg"
@@ -13,14 +13,14 @@ brew "kustomize"
 brew "mkcert"
 brew "httpie"
 
-## utility
+## utilities
 brew "thefuck"
 
-# macos apps
 
-## browser
-# station is deleted https://github.com/Homebrew/homebrew-cask/pull/89215
-# cask "station"
+# gui apps
+
+## browsers
+# cask "station" # station is deleted https://github.com/Homebrew/homebrew-cask/pull/89215
 cask "brave-browser"
 
 ## software development
@@ -32,7 +32,7 @@ cask "robo-3t"
 cask "Casks/medis.rb"
 cask "postman"
 
-## utility
+## utilities
 cask "alfred"
 cask "spectacle"
 cask "the-unarchiver"
