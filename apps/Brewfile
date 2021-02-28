@@ -4,7 +4,6 @@
 brew "gpg"
 brew "nvm"
 brew "yarn"
-brew "docker"
 brew "docker-compose"
 brew "kubectl"
 brew "minikube"
@@ -25,6 +24,7 @@ brew "thefuck"
 cask "brave-browser"
 
 ## software development
+cask "docker"
 cask "lens"
 cask "visual-studio-code"
 cask "sequel-pro"
