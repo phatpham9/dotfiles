@@ -20,7 +20,8 @@ echo "-> gpg key generated! copy the printed public key & add it to github.com/g
 # git
 ln -s ${DIR}/git/gitconfig ~/.gitconfig
 ln -s ${DIR}/git/gitignore_global ~/.gitignore_global
-echo "-> git configured!"
+git config --global user.signingkey $(gpg --list-keys --keyid-format LONG | grep -E -o -m 1 "[0-9A-F]{16}")
+echo "-> git configured! global config user.signingkey updated, don't forget to commit & push your change."
 
 # docker
 ln -s ${DIR}/docker/daemon.json ~/.docker/daemon.json
