@@ -2,27 +2,31 @@
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-# install xcode
+# xcode
 xcode-select --install
+echo "-> xcode installed!"
 
-# install brew
+# brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
+echo "-> brew installed!"
 
-# install brew cli tools & cask macos apps
+# cli & gui apps by brew
 brew bundle --file=${DIR}/
+echo "-> cli & gui apps installed!"
 
-# install node binaries
-for node in $(cat "${DIR}/nvm" | tr "\n" " "); do nvm install "${node}"; done
+# node binaries by nvm
+for node in $(cat "${DIR}/nvm" | tr "\n" " "); do nvm "${node}"; done
+echo "-> node binaries installed!"
 
-# install npm cli tools
+# npm global packages by yarn
 yarn global add $(cat "${DIR}/npm" | tr "\n" " ")
+echo "-> npm global packages installed!"
 
-# install brave extensions
-# wip
-
-# install vscode extensions
+# vscode extensions
 code --install-extension $(cat "${DIR}/vscode" | tr "\n" " ")
+echo "-> vscode extensions installed!"
+
+# brave extensions
+# wip
+# echo "-> brave extensions installed!"

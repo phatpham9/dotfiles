@@ -1,23 +1,25 @@
 #!/bin/bash
 
-# Ask for the administrator password upfront
+# ask for the administrator password upfront
 sudo -v
+# keep-alive: update existing `sudo` time stamp until `macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Install apps
-echo '1. Installing apps...'
+# install apps
+echo "1. installing apps..."
 ./apps/install.sh
-echo '-> Apps installed!'
+echo "-> apps installed!"
 
-# Config apps
-echo '2. Configuring apps...'
+# configure apps
+echo "2. configuring apps..."
 ./configs/install.sh
-echo '-> Apps configured!'
+echo "-> apps configured!"
 
-# Configure macos
-echo '3. Configuring macOS...'
+# configure macos preferences
+echo "3. configuring macos preferences..."
 # ./macos/install.sh
-# echo '-> macOS configured!'
-echo '-> macOS skipped!'
+# echo "-> macos preferences configured!"
+echo "-> macos preferences skipped!"
 
-# Restart
-echo '4. Done! Restart your computer to take effect.'
+# restart
+echo "4. done! restart your machine to take effect."
