@@ -34,7 +34,7 @@ Clone the repo then simply run the following command:
 ./install.sh
 ```
 
-### Git-free install
+### Git-free Installation
 
 Download the repository's tarball by running:
 
