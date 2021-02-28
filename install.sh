@@ -18,8 +18,7 @@ echo "-> apps configured!"
 # configure macos preferences
 echo "3. configuring macos preferences..."
 # ./macos/install.sh
-# echo "-> macos preferences configured!"
-echo "-> macos preferences skipped!"
+echo "-> macos preferences skipped! configure manually for now."
 
 # restart
 echo "4. done! restart your machine to take effect."

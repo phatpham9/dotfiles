@@ -28,5 +28,4 @@ code --install-extension $(cat "${DIR}/vscode" | tr "\n" " ")
 echo "-> vscode extensions installed!"
 
 # brave extensions
-# wip
-# echo "-> brave extensions installed!"
+echo "-> brave extensions skipped! install manually for now."
