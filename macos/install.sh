@@ -17,16 +17,16 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # Preferences -> General
 ###############################################################################
 
-# Set appearance to dark
+# Appearance
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
-# Set accent color to graphite
+# Accent color
 defaults write NSGlobalDomain AppleAccentColor -int -1
 
-# Set highlight color to graphite
+# Highlight color
 defaults write NSGlobalDomain AppleHighlightColor -string "0.847059 0.847059 0.862745 Graphite"
 
-# Set sidebar icon size to small
+# Sidebar icon size
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
 ###############################################################################
@@ -39,7 +39,32 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 # Preferences -> Dock & Menu Bar
 ###############################################################################
 
-# WIP
+# Size
+defaults write com.apple.dock tilesize -int 32
+
+# Magnification
+defaults write com.apple.dock magnification -bool false
+
+# Position on screen
+defaults write com.apple.dock orientation -string "bottom"
+
+# Minimize windows using
+defaults write com.apple.dock mineffect -string "scale"
+
+# Minimize windows into application icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Animate opening applications
+defaults write com.apple.dock launchanim -bool false
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Show indicators for open applications
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
 
 ###############################################################################
 # Preferences -> Mission Control
