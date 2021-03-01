@@ -66,6 +66,9 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
 
+# Wipe all default persitent apps in Dock
+defaults write com.apple.dock persistent-apps -array
+
 ###############################################################################
 # Preferences -> Mission Control
 ###############################################################################
