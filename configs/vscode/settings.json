@@ -13,5 +13,6 @@
   "npm.packageManager": "yarn",
   "prettier.packageManager": "yarn",
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "all"
+  "prettier.trailingComma": "all",
+  "window.zoomLevel": -1
 }
