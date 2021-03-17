@@ -7,6 +7,13 @@
     "enabled": true
   },
   {
+    "name": "boringcodes",
+    "rootPath": "$home/repos/boringcodes",
+    "paths": [],
+    "group": "",
+    "enabled": true
+  },
+  {
     "name": "gorillab",
     "rootPath": "$home/repos/gorillab",
     "paths": [],
@@ -14,8 +21,8 @@
     "enabled": true
   },
   {
-    "name": "boringcodes",
-    "rootPath": "$home/repos/boringcodes",
+    "name": "fsoft",
+    "rootPath": "$home/repos/fsoft",
     "paths": [],
     "group": "",
     "enabled": true
