@@ -146,7 +146,6 @@ alias ~="cd ~"
 alias dt="cd ~/Desktop"
 alias dl="cd ~/Downloads"
 alias repos="cd ~/repos"
-alias my="cd ~/repos/my"
 
 ## open app
 alias finder="open -a finder"
@@ -159,7 +158,6 @@ alias robo="open -a robo\ 3t"
 alias medis="open -a medis"
 alias postman="open -a postman"
 alias terminal="open -a terminal"
-alias portainer="open http://localhost:9999"
 
 ## ssh
 ssha() { eval $(ssh-agent -s) && ssh-add "$@"; }
