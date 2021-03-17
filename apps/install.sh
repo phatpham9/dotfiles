@@ -13,7 +13,7 @@ echo "-> brew installed!"
 
 # cli & gui apps by brew
 brew bundle --file=${DIR}/
-echo "-> cli & gui apps installed!"
+echo "-> brew cli & gui apps installed!"
 
 # node binaries by nvm
 for node in $(cat "${DIR}/nvm" | tr "\n" " "); do nvm "${node}"; done
@@ -28,4 +28,4 @@ code --install-extension $(cat "${DIR}/vscode" | tr "\n" " ")
 echo "-> vscode extensions installed!"
 
 # brave extensions
-echo "-> brave extensions skipped! install manually for now."
+echo "-> brave extensions installation skipped! Manual work needed for now."

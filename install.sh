@@ -6,19 +6,19 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # install apps
-echo "1. installing apps..."
+echo "1. Installing apps..."
 ./apps/install.sh
-echo "-> apps installed!"
+echo "-> Apps installed!"
 
 # configure apps
-echo "2. configuring apps..."
+echo "2. Configuring apps..."
 ./configs/install.sh
-echo "-> apps configured!"
+echo "-> Apps configured!"
 
 # configure macos preferences
-echo "3. configuring macos preferences..."
+echo "3. Configuring MacOS preferences..."
 # ./macos/install.sh
-echo "-> macos preferences skipped! configure manually for now."
+echo "-> MacOS preferences configuration skipped!"
 
 # restart
-echo "4. done! restart your machine to take effect."
+echo "4. Done! Restart your machine to take effect."
