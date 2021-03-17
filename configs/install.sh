@@ -35,5 +35,5 @@ echo "-> minikube configured!"
 # vscode
 ln -s ${DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -s ${DIR}/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-cp ${DIR}/vscode/projects.json ~/Library/Application\ Support/Code/User/projects.json
+ln -s ${DIR}/vscode/projects.json ~/Library/Application\ Support/Code/User/projects.json
 echo "-> vscode configured!"
