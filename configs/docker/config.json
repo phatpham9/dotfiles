@@ -1,12 +1,6 @@
 {
-  "auths": {
-    "docker.pkg.github.com": {},
-    "registry.gitlab.com": {}
-  },
-  "HttpHeaders": {
-    "User-Agent": "Docker-Client/19.03.4 (darwin)"
-  },
-  "credsStore": "desktop",
+  "auths": {},
   "experimental": "disabled",
-  "stackOrchestrator": "swarm"
+  "stackOrchestrator": "swarm",
+  "credsStore": "desktop"
 }
