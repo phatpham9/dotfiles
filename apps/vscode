@@ -1,5 +1,6 @@
 # extensions
 alefragnani.project-manager
+bierner.markdown-mermaid
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
