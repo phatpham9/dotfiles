@@ -1,6 +1,5 @@
 # extensions
 alefragnani.project-manager
-bierner.markdown-mermaid
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
@@ -8,7 +7,7 @@ deerawan.vscode-hasher
 eamodio.gitlens
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
-GitHub.github-vscode-theme-dark-classic
+GitHub.github-vscode-theme
 hediet.vscode-drawio
 ms-vscode-remote.remote-containers
 naumovs.color-highlight
