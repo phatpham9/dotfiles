@@ -11,9 +11,9 @@
   "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltcIkZGRkZDQ1wiLFwiMDAwMDAwXCIsXCJub25lXCIsXCJGRkZGRkZcIixcIjgwODA4MFwiLFwiMzMzMzMzXCIsXCJGRjMzMzNcIixcIjMzMzNGRlwiLFwiRkZEOTY2XCJdLFwiZm9ybWF0V2lkdGhcIjowLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODUwLFwiaGVpZ2h0XCI6MTEwMH0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2UwZTBlMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiI2UwZTBlMFwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
   "eslint.packageManager": "yarn",
   "npm.packageManager": "yarn",
-  "prettier.packageManager": "yarn",
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
   "remote.containers.workspaceMountConsistency": "delegated",
+  "diffEditor.ignoreTrimWhitespace": false,
   "window.zoomLevel": -1
 }
