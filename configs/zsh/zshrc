@@ -137,6 +137,13 @@ alias mkrs="mk stop && mk start"
 alias mkd="mk delete"
 alias mkdb="mk dashboard"
 
+## terraform
+alias tf="terraform"
+alias tfi="tf init"
+alias tfp="tf plan"
+alias tfa="tf apply"
+alias tfd="tf destroy"
+
 ## change dir
 alias ..="cd .."
 alias ...="cd ../.."
@@ -170,3 +177,7 @@ alias reload="exec $SHELL -l"
 alias myip="curl https://ipecho.net/plain; echo"
 md() { mkdir -p "$@" && cd -P "$@"; }
 alias rd="rm -rf"
+
+# terraoform autocomplete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
