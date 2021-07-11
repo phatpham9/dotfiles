@@ -1,6 +1,6 @@
 {
   "cpus": 3,
-  "disk-size": "32000MB",
-  "driver": "docker",
-  "memory": 4096
+  "disk-size": "30000MB",
+  "driver": "hyperkit",
+  "memory": 3072
 }
