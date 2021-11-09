@@ -1,6 +1,6 @@
 {
-  "cpus": 3,
-  "disk-size": "30000MB",
+  "cpus": 2,
+  "disk-size": "40000MB",
   "driver": "hyperkit",
-  "memory": 3072
+  "memory": 4096
 }
