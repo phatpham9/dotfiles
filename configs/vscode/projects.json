@@ -2,29 +2,26 @@
   {
     "name": "phatpham9",
     "rootPath": "$home/repos/phatpham9",
-    "paths": [],
-    "group": "",
     "enabled": true
   },
   {
     "name": "boringcodes",
     "rootPath": "$home/repos/boringcodes",
-    "paths": [],
-    "group": "",
     "enabled": true
   },
   {
     "name": "gorillab",
     "rootPath": "$home/repos/gorillab",
-    "paths": [],
-    "group": "",
     "enabled": true
   },
   {
     "name": "fsoft",
     "rootPath": "$home/repos/fsoft",
-    "paths": [],
-    "group": "",
+    "enabled": true
+  },
+  {
+    "name": "setel",
+    "rootPath": "$home/repos/setel",
     "enabled": true
   }
 ]
