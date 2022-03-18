@@ -34,11 +34,5 @@ echo "-> docker configured!"
 ln -s ${DIR}/minikube/config.json ~/.minikube/config/config.json
 echo "-> minikube configured!"
 
-# vscode
-ln -s ${DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s ${DIR}/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-ln -s ${DIR}/vscode/projects.json ~/Library/Application\ Support/Code/User/projects.json
-echo "-> vscode configured!"
-
 # brave
-echo "-> brave configuration skipped! Manual works needed for now such as preferences configuration & bookmarks import."
+echo "-> brave configuration skipped! Manual works needed for now."

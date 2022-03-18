@@ -1,7 +1,7 @@
 [user]
-  name = phatpham9
+  name = Phat Pham
   email = phatpham9@gmail.com
-  signingkey = 5B526D9EC2002D64
+  signingkey = 2520046ED6FFD5EE
 
 [commit]
   gpgsign = true

@@ -22,8 +22,8 @@
 
 This repo contains the automatic installation/configuration of the following steps:
 
-1. [x] Install applications (`brew` cli/gui apps, `nvm` node binaries, `npm` global packages & `vscode` extensions)
-2. [x] Configure applications by creating symlinks (`zsh`, `ssh`, `gpg`, `git`, `docker`, `minukube` & `vscode`)
+1. [x] Install applications (`brew` cli/gui apps, `nvm` node binaries & `npm` global packages)
+2. [x] Configure applications by creating symlinks (`zsh`, `ssh`, `gpg`, `git`, `docker` & `minukube`)
 3. [ ] Configure `macos` preferences (issue #4)
 
 ## Installation
@@ -39,8 +39,7 @@ Clone the repo then simply run the following command:
 Download the repository's tarball by running:
 
 ```bash
-
-curl -#L https://github.com/phatpham9/dotfiles/tarball/master | tar -xzv --strip-components 1 && ./install.sh
+mkdir dotfiles && cd dotfiles && curl -#L https://github.com/phatpham9/dotfiles/tarball/master | tar -xzv --strip-components 1 && ./install.sh
 ```
 
 ## Contributing

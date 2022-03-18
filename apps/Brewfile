@@ -4,18 +4,11 @@
 brew "gpg"
 brew "nvm"
 brew "yarn"
-brew "docker-compose"
 brew "kubectl"
 brew "minikube"
 brew "kustomize"
-brew "helm"
 brew "terraform"
 brew "awscli"
-brew "mkcert"
-brew "httpie"
-
-## utilities
-brew "thefuck"
 
 
 # gui apps
@@ -36,3 +29,4 @@ cask "spectacle"
 cask "the-unarchiver"
 cask "vlc"
 cask "motrix"
+cask "kap"

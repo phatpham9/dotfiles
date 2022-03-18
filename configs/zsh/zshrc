@@ -1,34 +1,15 @@
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# automatically call nvm use https://github.com/nvm-sh/nvm#zsh
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# terraoform
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
 
 # aliases
-
-## thefuck
-eval $(thefuck --alias)
-alias f="thefuck"
 
 ## git
 alias g="git"
@@ -114,14 +95,6 @@ alias dr="d rm"
 dsr() { d stop "$@" && d rm "$@"; }
 alias drs="d restart"
 
-## docker compose
-alias dc="docker-compose"
-alias dcp="dc pull"
-alias dcu="dc up"
-alias dcud="dc up -d"
-alias dcd="dc down"
-alias dcrs="dc restart"
-
 ## kubectl
 alias k="kubectl"
 alias kaf="k apply -f"
@@ -150,21 +123,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~"
-alias dt="cd ~/Desktop"
-alias dl="cd ~/Downloads"
-alias repos="cd ~/repos"
-
-## open app
-alias finder="open -a finder"
-alias photos="open -a photos"
-alias messages="open -a messages"
-alias brave="open -a brave\ browser"
-alias vscode="open -a visual\ studio\ code"
-alias sequel="open -a sequel\ pro"
-alias robo="open -a robo\ 3t"
-alias medis="open -a medis"
-alias postman="open -a postman"
-alias terminal="open -a terminal"
+md() { mkdir -p "$@" && cd -P "$@"; }
+alias rd="rm -rf"
 
 ## ssh
 ssha() { eval $(ssh-agent -s) && ssh-add "$@"; }
@@ -175,9 +135,3 @@ alias sshtgl="ssh -T git@gitlab.com"
 ## other
 alias reload="exec $SHELL -l"
 alias myip="curl https://ipecho.net/plain; echo"
-md() { mkdir -p "$@" && cd -P "$@"; }
-alias rd="rm -rf"
-
-# terraoform autocomplete
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform

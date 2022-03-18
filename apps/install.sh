@@ -22,10 +22,3 @@ echo "-> node binaries installed!"
 # npm global packages by yarn
 yarn global add $(cat "${DIR}/npm" | tr "\n" " ")
 echo "-> npm global packages installed!"
-
-# vscode extensions
-code --install-extension $(cat "${DIR}/vscode" | tr "\n" " ")
-echo "-> vscode extensions installed!"
-
-# brave extensions
-echo "-> brave extensions installation skipped! Manual work needed for now."
