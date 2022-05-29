@@ -19,8 +19,8 @@ cask "docker"
 cask "lens"
 cask "visual-studio-code"
 cask "dbeaver-community"
-cask "robo-3t"
-cask "Casks/medis.rb"
+cask "mongodb-compass"
+cask "redisinsight"
 cask "postman"
 
 ## utilities
