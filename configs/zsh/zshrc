@@ -5,7 +5,7 @@
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# terraoform
+# terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
@@ -117,7 +117,7 @@ alias tfp="tf plan"
 alias tfa="tf apply"
 alias tfd="tf destroy"
 
-## change dir
+## dir
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
