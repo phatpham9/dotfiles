@@ -7,14 +7,14 @@ ln -s ${DIR}/zsh/zshrc ~/.zshrc
 echo "-> zsh configured!"
 
 # ssh
-ssh-keygen -t ed25519 -C "phatpham9@gmail.com" -f "${HOME}/.ssh/id_ed25519" -P ""
+ssh-keygen -t ed25519 -C "phat@onroads.xyz" -f "${HOME}/.ssh/id_ed25519" -P ""
 ln -s ${DIR}/ssh/config ~/.ssh/config
 echo "-> ssh key generated & configured!"
 echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
 
 # gpg
 gpg --batch --generate-key "gpg/generate-key"
-gpg --armor --export phatpham9@gmail.com
+gpg --armor --export phat@onroads.xyz
 echo "-> gpg key generated!"
 echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
 

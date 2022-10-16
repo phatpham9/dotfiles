@@ -1,7 +1,7 @@
 [user]
   name = Phat Pham
-  email = phatpham9@gmail.com
-  signingkey = 2520046ED6FFD5EE
+  email = phat@onroads.xyz
+  signingkey = 13A9E894A198E585
 
 [commit]
   gpgsign = true
