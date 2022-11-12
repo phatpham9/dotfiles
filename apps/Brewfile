@@ -2,7 +2,7 @@
 
 ## software development
 brew "gpg"
-brew "nvm"
+brew "fnm"
 brew "yarn"
 brew "kubectl"
 brew "minikube"

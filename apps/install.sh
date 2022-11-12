@@ -15,8 +15,8 @@ echo "-> brew installed!"
 brew bundle --file=${DIR}/
 echo "-> brew cli & gui apps installed!"
 
-# node binaries by nvm
-for node in $(cat "${DIR}/nvm" | tr "\n" " "); do nvm "${node}"; done
+# node binaries by fnm
+for node in $(cat "${DIR}/node" | tr "\n" " "); do fnm install "${node}"; done
 echo "-> node binaries installed!"
 
 # npm global packages by yarn

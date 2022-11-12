@@ -1,11 +1,12 @@
-# nvm
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# env
 
-# homebrew
+## homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# terraform
+## fnm
+eval "$(fnm env --use-on-cd)"
+
+## terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
