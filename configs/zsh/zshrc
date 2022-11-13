@@ -1,4 +1,9 @@
-# env
+# setel
+
+## aws-google-auth
+alias aga="docker run -it --rm -v ~/.aws:/root/.aws cevoaustralia/aws-google-auth"
+
+# personal
 
 ## homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -6,13 +11,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ## fnm
 eval "$(fnm env --use-on-cd)"
 
-## terraform
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+## aliases
 
-# aliases
-
-## git
+### git
 alias g="git"
 alias gb="g b"
 alias gba="g ba"
@@ -54,7 +55,7 @@ alias gacpnv="g acpnv"
 alias gtmp="g tmp"
 alias gundo="g undo"
 
-## yarn
+### yarn
 alias y="yarn"
 alias yg="y global"
 alias ygls="y global list --depth=0"
@@ -80,7 +81,7 @@ alias yrl="y run lint"
 alias yrb="y run build"
 alias yrlb="y run lint && y run build"
 
-## docker
+### docker
 alias d="docker"
 alias dpl="d pull"
 alias di="d images"
@@ -96,14 +97,14 @@ alias dr="d rm"
 dsr() { d stop "$@" && d rm "$@"; }
 alias drs="d restart"
 
-## kubectl
+### kubectl
 alias k="kubectl"
 alias kaf="k apply -f"
 alias kak="k apply -k"
 alias kdf="k delete -f"
 alias kdk="k delete -k"
 
-## minikube
+### minikube
 alias mk="minikube"
 alias mkst="mk start"
 alias mksp="mk stop"
@@ -111,14 +112,14 @@ alias mkrs="mk stop && mk start"
 alias mkd="mk delete"
 alias mkdb="mk dashboard"
 
-## terraform
+### terraform
 alias tf="terraform"
 alias tfi="tf init"
 alias tfp="tf plan"
 alias tfa="tf apply"
 alias tfd="tf destroy"
 
-## dir
+### dir
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -127,12 +128,12 @@ alias ~="cd ~"
 md() { mkdir -p "$@" && cd -P "$@"; }
 alias rd="rm -rf"
 
-## ssh
+### ssh
 ssha() { eval $(ssh-agent -s) && ssh-add "$@"; }
 alias ssht="ssh -T"
 alias sshtgh="ssh -T git@github.com"
 alias sshtgl="ssh -T git@gitlab.com"
 
-## other
+### other
 alias reload="exec $SHELL -l"
 alias myip="curl https://ipecho.net/plain; echo"

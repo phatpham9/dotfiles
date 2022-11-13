@@ -1,9 +1,19 @@
+# setel
+
+[includeIf "gitdir:~/code/setel/"]
+  path = ~/.gitconfig_setel
+
+# personal
+
 [user]
   name = Phat Pham
   email = phat@onroads.xyz
   signingkey = 13A9E894A198E585
 
 [commit]
+  gpgsign = true
+
+[tag]
   gpgsign = true
 
 [core]

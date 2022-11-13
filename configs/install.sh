@@ -3,35 +3,41 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # zsh
-ln -s ${DIR}/zsh/zshrc ~/.zshrc
+ln -sf ${DIR}/zsh/zshrc ~/.zshrc
 echo "-> zsh configured!"
-
-# ssh
-ssh-keygen -t ed25519 -C "phat@onroads.xyz" -f "${HOME}/.ssh/id_ed25519" -P ""
-ln -s ${DIR}/ssh/config ~/.ssh/config
-echo "-> ssh key generated & configured!"
-echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
 
 # gpg
 gpg --batch --generate-key "gpg/generate-key"
 gpg --armor --export phat@onroads.xyz
+gpg --batch --generate-key "gpg/generate-key_setel"
+gpg --armor --export phat.pham@setel.com
 echo "-> gpg key generated!"
 echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
 
+# ssh
+ssh-keygen -t ed25519 -C "phat@onroads.xyz" -f "${HOME}/.ssh/id_ed25519" -P ""
+ssh-keygen -t ed25519 -C "phat.pham@setel.com" -f "${HOME}/.ssh/id_ed25519_setel" -P ""
+ln -sf ${DIR}/ssh/config ~/.ssh/config
+echo "-> ssh key generated & configured!"
+echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
+
 # git
-ln -s ${DIR}/git/gitconfig ~/.gitconfig
-ln -s ${DIR}/git/gitignore_global ~/.gitignore_global
-git config --global user.signingkey $(gpg --list-keys --keyid-format LONG | grep -E -o -m 1 "[0-9A-F]{16}")
+ln -sf ${DIR}/git/gitconfig ~/.gitconfig
+ln -sf ${DIR}/git/gitconfig_setel ~/.gitconfig_setel
+ln -sf ${DIR}/git/gitignore_global ~/.gitignore_global
+keys=($(gpg --list-keys --keyid-format LONG | grep -E -o -m 3 "ed25519/[0-9A-F]{16}" | grep -E -o -m 2 "[0-9A-F]{16}"))
+git config --file ~/.gitconfig user.signingkey $keys[1]
+git config --file ~/.gitconfig_setel user.signingkey $keys[2]
 echo "-> git configured!"
-echo "-> Attention! Global git config \"user.signingkey\" has been updated. Don't forget to commit & push your changes to remote repository."
+echo "-> Attention! Git config \"user.signingkey\" has been updated. Don't forget to commit & push your changes to remote repository."
 
 # docker
-ln -s ${DIR}/docker/daemon.json ~/.docker/daemon.json
-ln -s ${DIR}/docker/config.json ~/.docker/config.json
+ln -sf ${DIR}/docker/daemon.json ~/.docker/daemon.json
+ln -sf ${DIR}/docker/config.json ~/.docker/config.json
 echo "-> docker configured!"
 
 # minikube
-ln -s ${DIR}/minikube/config.json ~/.minikube/config/config.json
+ln -sf ${DIR}/minikube/config.json ~/.minikube/config/config.json
 echo "-> minikube configured!"
 
 # brave
