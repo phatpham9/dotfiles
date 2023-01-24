@@ -1,6 +1,6 @@
 <div align="center">
   <h1>dotfiles</h1>
-  <p>My dotfiles setup automation</p>
+  <p>My dotfiles for dev environment</p>
 
   <p>
     <a href="https://github.com/phatpham9/dotfiles/commits" aria-label="Commitizen Friendly">
@@ -14,9 +14,9 @@
 
 ## Concepts
 
-- Setup new dev machine in minutes not hours
-- Use `bash` to run installation commands but `zsh` will be the main shell after all
-- Use `homebrew` to install all GUI/CLI applications, it's easier to upgrade or uninstall the apps later
+- Setup new dev environment in minutes not hours
+- Use `bash` to run installation commands but `zsh` will be the main shell
+- Use `homebrew` to install all GUI/CLI applications as it's easier to upgrade/uninstall the apps
 
 ## Features
 
@@ -24,7 +24,6 @@ This repo contains the automatic installation/configuration of the following ste
 
 1. [x] Install applications (`brew` cli/gui apps, `fnm` node binaries & `yarn` global packages)
 2. [x] Configure applications by creating symlinks (`zsh`, `gpg`, `ssh`, `git`, `docker` & `minukube`)
-3. [ ] Configure `macos` preferences (issue #4)
 
 ## Installation
 
