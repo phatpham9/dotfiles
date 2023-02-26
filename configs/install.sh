@@ -25,7 +25,7 @@ echo "-> Attention! Don't forget to copy the public key & add it to remote hosts
 ln -sf ${DIR}/git/gitconfig ~/.gitconfig
 ln -sf ${DIR}/git/gitconfig_setel ~/.gitconfig_setel
 ln -sf ${DIR}/git/gitignore_global ~/.gitignore_global
-keys=($(gpg --list-keys --keyid-format LONG | grep -E -o -m 3 "ed25519/[0-9A-F]{16}" | grep -E -o -m 2 "[0-9A-F]{16}"))
+keys=($(gpg --list-keys --keyid-format LONG | grep -E -o -m 2 "ed25519/[0-9A-F]{16}" | grep -E -o -m 2 "[0-9A-F]{16}"))
 git config --file ~/.gitconfig user.signingkey $keys[1]
 git config --file ~/.gitconfig_setel user.signingkey $keys[2]
 echo "-> git configured!"
