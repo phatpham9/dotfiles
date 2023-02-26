@@ -22,7 +22,7 @@
 
 This repo contains the automatic installation/configuration of the following steps:
 
-1. [x] Install applications (`brew` cli/gui apps, `fnm` node binaries & `yarn` global packages)
+1. [x] Install applications (`brew` cli/gui apps & `fnm` node binaries)
 2. [x] Configure applications by creating symlinks (`zsh`, `gpg`, `ssh`, `git`, `docker` & `minukube`)
 
 ## Installation

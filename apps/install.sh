@@ -18,7 +18,3 @@ echo "-> brew cli & gui apps installed!"
 # node binaries by fnm
 for node in $(cat "${DIR}/node" | tr "\n" " "); do fnm install "${node}"; done
 echo "-> node binaries installed!"
-
-# npm global packages by yarn
-yarn global add $(cat "${DIR}/npm" | tr "\n" " ")
-echo "-> npm global packages installed!"
