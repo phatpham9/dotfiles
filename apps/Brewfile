@@ -25,7 +25,7 @@ cask "postman"
 
 ## utilities
 cask "alfred"
-cask "spectacle"
+cask "rectangle"
 cask "the-unarchiver"
 cask "vlc"
 cask "motrix"
