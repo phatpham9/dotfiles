@@ -1,7 +1,7 @@
 # setel
 
 ## aws-google-auth
-alias aga="docker run -it --rm -v ~/.aws:/root/.aws cevoaustralia/aws-google-auth"
+alias aga="podman run -it --rm -v ~/.aws:/root/.aws cevoaustralia/aws-google-auth"
 
 # personal
 
@@ -74,21 +74,26 @@ alias npmc="npm cache"
 alias npmcc="npm cache clean"
 alias npmr="npm run"
 
-### docker
-alias d="docker"
-alias dpl="d pull"
-alias di="d images"
-alias dir="d rmi"
-drid() { d rmi $(d images -f "dangling=true" -q); }
-alias dps="d ps"
-alias dpsa="d ps -a"
-alias dl="d logs"
-alias dlf="d logs -f"
-alias dk="d kill"
-alias ds="d stop"
-alias dr="d rm"
-dsr() { ds "$@"; dr "$@"; }
-alias drs="d restart"
+### podman
+alias pm="podman"
+alias pmm="pm machine"
+alias pmpl="pm pull"
+alias pmi="pm images"
+alias pmrmi="pm rmi"
+pmrmid() { pmrmi $(pmi -f "dangling=true" -q); }
+alias pmps="pm ps"
+alias pmpsa="pm ps -a"
+alias pml="pm logs"
+alias pmlf="pm logs -f"
+alias pmk="pm kill"
+alias pms="pm stop"
+alias pmrm="pm rm"
+alias pmrs="pm restart"
+
+### kind
+alias kd="kind"
+alias kdc="kd create"
+alias kdd="kd delete"
 
 ### kubectl
 alias k="kubectl"
@@ -96,14 +101,6 @@ alias kaf="k apply -f"
 alias kak="k apply -k"
 alias kdf="k delete -f"
 alias kdk="k delete -k"
-
-### minikube
-alias mk="minikube"
-alias mkst="mk start"
-alias mksp="mk stop"
-alias mkrs="mk stop && mk start"
-alias mkd="mk delete"
-alias mkdb="mk dashboard"
 
 ### terraform
 alias tf="terraform"

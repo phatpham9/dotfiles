@@ -3,8 +3,9 @@
 ## software development
 brew "gpg"
 brew "fnm"
+brew "podman"
+brew "kind"
 brew "kubectl"
-brew "minikube"
 brew "kustomize"
 brew "terraform"
 brew "awscli"
@@ -15,19 +16,16 @@ brew "thefuck"
 
 ## software development
 cask "brave-browser"
-cask "docker"
-cask "lens"
 cask "visual-studio-code"
 cask "beekeeper-studio"
 cask "mongodb-compass"
 cask "redisinsight"
 cask "postman"
+cask "lens"
 
 ## utilities
-cask "alfred"
 cask "rectangle"
 cask "the-unarchiver"
 cask "vlc"
 cask "motrix"
 cask "kap"
-cask "coconutbattery"

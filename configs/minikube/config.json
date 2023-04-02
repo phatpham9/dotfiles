@@ -1,6 +1,0 @@
-{
-  "cpus": 2,
-  "disk-size": "20000MB",
-  "driver": "hyperkit",
-  "memory": 4096
-}

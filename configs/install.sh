@@ -31,14 +31,5 @@ git config --file ~/.gitconfig_setel user.signingkey $keys[2]
 echo "-> git configured!"
 echo "-> Attention! Git config \"user.signingkey\" has been updated. Don't forget to commit & push your changes to remote repository."
 
-# docker
-ln -sf ${DIR}/docker/daemon.json ~/.docker/daemon.json
-ln -sf ${DIR}/docker/config.json ~/.docker/config.json
-echo "-> docker configured!"
-
-# minikube
-ln -sf ${DIR}/minikube/config.json ~/.minikube/config/config.json
-echo "-> minikube configured!"
-
 # brave
 echo "-> brave configuration skipped! Manual works needed for now."
