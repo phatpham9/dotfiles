@@ -1,0 +1,6 @@
+[user]
+  name = Phat Pham
+  email = phatttpham9@gmail.com
+	signingKey = B3CD82CCFEADAA13
+[core]
+	sshCommand = ssh -F ~/.ssh/config_secondary

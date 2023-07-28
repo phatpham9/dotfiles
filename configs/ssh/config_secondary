@@ -1,0 +1,5 @@
+Host github.com
+  Hostname github.com
+  IdentityFile ~/.ssh/id_ed25519_secondary
+  PreferredAuthentications publickey
+  IdentitiesOnly yes

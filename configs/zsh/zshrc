@@ -1,8 +1,3 @@
-# setel
-
-## aws-google-auth
-alias aga="podman run -it --rm -v ~/.aws:/root/.aws cevoaustralia/aws-google-auth"
-
 # personal
 
 ## homebrew

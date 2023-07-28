@@ -19,3 +19,8 @@
 
 [includeIf "gitdir:~/code/setel/"]
   path = ~/.gitconfig_setel
+
+# dev
+
+[includeIf "gitdir:~/code/secondary/"]
+  path = ~/.gitconfig_secondary

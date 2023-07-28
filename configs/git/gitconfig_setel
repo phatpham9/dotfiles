@@ -2,3 +2,5 @@
   name = Eddie
   email = phat.pham@setel.com
 	signingKey = D89361C6ECEC027E
+[core]
+	sshCommand = ssh -F ~/.ssh/config_setel
