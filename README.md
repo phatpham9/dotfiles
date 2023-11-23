@@ -16,14 +16,14 @@
 
 - Setup new dev environment in minutes not hours
 - Use `bash` to run installation commands but `zsh` will be the main shell
-- Use `homebrew` to install all GUI/CLI applications as it's easier to upgrade/uninstall the apps
+- Use `homebrew` to install all CLI/GUI applications as it's easier to upgrade/uninstall the apps
 
 ## Features
 
 This repo contains the automatic installation/configuration of the following steps:
 
-1. [x] Install applications (`brew` cli/gui apps & `fnm` node binaries)
-2. [x] Configure applications by creating symlinks (`zsh`, `gpg`, `ssh`, `git`, `docker` & `minukube`)
+1. [x] Install applications (`brew`)
+2. [x] Configure applications by creating symlinks (`zsh`, `ssh` & `git`)
 
 ## Installation
 
