@@ -1,7 +1,7 @@
 # personal
 
 ## homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($(brew --prefix)/bin/brew shellenv)"
 
 ## fnm
 eval "$(fnm env --use-on-cd)"
