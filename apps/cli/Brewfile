@@ -1,0 +1,15 @@
+# cli apps
+
+## software development
+brew "zsh"
+brew "git"
+brew "fnm"
+brew "podman"
+brew "kind"
+brew "kubectl"
+brew "kustomize"
+brew "terraform"
+brew "awscli"
+
+## utilities
+brew "thefuck"
