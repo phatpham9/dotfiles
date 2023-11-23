@@ -14,7 +14,7 @@ if is_macos; then
 else
   sudo apt-get update
   sudo apt-get install gcc build-essential procps curl file git zsh
-  # change the default shell to zsh
+  # change the default shell to zsh. prompt for password
   chsh -s $(which zsh)
   echo "-> build tools installed!"
 fi
