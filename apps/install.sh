@@ -7,8 +7,7 @@ xcode-select --install
 echo "-> xcode installed!"
 
 # brew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo "-> brew installed!"
 
 # cli & gui apps by brew
