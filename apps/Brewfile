@@ -1,7 +1,6 @@
 # cli apps
 
 ## software development
-brew "zsh"
 brew "fnm"
 # brew "podman"
 # brew "kind"

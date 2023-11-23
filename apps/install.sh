@@ -9,18 +9,24 @@ is_macos() {
 
 # pre-install
 if is_macos; then
-  # xcode
   xcode-select --install
   echo "-> xcode installed!"
 else
-  sudo apt update
-  sudo apt install build-essential procps curl file git
+  apt-get update
+  apt-get install build-essential procps curl file git zsh
+  # change the default shell to zsh
+  chsh -s $(which zsh)
+  echo "-> build tools installed!"
 fi
 
 # brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo "-> brew installed!"
-eval "$($(brew --prefix)/bin/brew shellenv)"
+if is_macos; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # cli & gui apps by brew
 if is_macos; then

@@ -22,7 +22,7 @@
 
 This repo contains the automatic installation/configuration of the following steps:
 
-1. [x] Install applications (`brew`)
+1. [x] Install applications (`homebrew`)
 2. [x] Configure applications by creating symlinks (`zsh`, `ssh` & `git`)
 
 ## Installation

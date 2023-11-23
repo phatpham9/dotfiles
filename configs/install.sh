@@ -22,6 +22,3 @@ ln -sf ${DIR}/git/gitconfig_secondary ~/.gitconfig_secondary
 ln -sf ${DIR}/git/gitconfig_setel ~/.gitconfig_setel
 ln -sf ${DIR}/git/gitignore_global ~/.gitignore_global
 echo "-> git configured!"
-
-# change the default shell to zsh
-chsh -s $(which zsh)
