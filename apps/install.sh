@@ -12,8 +12,8 @@ if is_macos; then
   xcode-select --install
   echo "-> xcode installed!"
 else
-  apt-get update
-  apt-get install build-essential procps curl file git zsh
+  sudo apt-get update
+  sudo apt-get install gcc build-essential procps curl file git zsh
   # change the default shell to zsh
   chsh -s $(which zsh)
   echo "-> build tools installed!"
