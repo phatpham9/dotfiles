@@ -16,4 +16,4 @@ echo "2. Configuring apps..."
 echo "-> Apps configured!"
 
 # restart
-echo "3. Done! Restart your machine to take effect."
+echo "3. Done! Log out and log back in for the changes to take effect."
