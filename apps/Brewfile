@@ -1,7 +1,8 @@
 # cli apps
 
 ## software development
-brew "gpg"
+brew "zsh"
+brew "git"
 brew "fnm"
 brew "podman"
 brew "kind"
@@ -9,6 +10,8 @@ brew "kubectl"
 brew "kustomize"
 brew "terraform"
 brew "awscli"
+
+## utilities
 brew "thefuck"
 
 
@@ -22,6 +25,7 @@ cask "mongodb-compass"
 cask "redisinsight"
 cask "postman"
 cask "lens"
+cask "leapp"
 
 ## utilities
 cask "rectangle"
