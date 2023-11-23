@@ -13,7 +13,3 @@ echo "-> brew installed!"
 # cli & gui apps by brew
 brew bundle --file=${DIR}/
 echo "-> brew cli & gui apps installed!"
-
-# node binaries by fnm
-for node in $(cat "${DIR}/node" | tr "\n" " "); do fnm install "${node}"; done
-echo "-> node binaries installed!"
