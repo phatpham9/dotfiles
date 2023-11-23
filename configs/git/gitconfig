@@ -3,7 +3,10 @@
 [user]
   name = Phat Pham
   email = phat@onroads.xyz
-  signingkey = 13A9E894A198E585
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+	format = ssh
 
 [commit]
   gpgsign = true
