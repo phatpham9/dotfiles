@@ -2,3 +2,4 @@ Host *
   IdentityFile ~/.ssh/id_ed25519
   PreferredAuthentications publickey
   IdentitiesOnly yes
+  
