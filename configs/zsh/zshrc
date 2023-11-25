@@ -5,6 +5,12 @@ is_macos() {
   [[ $(uname) == "Darwin" ]]
 }
 
+## oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git npm podman kind kubectl terraform)
+source $ZSH/oh-my-zsh.sh
+
 ## homebrew
 if is_macos; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -20,108 +26,6 @@ eval $(thefuck --alias)
 
 ## aliases
 
-### git
-alias g="git"
-alias gb="g branch"
-alias gba="g branch -a"
-alias gbd="g branch -d"
-alias gbdf="g branch -d -f"
-alias gco="g checkout"
-alias gcom="g checkout master"
-alias gcod="g checkout develop"
-alias gcob="g checkout -b"
-alias gpl="g pull"
-alias gplm="g pull origin master"
-alias gpld="g pull origin develop"
-alias ga="g add"
-alias gaa="g add -A"
-alias gc="g commit"
-alias gcm="g commit -m"
-alias gcmnv="g commit --no-verify -m"
-alias gp="g push"
-alias gpnv="g push --no-verify"
-alias gpft="g push --follow-tags"
-alias gpftnv="g push --follow-tags --no-verify"
-alias gm="g merge"
-alias gmm="g merge master"
-alias gmd="g merge develop"
-alias gs="g stash"
-alias gsl="g stash list"
-alias gsp="g stash pop"
-alias gt="g tag"
-alias gtl="g tag -l"
-alias gtd="g tag -d"
-alias gl="g log"
-alias grs="g reset"
-alias grshh="g reset --hard HEAD"
-gac() { gaa; gcm "$@"; }
-gacnv() { gaa; gcmnv "$@"; }
-gcp() { gcm "$@"; gp; }
-gcpnv() { gcmnv "$@"; gpnv; }
-gacp() { gaa; gcm "$@"; gp; }
-gacpnv() { gaa; gcmnv "$@"; gpnv; }
-alias gtmp="gacnv \"TMP\""
-alias gundo="grs HEAD~1 --mixed"
-
-### npm
-alias npmg="npm -g"
-alias npmgl="npm -g list --depth=0"
-alias npmgi="npm -g install"
-alias npmgu="npm -g uninstall"
-alias npmgup="npm -g upgrade"
-alias npml="npm list"
-alias npmi="npm install"
-alias npmid="npm install --save-dev"
-alias npmu="npm uninstall"
-alias npmup="npm upgrade"
-alias npmc="npm cache"
-alias npmcc="npm cache clean"
-alias npmr="npm run"
-
-### podman
-alias pm="podman"
-alias pmm="pm machine"
-alias pmpl="pm pull"
-alias pmi="pm images"
-alias pmrmi="pm rmi"
-pmrmid() { pmrmi $(pmi -f "dangling=true" -q); }
-alias pmps="pm ps"
-alias pmpsa="pm ps -a"
-alias pml="pm logs"
-alias pmlf="pm logs -f"
-alias pmk="pm kill"
-alias pms="pm stop"
-alias pmrm="pm rm"
-alias pmrs="pm restart"
-
-### kind
-alias kd="kind"
-alias kdc="kd create"
-alias kdd="kd delete"
-
-### kubectl
-alias k="kubectl"
-alias kaf="k apply -f"
-alias kak="k apply -k"
-alias kdf="k delete -f"
-alias kdk="k delete -k"
-
-### terraform
-alias tf="terraform"
-alias tfi="tf init"
-alias tfp="tf plan"
-alias tfa="tf apply"
-alias tfd="tf destroy"
-
-### dir
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~"
-md() { mkdir -p "$@"; cd -P "$@"; }
-alias rd="rm -rf"
-
 ### ssh
 ssha() { eval $(ssh-agent -s); ssh-add "$@"; }
 alias ssht="ssh -T"
@@ -129,5 +33,4 @@ alias sshtgh="ssh -T git@github.com"
 alias sshtgl="ssh -T git@gitlab.com"
 
 ### other
-alias reload="exec $SHELL -l"
 alias myip="curl https://ipecho.net/plain; echo"

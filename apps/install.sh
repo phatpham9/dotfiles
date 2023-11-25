@@ -13,13 +13,18 @@ if is_macos; then
   echo "-> xcode installed!"
 else
   sudo apt-get update
-  sudo apt-get install gcc build-essential procps curl file git zsh
-  # change the default shell to zsh. prompt for password
-  chsh -s $(which zsh)
+  sudo apt-get install gcc build-essential procps file curl git zsh
+  chsh -s $(which zsh)  # change the default shell to zsh. prompt for password
   echo "-> build tools installed!"
 fi
 
-# brew
+# install oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "-> oh-my-zsh installed!"
+fi
+
+# install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo "-> brew installed!"
 if is_macos; then
@@ -28,11 +33,11 @@ else
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# cli & gui apps by brew
+# install cli & gui apps by brew
 if is_macos; then
   brew bundle --file=${DIR}/Brewfile_macos
-  echo "-> brew cli & gui apps installed!"
+  echo "-> cli & gui apps installed!"
 else
   brew bundle --file=${DIR}/Brewfile
-  echo "-> brew cli apps installed!"
+  echo "-> cli apps installed!"
 fi
