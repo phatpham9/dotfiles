@@ -25,19 +25,21 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # install brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo "-> brew installed!"
-if is_macos; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if ! command -v brew &> /dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "-> brew installed!"
+  if is_macos; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
 fi
 
-# install cli & gui apps by brew
+# install cli & gui apps
+brew bundle --file=${DIR}/Brewfile_cli
 if is_macos; then
   brew bundle --file=${DIR}/Brewfile_macos
   echo "-> cli & gui apps installed!"
 else
-  brew bundle --file=${DIR}/Brewfile
   echo "-> cli apps installed!"
 fi

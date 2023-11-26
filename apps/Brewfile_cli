@@ -2,8 +2,8 @@
 
 ## software development
 brew "fnm"
-# brew "podman"
-# brew "kind"
+brew "podman"
+brew "kind"
 brew "kubectl"
 brew "kustomize"
 brew "terraform"

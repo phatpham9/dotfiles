@@ -1,17 +1,3 @@
-# cli apps
-
-## software development
-brew "fnm"
-brew "podman"
-brew "kind"
-brew "kubectl"
-brew "kustomize"
-brew "terraform"
-brew "awscli"
-
-## utilities
-brew "thefuck"
-
 # gui apps
 
 ## software development
