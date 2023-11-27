@@ -11,3 +11,4 @@ brew "awscli"
 
 ## utilities
 brew "thefuck"
+brew "spaceship"
