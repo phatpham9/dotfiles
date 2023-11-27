@@ -39,7 +39,7 @@ else
 fi
 
 # install oh-my-zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   RUNZSH=no /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "-> oh-my-zsh installed!"
 fi
