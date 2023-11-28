@@ -1,18 +1,19 @@
 # gui apps
 
 ## software development
-cask "brave-browser"
 cask "visual-studio-code"
 cask "beekeeper-studio"
 cask "mongodb-compass"
 cask "redisinsight"
 cask "postman"
-cask "lens"
+cask "pritunl"
 cask "leapp"
 
 ## utilities
+cask "brave-browser"
 cask "rectangle"
 cask "the-unarchiver"
 cask "vlc"
 cask "motrix"
 cask "kap"
+cask "coconutbattery"
