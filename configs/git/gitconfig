@@ -17,12 +17,12 @@
 [core]
   excludesfile = ~/.gitignore_global
 
+# secondary
+
+[includeIf "gitdir:~/code/secondary/"]
+  path = ~/.gitconfig_secondary
+
 # setel
 
 [includeIf "gitdir:~/code/setel/"]
   path = ~/.gitconfig_setel
-
-# dev
-
-[includeIf "gitdir:~/code/secondary/"]
-  path = ~/.gitconfig_secondary
