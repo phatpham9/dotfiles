@@ -1,6 +1,7 @@
 # cli apps
 
 ## software development
+brew "gh"
 brew "fnm"
 brew "podman"
 brew "kind"
@@ -11,5 +12,6 @@ brew "awscli"
 brew "sops"
 
 ## utilities
+brew "direnv"
 brew "thefuck"
 brew "spaceship"
