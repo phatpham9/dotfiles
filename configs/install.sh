@@ -22,10 +22,6 @@ echo "-> git configured!"
 # configure gh
 ln -sf ${DIR}/gh/config.yml ${HOME}/.config/gh/config.yml
 ln -sf ${DIR}/gh/hosts.yml ${HOME}/.config/gh/hosts.yml
-ln -sf ${DIR}/gh/config.yml ${HOME}/.config/gh_secondary/config.yml
-ln -sf ${DIR}/gh/hosts.yml_secondary ${HOME}/.config/gh_secondary/hosts.yml
-ln -sf ${DIR}/gh/config.yml ${HOME}/.config/gh_setel/config.yml
-ln -sf ${DIR}/gh/hosts.yml_setel ${HOME}/.config/gh_setel/hosts.yml
 echo "-> gh configured!"
 
 # configure zsh
