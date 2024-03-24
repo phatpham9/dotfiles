@@ -20,6 +20,9 @@ ln -sf ${DIR}/git/gitignore_global ${HOME}/.gitignore_global
 echo "-> git configured!"
 
 # configure gh
+if [ ! -d "${HOME}/.config/gh" ]; then
+  mkdir -p "${HOME}/.config/gh"
+fi
 ln -sf ${DIR}/gh/config.yml ${HOME}/.config/gh/config.yml
 ln -sf ${DIR}/gh/hosts.yml ${HOME}/.config/gh/hosts.yml
 echo "-> gh configured!"
