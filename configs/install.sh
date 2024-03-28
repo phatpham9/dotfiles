@@ -2,31 +2,50 @@
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# create symbolic links
+create_symlink() {
+  ln -sf "${DIR}/$1" "${HOME}/$2"
+}
+
 # configure ssh
-ssh-keygen -t ed25519 -C "phat@onroads.xyz" -f "${HOME}/.ssh/id_ed25519" -P ""
-ssh-keygen -t ed25519 -C "phatttpham9@gmail.com" -f "${HOME}/.ssh/id_ed25519_secondary" -P ""
-ssh-keygen -t ed25519 -C "phat.pham@setel.com" -f "${HOME}/.ssh/id_ed25519_setel" -P ""
-ln -sf ${DIR}/ssh/config ${HOME}/.ssh/config
-ln -sf ${DIR}/ssh/config_secondary ${HOME}/.ssh/config_secondary
-ln -sf ${DIR}/ssh/config_setel ${HOME}/.ssh/config_setel
-echo "-> ssh key generated & configured!"
-echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
+configure_ssh() {
+  ssh-keygen -t ed25519 -C "phat@onroads.xyz" -f "${HOME}/.ssh/id_ed25519" -P ""
+  ssh-keygen -t ed25519 -C "phatttpham9@gmail.com" -f "${HOME}/.ssh/id_ed25519_secondary" -P ""
+  ssh-keygen -t ed25519 -C "phat.pham@setel.com" -f "${HOME}/.ssh/id_ed25519_setel" -P ""
+  create_symlink "ssh/config" ".ssh/config"
+  create_symlink "ssh/config_secondary" ".ssh/config_secondary"
+  create_symlink "ssh/config_setel" ".ssh/config_setel"
+  echo "-> ssh key generated & configured!"
+  echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
+}
 
 # configure git
-ln -sf ${DIR}/git/gitconfig ${HOME}/.gitconfig
-ln -sf ${DIR}/git/gitconfig_secondary ${HOME}/.gitconfig_secondary
-ln -sf ${DIR}/git/gitconfig_setel ${HOME}/.gitconfig_setel
-ln -sf ${DIR}/git/gitignore_global ${HOME}/.gitignore_global
-echo "-> git configured!"
+configure_git() {
+  create_symlink "git/gitconfig" ".gitconfig"
+  create_symlink "git/gitconfig_secondary" ".gitconfig_secondary"
+  create_symlink "git/gitconfig_setel" ".gitconfig_setel"
+  create_symlink "git/gitignore_global" ".gitignore_global"
+  echo "-> git configured!"
+}
 
 # configure gh
-if [ ! -d "${HOME}/.config/gh" ]; then
-  mkdir -p "${HOME}/.config/gh"
-fi
-ln -sf ${DIR}/gh/config.yml ${HOME}/.config/gh/config.yml
-ln -sf ${DIR}/gh/hosts.yml ${HOME}/.config/gh/hosts.yml
-echo "-> gh configured!"
+configure_gh() {
+  if [ ! -d "${HOME}/.config/gh" ]; then
+    mkdir -p "${HOME}/.config/gh"
+  fi
+  create_symlink "gh/config.yml" ".config/gh/config.yml"
+  create_symlink "gh/hosts.yml" ".config/gh/hosts.yml"
+  echo "-> gh configured!"
+}
 
 # configure zsh
-ln -sf ${DIR}/zsh/zshrc ${HOME}/.zshrc
-echo "-> zsh configured!"
+configure_zsh() {
+  create_symlink "zsh/zshrc" ".zshrc"
+  echo "-> zsh configured!"
+}
+
+# call the configuration functions
+configure_ssh
+configure_git
+configure_gh
+configure_zsh
