@@ -10,6 +10,7 @@ cask "pritunl"
 cask "leapp"
 
 ## utilities
+cask "cloudflare-warp"
 cask "brave-browser"
 cask "rectangle"
 cask "the-unarchiver"
