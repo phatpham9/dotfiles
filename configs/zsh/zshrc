@@ -24,6 +24,9 @@ alias ssht="ssh -T"
 alias sshtgh="ssh -T git@github.com"
 alias sshtgl="ssh -T git@gitlab.com"
 
+## docker
+alias docker=podman
+
 ## other
 alias clean="rm ~/.zsh_history"
 alias myip="curl https://ipecho.net/plain; echo"
