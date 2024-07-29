@@ -8,6 +8,9 @@ fi
 # fnm
 eval "$(fnm env --use-on-cd)"
 
+# gh
+eval "$(gh copilot alias -- zsh)"
+
 # spaceship-prompt
 source $(brew --prefix)/opt/spaceship/spaceship.zsh
 

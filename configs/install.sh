@@ -49,3 +49,14 @@ configure_ssh
 configure_git
 configure_gh
 configure_zsh
+
+# install gh extensions
+install_gh_extensions() {
+  while IFS= read -r extension; do
+    gh extension install "$extension"
+  done < "${DIR}/gh/extensions"
+  echo "-> gh extensions installed!"
+}
+
+# call the extension installation functions
+install_gh_extensions
