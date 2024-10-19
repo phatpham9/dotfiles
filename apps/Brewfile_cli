@@ -13,5 +13,4 @@ brew "sops"
 
 ## utilities
 brew "direnv"
-brew "thefuck"
 brew "spaceship"
