@@ -1,4 +1,0 @@
-Host *
-  IdentityFile ~/.ssh/id_ed25519_setel
-  PreferredAuthentications publickey
-  IdentitiesOnly yes

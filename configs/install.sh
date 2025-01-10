@@ -11,10 +11,8 @@ create_symlink() {
 configure_ssh() {
   ssh-keygen -t ed25519 -C "phat@onroads.xyz" -f "${HOME}/.ssh/id_ed25519" -P ""
   ssh-keygen -t ed25519 -C "phatttpham9@gmail.com" -f "${HOME}/.ssh/id_ed25519_secondary" -P ""
-  ssh-keygen -t ed25519 -C "phat.pham@setel.com" -f "${HOME}/.ssh/id_ed25519_setel" -P ""
   create_symlink "ssh/config" ".ssh/config"
   create_symlink "ssh/config_secondary" ".ssh/config_secondary"
-  create_symlink "ssh/config_setel" ".ssh/config_setel"
   echo "-> ssh key generated & configured!"
   echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
 }
@@ -23,7 +21,6 @@ configure_ssh() {
 configure_git() {
   create_symlink "git/gitconfig" ".gitconfig"
   create_symlink "git/gitconfig_secondary" ".gitconfig_secondary"
-  create_symlink "git/gitconfig_setel" ".gitconfig_setel"
   create_symlink "git/gitignore_global" ".gitignore_global"
   echo "-> git configured!"
 }
