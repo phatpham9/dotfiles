@@ -1,6 +1,7 @@
 # cli apps
 
 ## software development
+brew "python"
 brew "gh"
 brew "fnm"
 brew "podman"
