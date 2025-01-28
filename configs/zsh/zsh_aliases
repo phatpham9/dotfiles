@@ -1,0 +1,17 @@
+## ssh
+ssha() { eval $(ssh-agent -s); ssh-add "$@"; }
+alias ssht="ssh -T"
+alias sshtgh="ssh -T git@github.com"
+alias sshtgl="ssh -T git@gitlab.com"
+
+## python
+alias py="python3"
+alias python="python3"
+alias pip="pip3"
+
+## docker
+alias docker=podman
+
+## other
+alias clean="rm ~/.zsh_history"
+alias myip="curl https://ipecho.net/plain; echo"
