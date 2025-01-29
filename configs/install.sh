@@ -51,8 +51,8 @@ configure_gh() {
 
 # configure zsh
 configure_zsh() {
-  create_symlink "zsh/zshrc" ".zshrc"
   create_symlink "zsh/zsh_aliases" ".zsh_aliases"
+  create_symlink "zsh/zshrc" ".zshrc"
   echo "-> Zsh configured!"
 }
 
