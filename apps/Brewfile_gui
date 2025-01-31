@@ -1,14 +1,17 @@
 # gui apps
 
 ## software development
+
 cask "visual-studio-code"
 cask "beekeeper-studio"
 cask "mongodb-compass"
 cask "redisinsight"
 cask "postman"
 cask "leapp"
+cask "lm-studio"
 
 ## utilities
+
 cask "cloudflare-warp"
 cask "brave-browser"
 cask "rectangle"

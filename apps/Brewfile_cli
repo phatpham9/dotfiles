@@ -1,9 +1,11 @@
 # cli apps
 
 ## software development
-brew "python"
+
 brew "gh"
 brew "fnm"
+brew "pyenv"
+brew "poetry"
 brew "podman"
 brew "kind"
 brew "kubectl"
@@ -13,5 +15,6 @@ brew "awscli"
 brew "sops"
 
 ## utilities
+
 brew "direnv"
 brew "spaceship"

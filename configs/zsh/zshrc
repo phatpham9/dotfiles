@@ -5,6 +5,9 @@ else
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+# gh
+eval "$(gh copilot alias -- zsh)"
+
 # fnm
 eval "$(fnm env --use-on-cd)"
 
@@ -12,9 +15,6 @@ eval "$(fnm env --use-on-cd)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-
-# gh
-eval "$(gh copilot alias -- zsh)"
 
 # spaceship-prompt
 source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
