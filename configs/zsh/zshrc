@@ -8,6 +8,11 @@ fi
 # fnm
 eval "$(fnm env --use-on-cd)"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 # gh
 eval "$(gh copilot alias -- zsh)"
 
@@ -15,7 +20,7 @@ eval "$(gh copilot alias -- zsh)"
 source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
 
 # oh-my-zsh
-plugins=(git gh fnm npm podman kind kubectl terraform aws direnv)
+plugins=(git gh fnm npm pyenv poetry podman kind kubectl terraform aws direnv)
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 # zsh aliases
