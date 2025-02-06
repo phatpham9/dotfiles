@@ -6,12 +6,8 @@ GH_CONFIG_DIR="${HOME}/.config/gh"
 
 # create symbolic links
 create_symlink() {
-  if [ -e "${HOME}/$2" ]; then
-    echo "-> Skipping $2, already exists."
-  else
-    ln -sf "${DIR}/$1" "${HOME}/$2"
-    echo "-> Symlink created for $1"
-  fi
+  ln -sf "${DIR}/$1" "${HOME}/$2"
+  echo "-> Symlink created for $1"
 }
 
 # configure ssh
@@ -58,14 +54,14 @@ configure_zsh() {
 
 # config poetry
 configure_poetry() {
-  poetry config virtualenvs.in-project true
+  /opt/homebrew/bin/poetry config virtualenvs.in-project true
   echo "-> Poetry configured!"
 }
 
 # install gh extensions
 install_gh_extensions() {
   while IFS= read -r extension; do
-    gh extension install "$extension"
+    /opt/homebrew/bin/gh extension install "$extension"
   done < "${DIR}/gh/extensions"
   echo "-> gh extensions installed!"
 }
