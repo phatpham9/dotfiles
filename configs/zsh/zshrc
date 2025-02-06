@@ -20,7 +20,7 @@ eval "$(pyenv init --path)"
 source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
 
 # oh-my-zsh
-plugins=(git gh fnm npm pyenv poetry podman kind kubectl terraform aws direnv)
+plugins=(git gh fnm npm pyenv poetry poetry-env podman kind kubectl terraform aws direnv)
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 # zsh aliases

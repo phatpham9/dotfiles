@@ -56,6 +56,12 @@ configure_zsh() {
   echo "-> Zsh configured!"
 }
 
+# config poetry
+configure_poetry() {
+  poetry config virtualenvs.in-project true
+  echo "-> Poetry configured!"
+}
+
 # install gh extensions
 install_gh_extensions() {
   while IFS= read -r extension; do
@@ -69,4 +75,5 @@ configure_ssh
 configure_git
 configure_gh
 configure_zsh
+configure_poetry
 install_gh_extensions
