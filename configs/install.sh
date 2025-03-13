@@ -23,8 +23,14 @@ configure_ssh() {
   else
     echo "-> SSH key id_ed25519_secondary already exists."
   fi
+  if [ ! -f "${SSH_DIR}/id_ed25519_saypien" ]; then
+    ssh-keygen -t ed25519 -C "phat@saypien.io" -f "${SSH_DIR}/id_ed25519_saypien" -P ""
+  else
+    echo "-> SSH key id_ed25519_saypien already exists."
+  fi
   create_symlink "ssh/config" ".ssh/config"
   create_symlink "ssh/config_secondary" ".ssh/config_secondary"
+  create_symlink "ssh/config_saypien" ".ssh/config_saypien"
   echo "-> SSH keys generated & configured!"
   echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
 }
@@ -33,6 +39,7 @@ configure_ssh() {
 configure_git() {
   create_symlink "git/gitconfig" ".gitconfig"
   create_symlink "git/gitconfig_secondary" ".gitconfig_secondary"
+  create_symlink "git/gitconfig_saypien" ".gitconfig_saypien"
   create_symlink "git/gitignore_global" ".gitignore_global"
   echo "-> Git configured!"
 }
