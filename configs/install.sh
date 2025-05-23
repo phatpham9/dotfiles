@@ -4,6 +4,11 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SSH_DIR="${HOME}/.ssh"
 GH_CONFIG_DIR="${HOME}/.config/gh"
 
+# check if running on macOS
+is_macos() {
+  [[ $(uname) == "Darwin" ]]
+}
+
 # create symbolic links
 create_symlink() {
   ln -sf "${DIR}/$1" "${HOME}/$2"
@@ -61,14 +66,22 @@ configure_zsh() {
 
 # config poetry
 configure_poetry() {
-  /opt/homebrew/bin/poetry config virtualenvs.in-project true
+  if is_macos; then
+    /opt/homebrew/bin/poetry config virtualenvs.in-project true
+  else
+    /home/linuxbrew/.linuxbrew/bin/poetry config virtualenvs.in-project true
+  fi
   echo "-> Poetry configured!"
 }
 
 # install gh extensions
 install_gh_extensions() {
   while IFS= read -r extension; do
-    /opt/homebrew/bin/gh extension install "$extension"
+    if is_macos; then
+      /opt/homebrew/bin/gh extension install "$extension"
+    else
+      /home/linuxbrew/.linuxbrew/bin/gh extension install "$extension"
+    fi
   done < "${DIR}/gh/extensions"
   echo "-> gh extensions installed!"
 }
