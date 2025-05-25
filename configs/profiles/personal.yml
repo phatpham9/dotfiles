@@ -1,0 +1,40 @@
+# Personal profile configuration
+# This overrides the default config for personal use
+
+user:
+  name: 'Phat Pham'
+  email: 'phat@onroads.xyz'
+
+ssh:
+  keys:
+    - name: 'primary'
+      email: 'phat@onroads.xyz'
+      file: 'id_ed25519'
+    - name: 'secondary'
+      email: 'phatttpham9@gmail.com'
+      file: 'id_ed25519_secondary'
+    - name: 'saypien'
+      email: 'phat@saypien.io'
+      file: 'id_ed25519_saypien'
+
+git:
+  profiles:
+    - name: 'personal'
+      path: '~/code/personal/'
+      user_name: 'Phat Pham'
+      user_email: 'phat@onroads.xyz'
+      signing_key: '~/.ssh/id_ed25519.pub'
+    - name: 'secondary'
+      path: '~/code/secondary/'
+      user_name: 'Phat Pham'
+      user_email: 'phatttpham9@gmail.com'
+      signing_key: '~/.ssh/id_ed25519_secondary.pub'
+    - name: 'saypien'
+      path: '~/code/saypien/'
+      user_name: 'Phat Pham'
+      user_email: 'phat@saypien.io'
+      signing_key: '~/.ssh/id_ed25519_saypien.pub'
+
+homebrew:
+  additional_taps: []
+  additional_packages: []
