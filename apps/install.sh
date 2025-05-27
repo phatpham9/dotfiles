@@ -36,6 +36,7 @@ install_homebrew() {
 # install cli apps
 install_cli_apps() {
   brew bundle --file="${DIR}/Brewfile_cli"
+  # zsh-completions compinit fix
   if is_macos; then
     chmod go-w "/opt/homebrew/share"
     chmod -R go-w "/opt/homebrew/share/zsh"
