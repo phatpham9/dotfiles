@@ -1,5 +1,10 @@
+# check if running on macOS
+is_macos() {
+  [[ $(uname) == "Darwin" ]]
+}
+
 # homebrew
-if [[ "$(uname)" == "Darwin" ]]; then
+if is_macos; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -27,7 +32,7 @@ source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 source "$HOME/.zsh_aliases"
 
 # zsh-autosuggestions
-source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # zsh-completions
 if type brew &>/dev/null; then
@@ -38,4 +43,4 @@ if type brew &>/dev/null; then
 fi
 
 # zsh-syntax-highlighting
-source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
