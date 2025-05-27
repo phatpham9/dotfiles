@@ -25,3 +25,17 @@ source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 # zsh aliases
 source "$HOME/.zsh_aliases"
+
+# zsh-autosuggestions
+source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# zsh-syntax-highlighting
+source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
