@@ -1,0 +1,50 @@
+# Central configuration file for dotfiles
+# This file defines the default configuration that can be overridden by profiles
+
+dotfiles:
+  version: '2.0.0'
+  backup_dir: '~/.dotfiles_backup'
+
+user:
+  name: 'Your Name'
+  email: 'your.email@example.com'
+
+git:
+  signing_key: '~/.ssh/id_ed25519.pub'
+  gpg_format: 'ssh'
+  sign_commits: true
+  sign_tags: true
+  ignore_case: false
+
+ssh:
+  key_type: 'ed25519'
+  keys:
+    - name: 'primary'
+      email: 'your.email@example.com'
+      file: 'id_ed25519'
+    - name: 'secondary'
+      email: 'secondary@example.com'
+      file: 'id_ed25519_secondary'
+    - name: 'work'
+      email: 'work@company.com'
+      file: 'id_ed25519_work'
+
+homebrew:
+  update_before_install: true
+  cleanup_after_install: true
+
+modules:
+  homebrew: true
+  git: true
+  ssh: true
+  zsh: true
+  gh: true
+  poetry: true
+
+platform:
+  macos:
+    install_xcode: true
+    install_gui_apps: true
+  linux:
+    install_build_essential: true
+    install_gui_apps: false
