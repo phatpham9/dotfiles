@@ -13,8 +13,6 @@ brew "kind"
 brew "kubectl"
 brew "kustomize"
 brew "terraform"
-brew "awscli"
-brew "sops"
 
 ## utilities
 
