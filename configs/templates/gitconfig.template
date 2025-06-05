@@ -1,0 +1,48 @@
+[user]
+  name = {{USER_NAME}}
+  email = {{USER_EMAIL}}
+  signingkey = {{SIGNING_KEY}}
+
+[gpg]
+  format = ssh
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgsign = true
+
+[core]
+  excludesfile = ~/.gitignore_global
+  ignorecase = false
+
+[includeIf "gitdir:~/code/secondary/"]
+  path = ~/.gitconfig_secondary
+
+[includeIf "gitdir:~/code/saypien/"]
+  path = ~/.gitconfig_saypien
+
+[push]
+  default = simple
+  autoSetupRemote = true
+
+[pull]
+  rebase = false
+
+[init]
+  defaultBranch = main
+
+[color]
+  ui = auto
+
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  ci = commit
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  visual = !gitk
+  lg = log --oneline --decorate --graph --all
+  amend = commit --amend --no-edit
+  pushnew = push -u origin HEAD
