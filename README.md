@@ -15,23 +15,37 @@
 ## Concepts
 
 - Setup new dev environment in minutes not hours
+- Cross-platform support for **macOS** and **Ubuntu**
 - Use `bash` to run installation commands but `zsh` will be the main shell
 - Use `homebrew` to install all CLI/GUI applications as it's easier to upgrade/uninstall the apps
+- Platform-specific package handling (e.g., colima is only installed on macOS)
 
 ## Features
 
 This repo contains the automatic installation/configuration of the following steps:
 
-1. [x] Install applications (`homebrew`)
+1. [x] Install applications (`homebrew`) with platform-specific handling
 2. [x] Configure applications by creating symlinks (`zsh`, `ssh` & `git`)
 
+**Platform Support:**
+
+- **macOS**: Full installation including all CLI and GUI applications
+- **Ubuntu**: CLI applications only, with macOS-specific packages automatically skipped
+
 ## Installation
+
+**Supported Platforms:** macOS and Ubuntu
 
 Clone the repo then simply run the following command:
 
 ```bash
 ./install.sh
 ```
+
+The script will automatically detect your platform and:
+
+- On **macOS**: Install all CLI and GUI applications
+- On **Ubuntu**: Install CLI applications only, skipping macOS-specific packages like `colima`
 
 ### Git-free Installation
 

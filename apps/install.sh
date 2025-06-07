@@ -35,11 +35,15 @@ install_homebrew() {
 
 # install cli apps
 install_cli_apps() {
-  brew bundle --file="${DIR}/Brewfile_cli"
-  # zsh-completions compinit fix
   if is_macos; then
+    # Install all packages on macOS
+    brew bundle --file="${DIR}/Brewfile_cli"
+    # zsh-completions compinit fix
     chmod go-w "/opt/homebrew/share"
     chmod -R go-w "/opt/homebrew/share/zsh"
+  else
+    # Install packages, skipping macOS-specific ones
+    HOMEBREW_BUNDLE_BREW_SKIP="colima" brew bundle --file="${DIR}/Brewfile_cli"
   fi
   echo "-> cli apps installed!"
 }
