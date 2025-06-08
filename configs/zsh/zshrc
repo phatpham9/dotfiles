@@ -16,10 +16,9 @@ eval "$(gh copilot alias -- zsh)"
 # fnm
 eval "$(fnm env --use-on-cd)"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+# uv
+# eval "$(uv generate-shell-completion zsh)"
+# eval "$(uvx --generate-shell-completion zsh)"
 
 # spaceship-prompt
 source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
