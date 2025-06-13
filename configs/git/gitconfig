@@ -1,23 +1,44 @@
 [user]
-  name = Phat Pham
-  email = phat@onroads.xyz
+	name = Phat Pham
+	email = phat@onroads.xyz
 	signingkey = ~/.ssh/id_ed25519.pub
+
+[core]
+	excludesfile = ~/.gitignore_global
+	ignorecase = false
+
+[init]
+	defaultBranch = main
 
 [gpg]
 	format = ssh
 
 [commit]
-  gpgsign = true
+	gpgsign = true
+	verbose = true
 
 [tag]
-  gpgsign = true
+	gpgsign = true
+	sort = version:refname
 
-[core]
-  excludesfile = ~/.gitignore_global
-	ignorecase = false
+[branch]
+	sort = -committerdate
+
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+
+[help]
+	autocorrect = prompt
 
 [includeIf "gitdir:~/code/secondary/"]
-  path = ~/.gitconfig_secondary
+	path = ~/.gitconfig_secondary
 
 [includeIf "gitdir:~/code/saypien/"]
-  path = ~/.gitconfig_saypien
+	path = ~/.gitconfig_saypien
