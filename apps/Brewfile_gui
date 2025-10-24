@@ -2,22 +2,32 @@
 
 ## software development
 
+### browser
 cask "brave-browser"
+
+### ide
 cask "visual-studio-code"
+
+### database
 cask "beekeeper-studio"
 cask "mongodb-compass"
 cask "redisinsight"
-cask "lm-studio"
 
 ## utilities
 
+### ai tools
+cask "chatgpt"
+cask "lm-studio"
+
+### microsoft office
+cask "microsoft-word"
+cask "microsoft-excel"
+cask "microsoft-powerpoint"
+
+### others
 cask "cloudflare-warp"
 cask "rectangle"
 cask "keka"
 cask "kap"
 cask "iina"
 cask "motrix"
-cask "chatgpt"
-cask "microsoft-word"
-cask "microsoft-excel"
-cask "microsoft-powerpoint"

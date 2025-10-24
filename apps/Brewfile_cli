@@ -2,17 +2,27 @@
 
 ## software development
 
+### version control
+brew "git"
+brew "gh"
+
+### shell enhancements (zsh is installed by default on macOS and Linux)
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
-brew "gh"
+
+### programming languages & runtimes
 brew "fnm"
 brew "uv"
+
+### container & orchestration
 brew "colima"
 brew "docker"
 brew "docker-compose"
-brew "k3d"
 brew "kubectl"
 brew "kustomize"
+brew "k3d"
+
+### infrastructure as code
 brew "terraform"
 
 ## utilities
