@@ -1,7 +1,0 @@
-[user]
-  name = Phat Pham
-  email = phat@saypien.io
-	signingkey = ~/.ssh/id_ed25519_saypien.pub
-
-[core]
-	sshCommand = ssh -F ~/.ssh/config_saypien

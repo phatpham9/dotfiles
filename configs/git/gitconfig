@@ -39,6 +39,3 @@
 
 [includeIf "gitdir:~/code/secondary/"]
 	path = ~/.gitconfig_secondary
-
-[includeIf "gitdir:~/code/saypien/"]
-	path = ~/.gitconfig_saypien
