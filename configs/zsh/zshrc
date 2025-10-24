@@ -20,8 +20,8 @@ eval "$(fnm env --use-on-cd)"
 # eval "$(uv generate-shell-completion zsh)"
 # eval "$(uvx --generate-shell-completion zsh)"
 
-# spaceship-prompt
-source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
+# starship
+eval "$(starship init zsh)"
 
 # oh-my-zsh
 plugins=(git gh fnm npm uv docker kubectl terraform direnv)

@@ -17,5 +17,7 @@ brew "terraform"
 
 ## utilities
 
+brew "starship"
 brew "direnv"
-brew "spaceship"
+brew "jq"
+brew "yq"
