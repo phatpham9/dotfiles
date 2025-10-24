@@ -32,7 +32,6 @@ configure_ssh() {
   create_symlink "ssh/config" ".ssh/config"
   create_symlink "ssh/config_secondary" ".ssh/config_secondary"
   echo "-> SSH keys generated & configured!"
-  echo "-> Attention! Don't forget to copy the public key & add it to remote hosts such as github.com & gitlab.com."
 }
 
 # configure git
@@ -48,6 +47,13 @@ configure_gh() {
   mkdir -p "${GH_CONFIG_DIR}"
   create_symlink "gh/config.yml" ".config/gh/config.yml"
   create_symlink "gh/hosts.yml" ".config/gh/hosts.yml"
+  while IFS= read -r extension; do
+    if is_macos; then
+      /opt/homebrew/bin/gh extension install "$extension"
+    else
+      /home/linuxbrew/.linuxbrew/bin/gh extension install "$extension"
+    fi
+  done < "${DIR}/gh/extensions"
   echo "-> GitHub CLI configured!"
 }
 
@@ -65,22 +71,9 @@ configure_zsh() {
   echo "-> Zsh configured!"
 }
 
-# install gh extensions
-install_gh_extensions() {
-  while IFS= read -r extension; do
-    if is_macos; then
-      /opt/homebrew/bin/gh extension install "$extension"
-    else
-      /home/linuxbrew/.linuxbrew/bin/gh extension install "$extension"
-    fi
-  done < "${DIR}/gh/extensions"
-  echo "-> gh extensions installed!"
-}
-
 # Main script execution
 configure_ssh
 configure_git
 configure_gh
 configure_docker
 configure_zsh
-install_gh_extensions
