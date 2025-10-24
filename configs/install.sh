@@ -3,6 +3,7 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SSH_DIR="${HOME}/.ssh"
 GH_CONFIG_DIR="${HOME}/.config/gh"
+DOCKER_CONFIG_DIR="${HOME}/.docker"
 
 # check if running on macOS
 is_macos() {
@@ -57,21 +58,18 @@ configure_gh() {
   echo "-> GitHub CLI configured!"
 }
 
+# configure docker
+configure_docker() {
+  mkdir -p "${DOCKER_CONFIG_DIR}"
+  create_symlink "docker/config.json" ".docker/config.json"
+  echo "-> Docker configured!"
+}
+
 # configure zsh
 configure_zsh() {
   create_symlink "zsh/zsh_aliases" ".zsh_aliases"
   create_symlink "zsh/zshrc" ".zshrc"
   echo "-> Zsh configured!"
-}
-
-# config poetry
-configure_poetry() {
-  if is_macos; then
-    /opt/homebrew/bin/poetry config virtualenvs.in-project true
-  else
-    /home/linuxbrew/.linuxbrew/bin/poetry config virtualenvs.in-project true
-  fi
-  echo "-> Poetry configured!"
 }
 
 # install gh extensions
@@ -90,6 +88,6 @@ install_gh_extensions() {
 configure_ssh
 configure_git
 configure_gh
+configure_docker
 configure_zsh
-configure_poetry
 install_gh_extensions
