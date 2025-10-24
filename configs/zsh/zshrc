@@ -10,9 +10,6 @@ else
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# gh
-eval "$(gh copilot alias -- zsh)"
-
 # fnm
 eval "$(fnm env --use-on-cd)"
 
@@ -20,10 +17,10 @@ eval "$(fnm env --use-on-cd)"
 # eval "$(uv generate-shell-completion zsh)"
 # eval "$(uvx --generate-shell-completion zsh)"
 
-# starship
+# zsh theme - starship
 eval "$(starship init zsh)"
 
-# oh-my-zsh
+# zsh plugins - oh-my-zsh
 plugins=(git gh fnm npm uv docker kubectl terraform direnv)
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 

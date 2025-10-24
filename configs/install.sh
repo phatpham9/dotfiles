@@ -47,13 +47,6 @@ configure_gh() {
   mkdir -p "${GH_CONFIG_DIR}"
   create_symlink "gh/config.yml" ".config/gh/config.yml"
   create_symlink "gh/hosts.yml" ".config/gh/hosts.yml"
-  while IFS= read -r extension; do
-    if is_macos; then
-      /opt/homebrew/bin/gh extension install "$extension"
-    else
-      /home/linuxbrew/.linuxbrew/bin/gh extension install "$extension"
-    fi
-  done < "${DIR}/gh/extensions"
   echo "-> GitHub CLI configured!"
 }
 
