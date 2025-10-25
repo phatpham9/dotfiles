@@ -8,11 +8,6 @@ cask "brave-browser"
 ### ide
 cask "visual-studio-code"
 
-### database
-cask "beekeeper-studio"
-cask "mongodb-compass"
-cask "redisinsight"
-
 ## utilities
 
 ### ai tools
