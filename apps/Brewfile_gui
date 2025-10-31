@@ -7,12 +7,14 @@ cask "brave-browser"
 
 ### ide
 cask "visual-studio-code"
+cask "zed"
 
 ## utilities
 
 ### ai tools
 cask "chatgpt"
 cask "lm-studio"
+cask "anythingllm"
 
 ### microsoft office
 cask "microsoft-word"
