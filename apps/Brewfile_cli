@@ -4,6 +4,7 @@
 
 ### version control
 brew "git"
+brew "git-lfs"
 brew "gh"
 
 ### shell enhancements (zsh is installed by default on macOS and Linux)
