@@ -7,7 +7,12 @@ cask "brave-browser"
 
 ### ide
 cask "visual-studio-code"
+cask "antigravity"
 cask "zed"
+
+### cloud
+cask "awscli"
+cask "gcloud-cli"
 
 ## utilities
 
