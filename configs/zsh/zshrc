@@ -18,7 +18,7 @@ eval "$(fnm env --use-on-cd)"
 # eval "$(uvx --generate-shell-completion zsh)"
 
 # zsh plugins - oh-my-zsh
-plugins=(git gh fnm npm uv docker kubectl terraform direnv)
+plugins=(git gh fnm uv docker docker-compose kubectl terraform direnv)
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 # zsh prompt - starship
