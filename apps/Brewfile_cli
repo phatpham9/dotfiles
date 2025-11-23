@@ -26,6 +26,10 @@ brew "k3d"
 ### infrastructure as code
 brew "terraform"
 
+### cloud
+brew "awscli"
+brew "gcloud-cli"
+
 ## utilities
 
 brew "jq"
