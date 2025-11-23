@@ -34,18 +34,20 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Shell**: zsh with completions and syntax highlighting
 - **Languages & Runtimes**: fnm (Node.js), uv (Python)
 - **Containers**: docker, docker-compose, kubectl, kustomize, k3d
-- **Infrastructure**: terraform
-- **Cloud**: awscli, gcloud-cli
-- **Utilities**: starship (prompt), direnv, jq, yq, bat, macmon
+- **Infrastructure**: terraform (via HashiCorp tap)
+- **Cloud**: awscli
+- **Utilities**: starship (prompt), direnv, jq, yq, bat
 
 **macOS-Specific CLI**:
 
 - colima (container runtime)
+- macmon (system monitoring)
 
 **GUI Applications** (macOS only):
 
 - **Browser**: Brave Browser
 - **IDE**: Visual Studio Code, Antigravity, Zed
+- **Cloud**: gcloud-cli
 - **AI Tools**: ChatGPT, LM Studio, AnythingLLM
 - **Microsoft Office**: Word, Excel, PowerPoint
 - **Utilities**: Cloudflare WARP, Rectangle, Keka, Kap, IINA, Motrix, UTM
@@ -113,7 +115,7 @@ The installation script will:
 **Platform Detection:**
 
 - On **macOS**: Installs all CLI and GUI applications
-- On **Ubuntu**: Installs CLI applications only, automatically skips macOS-specific packages (colima, all casks)
+- On **Ubuntu**: Installs CLI applications only, automatically skips macOS-specific packages (colima, macmon, and all casks)
 
 ### Git-Free Installation
 
@@ -121,6 +123,25 @@ Install without cloning via git:
 
 ```bash
 mkdir dotfiles && cd dotfiles && curl -#L https://github.com/phatpham9/dotfiles/tarball/master | tar -xzv --strip-components 1 && ./install.sh
+```
+
+### Testing with Docker
+
+You can test the installation in a clean Ubuntu environment using Docker:
+
+```bash
+# Start Ubuntu container with project mounted
+docker run -d --name dotfiles-test -v $(pwd):/root/dotfiles ubuntu:latest tail -f /dev/null
+
+# Install prerequisites
+docker exec dotfiles-test apt-get update
+docker exec dotfiles-test apt-get install -y sudo curl git
+
+# Run installation
+docker exec -it dotfiles-test bash -c "cd /root/dotfiles && ./install.sh"
+
+# Clean up when done
+docker rm -f dotfiles-test
 ```
 
 ### Post-Installation
@@ -186,10 +207,10 @@ Edit the appropriate Brewfile:
 
 ### Platform-Specific Packages
 
-To skip a package on Ubuntu, add it to the `HOMEBREW_BUNDLE_BREW_SKIP` variable in `apps/install.sh`:
+To skip a package on Ubuntu, add it to the `HOMEBREW_BUNDLE_BREW_SKIP` variable in `apps/cli/install.sh`:
 
 ```bash
-HOMEBREW_BUNDLE_BREW_SKIP="colima,other-macos-only-package" brew bundle --file="${DIR}/Brewfile_cli"
+HOMEBREW_BUNDLE_BREW_SKIP="colima macmon other-macos-only-package" brew bundle --file="${DIR}/Brewfile"
 ```
 
 ## Maintenance

@@ -24,11 +24,10 @@ brew "kustomize"
 brew "k3d"
 
 ### infrastructure as code
-brew "terraform"
+brew "hashicorp/tap/terraform"
 
 ### cloud
 brew "awscli"
-brew "gcloud-cli"
 
 ## utilities
 
