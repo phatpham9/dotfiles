@@ -2,8 +2,9 @@
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SSH_DIR="${HOME}/.ssh"
-GH_CONFIG_DIR="${HOME}/.config/gh"
-DOCKER_CONFIG_DIR="${HOME}/.docker"
+CONFIG_DIR="${HOME}/.config"
+GH_DIR="${CONFIG_DIR}/gh"
+DOCKER_DIR="${HOME}/.docker"
 
 # check if running on macOS
 is_macos() {
@@ -44,7 +45,7 @@ configure_git() {
 
 # configure gh
 configure_gh() {
-  mkdir -p "${GH_CONFIG_DIR}"
+  mkdir -p "${GH_DIR}"
   create_symlink "gh/config.yml" ".config/gh/config.yml"
   create_symlink "gh/hosts.yml" ".config/gh/hosts.yml"
   echo "-> GitHub CLI configured!"
@@ -52,7 +53,7 @@ configure_gh() {
 
 # configure docker
 configure_docker() {
-  mkdir -p "${DOCKER_CONFIG_DIR}"
+  mkdir -p "${DOCKER_DIR}"
   create_symlink "docker/config.json" ".docker/config.json"
   echo "-> Docker configured!"
 }
@@ -64,9 +65,17 @@ configure_zsh() {
   echo "-> Zsh configured!"
 }
 
+# configure starship
+configure_starship() {
+  mkdir -p "${CONFIG_DIR}"
+  create_symlink "starship/starship.toml" ".config/starship.toml"
+  echo "-> Starship configured!"
+}
+
 # Main script execution
 configure_ssh
 configure_git
 configure_gh
 configure_docker
 configure_zsh
+configure_starship
