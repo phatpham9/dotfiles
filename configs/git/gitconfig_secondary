@@ -1,7 +1,0 @@
-[user]
-  name = Phat Pham
-  email = phatttpham9@gmail.com
-	signingkey = ~/.ssh/id_ed25519_secondary.pub
-
-[core]
-	sshCommand = ssh -F ~/.ssh/config_secondary

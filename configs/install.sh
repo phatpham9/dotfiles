@@ -25,20 +25,13 @@ configure_ssh() {
   else
     echo "-> SSH key id_ed25519 already exists."
   fi
-  if [ ! -f "${SSH_DIR}/id_ed25519_secondary" ]; then
-    ssh-keygen -t ed25519 -C "phatttpham9@gmail.com" -f "${SSH_DIR}/id_ed25519_secondary" -P ""
-  else
-    echo "-> SSH key id_ed25519_secondary already exists."
-  fi
   create_symlink "ssh/config" ".ssh/config"
-  create_symlink "ssh/config_secondary" ".ssh/config_secondary"
   echo "-> SSH keys generated & configured!"
 }
 
 # configure git
 configure_git() {
   create_symlink "git/gitconfig" ".gitconfig"
-  create_symlink "git/gitconfig_secondary" ".gitconfig_secondary"
   create_symlink "git/gitignore_global" ".gitignore_global"
   echo "-> Git configured!"
 }

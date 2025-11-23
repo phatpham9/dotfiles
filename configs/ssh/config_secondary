@@ -1,4 +1,0 @@
-Host *
-  IdentityFile ~/.ssh/id_ed25519_secondary
-  PreferredAuthentications publickey
-  IdentitiesOnly yes
