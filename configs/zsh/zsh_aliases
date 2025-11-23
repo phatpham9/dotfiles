@@ -1,3 +1,2 @@
-## other
 alias clean="rm ~/.zsh_history"
 alias myip="curl https://ipecho.net/plain; echo"

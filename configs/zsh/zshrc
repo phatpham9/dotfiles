@@ -13,16 +13,9 @@ fi
 # fnm
 eval "$(fnm env --use-on-cd)"
 
-# uv
-# eval "$(uv generate-shell-completion zsh)"
-# eval "$(uvx --generate-shell-completion zsh)"
-
-# zsh plugins - oh-my-zsh
-plugins=(git gh fnm uv docker docker-compose kubectl terraform direnv)
+# zsh plugins
+plugins=(git gh fnm uv docker docker-compose kubectl terraform direnv starship)
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
-
-# zsh prompt - starship
-eval "$(starship init zsh)"
 
 # zsh aliases
 source "$HOME/.zsh_aliases"
@@ -30,10 +23,10 @@ source "$HOME/.zsh_aliases"
 # zsh-completions
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
 fi
 
 # zsh-syntax-highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
