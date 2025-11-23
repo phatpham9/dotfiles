@@ -1,0 +1,10 @@
+# git
+configs/git/*
+!configs/git/gitconfig
+!configs/git/gitignore_global
+!configs/git/install.sh
+
+# ssh
+configs/ssh/*
+!configs/ssh/config
+!configs/ssh/install.sh
