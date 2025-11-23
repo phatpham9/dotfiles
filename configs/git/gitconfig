@@ -24,15 +24,18 @@
 [branch]
 	sort = -committerdate
 
-[push]
-	default = simple
-	autoSetupRemote = true
-	followTags = true
-
 [fetch]
 	prune = true
 	pruneTags = true
 	all = true
+
+[pull]
+	rebase = true
+
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
 
 [help]
 	autocorrect = prompt
