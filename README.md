@@ -152,6 +152,54 @@ After installation completes:
 2. Verify installations: `brew list`
 3. Check zsh configuration: `echo $SHELL` (should be `/bin/zsh`)
 
+## Profile Management
+
+Manage multiple Git/SSH profiles for different projects or organizations (e.g., personal, work, client projects).
+
+### Adding a New Profile
+
+Use the `add_profile.sh` script to create a new profile:
+
+```bash
+./add_profile.sh
+```
+
+The script will:
+
+1. Prompt for profile name, Git user.name, and Git user.email
+2. Convert the profile name to snake_case automatically
+3. Generate a new SSH key (`~/.ssh/id_ed25519_[profile]`)
+4. Create profile-specific SSH config (`configs/ssh/config_[profile]`)
+5. Create profile-specific Git config (`configs/git/gitconfig_[profile]`)
+6. Set up symlinks for both configs
+7. Add an `includeIf` directive to the main `.gitconfig`
+
+**After running the script:**
+
+1. Add the SSH public key to your Git hosting service:
+   ```bash
+   cat ~/.ssh/id_ed25519_[profile].pub
+   ```
+2. Create a directory for profile projects: `~/code/[profile]/`
+3. Any Git repositories under `~/code/[profile]/` will automatically use the profile's Git config
+
+### Removing a Profile
+
+Use the `remove_profile.sh` script to remove an existing profile:
+
+```bash
+./remove_profile.sh
+```
+
+The script will:
+
+1. Prompt for the profile name to remove
+2. Display all files and configurations that will be deleted
+3. Ask for confirmation before proceeding
+4. Remove SSH keys, SSH config, Git config, symlinks, and the `includeIf` directive
+
+**Warning:** This operation cannot be undone. Make sure to backup any important data before removal.
+
 ## Project Structure
 
 ```

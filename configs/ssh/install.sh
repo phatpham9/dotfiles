@@ -5,15 +5,12 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SSH_DIR="${HOME}/.ssh"
 
 # source utils
+source "${DIR}/../../utils/generate_ssh_key.sh"
 source "${DIR}/../../utils/create_symlink.sh"
 
 configure_ssh() {
   mkdir -p "${SSH_DIR}"
-  if [ ! -f "${SSH_DIR}/id_ed25519" ]; then
-    ssh-keygen -t ed25519 -C "phat@onroads.xyz" -f "${SSH_DIR}/id_ed25519" -P ""
-  else
-    echo "-> SSH key id_ed25519 already exists."
-  fi
+  generate_ssh_key "${SSH_DIR}/id_ed25519" "phat@onroads.xyz"
   create_symlink "${DIR}/config" "${SSH_DIR}/config"
 }
 

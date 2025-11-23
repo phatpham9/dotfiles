@@ -1,0 +1,7 @@
+[user]
+  name = [your-name]
+  email = [your-email]
+	signingkey = ~/.ssh/id_ed25519_[profile].pub
+
+[core]
+	sshCommand = ssh -F ~/.ssh/config_[profile]

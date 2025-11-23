@@ -1,0 +1,4 @@
+Host *
+  IdentityFile ~/.ssh/id_ed25519_[profile]
+  PreferredAuthentications publickey
+  IdentitiesOnly yes
