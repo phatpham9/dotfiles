@@ -53,6 +53,12 @@ install_gui_apps() {
   if is_macos; then
     brew bundle --file="${DIR}/Brewfile_gui"
     echo "-> gui apps installed!"
+
+    # Create symlink for Antigravity if it doesn't exist
+    if [ ! -L "/opt/homebrew/bin/antigravity" ]; then
+      ln -s "/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity" "/opt/homebrew/bin/antigravity"
+      echo "-> antigravity symlink created!"
+    fi
   fi
 }
 
