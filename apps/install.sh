@@ -1,20 +1,21 @@
 #!/bin/bash
+set -e
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# check if running on macOS
-is_macos() {
-  [[ $(uname) == "Darwin" ]]
-}
+# source utils
+source "${DIR}/../utils/is_macos.sh"
 
 # install dependencies
 install_dependencies() {
   if is_macos; then
     xcode-select --install
+    
     echo "-> xcode installed!"
   else
     sudo apt-get update
     sudo apt-get install -y build-essential procps file curl git zsh
+    
     echo "-> curl git zsh installed!"
   fi
 }
@@ -24,6 +25,8 @@ install_homebrew() {
   if ! command -v brew &> /dev/null; then
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo "-> brew installed!"
+    
+    # set up shell environment
     if is_macos; then
       eval "$(/opt/homebrew/bin/brew shellenv)"
       brew install gcc
@@ -35,37 +38,23 @@ install_homebrew() {
 
 # install cli apps
 install_cli_apps() {
-  if is_macos; then
-    # Install all packages on macOS
-    brew bundle --file="${DIR}/Brewfile_cli"
-    # zsh-completions compinit fix
-    chmod go-w "/opt/homebrew/share"
-    chmod -R go-w "/opt/homebrew/share/zsh"
-  else
-    # Install packages, skipping macOS-specific ones
-    HOMEBREW_BUNDLE_BREW_SKIP="colima" brew bundle --file="${DIR}/Brewfile_cli"
-  fi
+  "${DIR}/cli/install.sh"
+
   echo "-> cli apps installed!"
 }
 
 # install gui apps (macOS only)
 install_gui_apps() {
-  if is_macos; then
-    brew bundle --file="${DIR}/Brewfile_gui"
-    echo "-> gui apps installed!"
+  "${DIR}/gui/install.sh"
 
-    # Create symlink for Antigravity if it doesn't exist
-    if [ ! -L "/opt/homebrew/bin/antigravity" ]; then
-      ln -s "/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity" "/opt/homebrew/bin/antigravity"
-      echo "-> antigravity symlink created!"
-    fi
-  fi
+  echo "-> gui apps installed!"
 }
 
 # install oh-my-zsh
 install_oh_my_zsh() {
   if [ ! -d "${HOME}/.oh-my-zsh" ]; then
     RUNZSH=no /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    
     echo "-> oh-my-zsh installed!"
   fi
 }

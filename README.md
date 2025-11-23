@@ -29,35 +29,40 @@ A fully automated dotfiles repository that sets up a complete development enviro
 ### 📱 Applications
 
 **CLI Tools** (Both macOS & Ubuntu):
-- **Version Control**: git, gh (GitHub CLI)
+
+- **Version Control**: git, git-lfs, gh (GitHub CLI)
 - **Shell**: zsh with completions and syntax highlighting
 - **Languages & Runtimes**: fnm (Node.js), uv (Python)
 - **Containers**: docker, docker-compose, kubectl, kustomize, k3d
 - **Infrastructure**: terraform
-- **Utilities**: starship (prompt), direnv, jq, yq, bat
+- **Cloud**: awscli, gcloud-cli
+- **Utilities**: starship (prompt), direnv, jq, yq, bat, macmon
 
 **macOS-Specific CLI**:
+
 - colima (container runtime)
 
 **GUI Applications** (macOS only):
+
 - **Browser**: Brave Browser
-- **IDE**: Visual Studio Code
-- **Database Tools**: Beekeeper Studio, MongoDB Compass, RedisInsight
-- **AI Tools**: ChatGPT, LM Studio
+- **IDE**: Visual Studio Code, Antigravity, Zed
+- **AI Tools**: ChatGPT, LM Studio, AnythingLLM
 - **Microsoft Office**: Word, Excel, PowerPoint
-- **Utilities**: Cloudflare WARP, Rectangle, Keka, Kap, IINA, Motrix
+- **Utilities**: Cloudflare WARP, Rectangle, Keka, Kap, IINA, Motrix, UTM
 
 ### ⚙️ Configurations
 
 The following tools are automatically configured via symlinks:
 
 1. **Zsh** (`.zshrc`, `.zsh_aliases`)
+
    - Starship prompt theme
    - oh-my-zsh with plugins (git, gh, fnm, npm, uv, docker, kubectl, terraform, direnv)
    - Platform-specific Homebrew initialization
    - fnm auto-switching on directory change
 
 2. **Git** (`.gitconfig`, `.gitignore_global`)
+
    - SSH-based GPG signing
    - Auto-setup remote branches on push
    - Case-sensitive file handling
@@ -65,14 +70,20 @@ The following tools are automatically configured via symlinks:
    - Branch sorting by commit date
 
 3. **SSH** (`~/.ssh/config`)
+
    - Automatic SSH key generation (ed25519)
    - Dual SSH key support for multiple SSH accounts
 
 4. **GitHub CLI** (`~/.config/gh/`)
+
    - Pre-configured gh settings
 
 5. **Docker** (`~/.docker/config.json`)
+
    - Custom Docker daemon settings
+
+6. **Starship** (`~/.config/starship.toml`)
+   - Cross-shell prompt configuration
 
 ## Installation
 
@@ -92,13 +103,15 @@ cd dotfiles
 ```
 
 The installation script will:
+
 1. Request sudo password (required for system-level changes)
 2. Install Homebrew (if not already installed)
-3. Install all applications from `Brewfile_cli` (and `Brewfile_gui` on macOS)
+3. Install all applications from `apps/cli/Brewfile` (and `apps/gui/Brewfile` on macOS)
 4. Create symlinks for all configuration files
 5. Generate SSH keys (if they don't exist)
 
 **Platform Detection:**
+
 - On **macOS**: Installs all CLI and GUI applications
 - On **Ubuntu**: Installs CLI applications only, automatically skips macOS-specific packages (colima, all casks)
 
@@ -113,6 +126,7 @@ mkdir dotfiles && cd dotfiles && curl -#L https://github.com/phatpham9/dotfiles/
 ### Post-Installation
 
 After installation completes:
+
 1. Log out and log back in (or restart your terminal)
 2. Verify installations: `brew list`
 3. Check zsh configuration: `echo $SHELL` (should be `/bin/zsh`)
@@ -123,24 +137,36 @@ After installation completes:
 dotfiles/
 ├── install.sh              # Main installation script
 ├── apps/
-│   ├── install.sh         # Application installation logic
-│   ├── Brewfile_cli       # CLI applications (cross-platform)
-│   └── Brewfile_gui       # GUI applications (macOS only)
+│   ├── install.sh          # Application installation logic
+│   ├── cli/
+│   │   ├── install.sh
+│   │   └── Brewfile        # CLI applications (cross-platform)
+│   └── gui/
+│       ├── install.sh
+│       └── Brewfile        # GUI applications (macOS only)
 └── configs/
-    ├── install.sh         # Configuration symlink setup
-    ├── zsh/              # Zsh configuration
+    ├── install.sh          # Configuration symlink setup
+    ├── zsh/                # Zsh configuration
+    │   ├── install.sh
     │   ├── zshrc
     │   └── zsh_aliases
-    ├── git/              # Git configuration
+    ├── git/                # Git configuration
+    │   ├── install.sh
     │   ├── gitconfig
     │   └── gitignore_global
-    ├── ssh/              # SSH configuration templates
+    ├── ssh/                # SSH configuration templates
+    │   ├── install.sh
     │   └── config
-    ├── gh/               # GitHub CLI configuration
+    ├── gh/                 # GitHub CLI configuration
+    │   ├── install.sh
     │   ├── config.yml
     │   └── hosts.yml
-    └── docker/           # Docker configuration
-        └── config.json
+    ├── docker/             # Docker configuration
+    │   ├── install.sh
+    │   └── config.json
+    └── starship/           # Starship configuration
+        ├── install.sh
+        └── starship.toml
 ```
 
 ## Customization
@@ -148,8 +174,9 @@ dotfiles/
 ### Adding New Applications
 
 Edit the appropriate Brewfile:
-- `apps/Brewfile_cli` - Add CLI tools with `brew "package-name"`
-- `apps/Brewfile_gui` - Add GUI apps with `cask "app-name"` (macOS only)
+
+- `apps/cli/Brewfile` - Add CLI tools with `brew "package-name"`
+- `apps/gui/Brewfile` - Add GUI apps with `cask "app-name"` (macOS only)
 
 ### Adding New Configurations
 
@@ -231,6 +258,7 @@ Contributions are welcome! Here's how you can help:
 5. **Open** a Pull Request
 
 Please ensure your changes:
+
 - Work on both macOS and Ubuntu (or use platform detection)
 - Follow the existing code style
 - Include appropriate comments
@@ -243,6 +271,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Author
 
 **Phat Pham**
+
 - GitHub: [@phatpham9](https://github.com/phatpham9)
 - Email: phat@onroads.xyz
 - Website: [onroads.xyz](https://onroads.xyz)

@@ -1,4 +1,7 @@
 #!/bin/bash
+set -e
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # ask for the administrator password upfront
 sudo -v
@@ -8,12 +11,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # install apps
 echo "1. Installing apps..."
-./apps/install.sh
+"${DIR}/apps/install.sh"
 echo "-> Apps installed!"
 
 # configure apps
 echo "2. Configuring apps..."
-./configs/install.sh
+"${DIR}/configs/install.sh"
 echo "-> Apps configured!"
 
 # restart
