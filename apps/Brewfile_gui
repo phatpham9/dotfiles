@@ -27,6 +27,7 @@ cask "microsoft-excel"
 cask "microsoft-powerpoint"
 
 ### others
+cask "bitwarden"
 cask "cloudflare-warp"
 cask "rectangle"
 cask "keka"
