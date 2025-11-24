@@ -204,36 +204,47 @@ The script will:
 
 ```
 dotfiles/
-├── install.sh              # Main installation script
+├── .gitignore                   # Git ignore rules
+├── LICENSE                      # MIT License
+├── install.sh                   # Main installation script
+├── add_profile.sh               # Add new Git/SSH profile
+├── remove_profile.sh            # Remove existing Git/SSH profile
+├── utils/                       # Utility functions
+│   ├── is_macos.sh              # macOS detection helper
+│   ├── create_symlink.sh        # Symlink creation helper
+│   ├── generate_ssh_key.sh      # SSH key generation helper
+│   └── to_snake_case.sh         # String to snake_case converter
 ├── apps/
-│   ├── install.sh          # Application installation logic
+│   ├── install.sh               # Application installation logic
 │   ├── cli/
 │   │   ├── install.sh
-│   │   └── Brewfile        # CLI applications (cross-platform)
+│   │   └── Brewfile             # CLI applications (cross-platform)
 │   └── gui/
 │       ├── install.sh
-│       └── Brewfile        # GUI applications (macOS only)
+│       └── Brewfile             # GUI applications (macOS only)
 └── configs/
-    ├── install.sh          # Configuration symlink setup
-    ├── zsh/                # Zsh configuration
+    ├── install.sh               # Configuration symlink setup
+    ├── zsh/                     # Zsh configuration
     │   ├── install.sh
     │   ├── zshrc
     │   └── zsh_aliases
-    ├── git/                # Git configuration
+    ├── git/                     # Git configuration
     │   ├── install.sh
     │   ├── gitconfig
+    │   ├── gitconfig_[profile]  # Profile-specific Git config template
     │   └── gitignore_global
-    ├── ssh/                # SSH configuration templates
+    ├── ssh/                     # SSH configuration
     │   ├── install.sh
-    │   └── config
-    ├── gh/                 # GitHub CLI configuration
+    │   ├── config
+    │   └── config_[profile]     # Profile-specific SSH config template
+    ├── gh/                      # GitHub CLI configuration
     │   ├── install.sh
     │   ├── config.yml
     │   └── hosts.yml
-    ├── docker/             # Docker configuration
+    ├── docker/                  # Docker configuration
     │   ├── install.sh
     │   └── config.json
-    └── starship/           # Starship configuration
+    └── starship/                # Starship configuration
         ├── install.sh
         └── starship.toml
 ```
