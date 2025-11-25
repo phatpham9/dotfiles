@@ -1,3 +1,6 @@
+[gcloud]
+disabled = true
+
 [custom.git_user]
 command = """
 email=$(git config user.email | grep -v 'phat@onroads.xyz')
