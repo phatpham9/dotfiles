@@ -24,7 +24,7 @@ brew "kustomize"
 brew "k3d"
 
 ### infrastructure as code
-brew "hashicorp/tap/terraform"
+brew "terraform"
 
 ### cloud
 brew "awscli"

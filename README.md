@@ -34,7 +34,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Shell**: zsh with completions and syntax highlighting
 - **Languages & Runtimes**: fnm (Node.js), uv (Python)
 - **Containers**: docker, docker-compose, kubectl, kustomize, k3d
-- **Infrastructure**: terraform (via HashiCorp tap)
+- **Infrastructure**: terraform
 - **Cloud**: awscli
 - **Utilities**: starship (prompt), direnv, jq, yq, bat
 
