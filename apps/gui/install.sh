@@ -13,10 +13,10 @@ install_gui_apps() {
 
     # Create symlink for Antigravity if it doesn't exist
     if is_macos; then
-      if [ ! -L "/opt/homebrew/bin/antigravity" ]; then
-        create_symlink "/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity" "/opt/homebrew/bin/antigravity"
+      if [ ! -L "/opt/homebrew/bin/agy" ]; then
+        create_symlink "/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity" "/opt/homebrew/bin/agy"
         
-        echo "-> antigravity symlink created!"
+        echo "-> agy symlink created!"
       fi
     fi
   fi
