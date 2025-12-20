@@ -30,7 +30,7 @@
 	all = true
 
 [pull]
-	rebase = true
+	# rebase = true
 
 [push]
 	default = simple
