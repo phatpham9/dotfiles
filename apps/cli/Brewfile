@@ -18,6 +18,7 @@ brew "uv"
 ### container & orchestration
 brew "colima"
 brew "docker"
+brew "docker-buildx"
 brew "docker-compose"
 brew "kubectl"
 brew "kustomize"
