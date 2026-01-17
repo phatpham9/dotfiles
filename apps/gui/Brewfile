@@ -4,6 +4,7 @@
 
 ### browser
 cask "brave-browser"
+cask "google-chrome"
 
 ### ide
 cask "visual-studio-code"
