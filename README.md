@@ -57,14 +57,12 @@ A fully automated dotfiles repository that sets up a complete development enviro
 The following tools are automatically configured via symlinks:
 
 1. **Zsh** (`.zshrc`, `.zsh_aliases`)
-
    - Starship prompt theme
    - oh-my-zsh with plugins (git, gh, fnm, npm, uv, docker, kubectl, terraform, direnv)
    - Platform-specific Homebrew initialization
    - fnm auto-switching on directory change
 
 2. **Git** (`.gitconfig`, `.gitignore_global`)
-
    - SSH-based GPG signing
    - Auto-setup remote branches on push
    - Case-sensitive file handling
@@ -72,20 +70,21 @@ The following tools are automatically configured via symlinks:
    - Branch sorting by commit date
 
 3. **SSH** (`~/.ssh/config`)
-
    - Automatic SSH key generation (ed25519)
    - Dual SSH key support for multiple SSH accounts
 
 4. **GitHub CLI** (`~/.config/gh/`)
-
    - Pre-configured gh settings
 
 5. **Docker** (`~/.docker/config.json`)
-
    - Custom Docker daemon settings
 
 6. **Starship** (`~/.config/starship.toml`)
    - Cross-shell prompt configuration
+
+7. **Antigravity** (`~/.gemini/`)
+   - **Core Rules**: Engineering standards, architecture principles, and security guidelines
+   - **Skills**: Specialized AI capabilities (Database Design, System Planning, Review, etc.)
 
 ## Installation
 
@@ -204,49 +203,53 @@ The script will:
 
 ```
 dotfiles/
-├── .gitignore                   # Git ignore rules
-├── LICENSE                      # MIT License
-├── install.sh                   # Main installation script
-├── add_profile.sh               # Add new Git/SSH profile
-├── remove_profile.sh            # Remove existing Git/SSH profile
+├── apps/
+│   ├── cli/
+│   │   ├── install.sh
+│   │   └── Brewfile             # CLI applications (cross-platform)
+│   ├── gui/
+│   │   ├── install.sh
+│   │   └── Brewfile             # GUI applications (macOS only)
+│   └── install.sh               # Application installation logic
+├── configs/
+│   ├── antigravity/             # Antigravity configuration
+│   │   ├── install.sh
+│   │   ├── GEMINI.md
+│   │   └── skills/              # Antigravity skills
+│   ├── docker/                  # Docker configuration
+│   │   ├── install.sh
+│   │   └── config.json
+│   ├── gh/                      # GitHub CLI configuration
+│   │   ├── install.sh
+│   │   ├── config.yml
+│   │   └── hosts.yml
+│   ├── git/                     # Git configuration
+│   │   ├── install.sh
+│   │   ├── gitconfig
+│   │   ├── gitconfig_[profile]  # Profile-specific Git config template
+│   │   └── gitignore_global
+│   ├── ssh/                     # SSH configuration
+│   │   ├── install.sh
+│   │   ├── config
+│   │   └── config_[profile]     # Profile-specific SSH config template
+│   ├── starship/                # Starship configuration
+│   │   ├── install.sh
+│   │   └── starship.toml
+│   ├── zsh/                     # Zsh configuration
+│   │   ├── install.sh
+│   │   ├── zshrc
+│   │   └── zsh_aliases
+│   └── install.sh               # Configuration symlink setup
 ├── utils/                       # Utility functions
 │   ├── is_macos.sh              # macOS detection helper
 │   ├── create_symlink.sh        # Symlink creation helper
 │   ├── generate_ssh_key.sh      # SSH key generation helper
 │   └── to_snake_case.sh         # String to snake_case converter
-├── apps/
-│   ├── install.sh               # Application installation logic
-│   ├── cli/
-│   │   ├── install.sh
-│   │   └── Brewfile             # CLI applications (cross-platform)
-│   └── gui/
-│       ├── install.sh
-│       └── Brewfile             # GUI applications (macOS only)
-└── configs/
-    ├── install.sh               # Configuration symlink setup
-    ├── zsh/                     # Zsh configuration
-    │   ├── install.sh
-    │   ├── zshrc
-    │   └── zsh_aliases
-    ├── git/                     # Git configuration
-    │   ├── install.sh
-    │   ├── gitconfig
-    │   ├── gitconfig_[profile]  # Profile-specific Git config template
-    │   └── gitignore_global
-    ├── ssh/                     # SSH configuration
-    │   ├── install.sh
-    │   ├── config
-    │   └── config_[profile]     # Profile-specific SSH config template
-    ├── gh/                      # GitHub CLI configuration
-    │   ├── install.sh
-    │   ├── config.yml
-    │   └── hosts.yml
-    ├── docker/                  # Docker configuration
-    │   ├── install.sh
-    │   └── config.json
-    └── starship/                # Starship configuration
-        ├── install.sh
-        └── starship.toml
+├── .gitignore                   # Git ignore rules
+├── add_profile.sh               # Add new Git/SSH profile
+├── install.sh                   # Main installation script
+├── LICENSE                      # MIT License
+└── remove_profile.sh            # Remove existing Git/SSH profile
 ```
 
 ## Customization
