@@ -45,6 +45,13 @@ configure_starship() {
   echo "-> Starship configured!"
 }
 
+# configure antigravity
+configure_antigravity() {
+  "${DIR}/antigravity/install.sh"
+  
+  echo "-> Antigravity configured!"
+}
+
 # Main script execution
 configure_ssh
 configure_git
@@ -52,3 +59,4 @@ configure_gh
 configure_docker
 configure_zsh
 configure_starship
+configure_antigravity
