@@ -13,6 +13,7 @@ brew "zsh-syntax-highlighting"
 
 ### programming languages & runtimes
 brew "fnm"
+brew "pnpm"
 brew "uv"
 
 ### container & orchestration
