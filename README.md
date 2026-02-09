@@ -46,9 +46,9 @@ A fully automated dotfiles repository that sets up a complete development enviro
 **GUI Applications** (macOS only):
 
 - **Browser**: Brave Browser
-- **IDE**: Visual Studio Code, Antigravity, Zed
+- **IDE**: Visual Studio Code, Antigravity
 - **Cloud**: gcloud-cli
-- **AI Tools**: ChatGPT, LM Studio, AnythingLLM
+- **AI Tools**: LM Studio, AnythingLLM
 - **Microsoft Office**: Word, Excel, PowerPoint
 - **Utilities**: Cloudflare WARP, Rectangle, Keka, Kap, IINA, Motrix, UTM
 
@@ -82,8 +82,8 @@ The following tools are automatically configured via symlinks:
 6. **Starship** (`~/.config/starship.toml`)
    - Cross-shell prompt configuration
 
-7. **Antigravity** (`~/.gemini/`)
-   - **Core Rules**: Engineering standards, architecture principles, and security guidelines
+7. **AI Agents** (Antigravity, VS Code GitHub Copilot, OpenCode)
+   - **Core Rules** (`rules.md`): Engineering standards, architecture principles, and security guidelines
    - **Skills**: Specialized AI capabilities (Database Design, System Planning, Review, etc.)
 
 ## Installation
@@ -212,10 +212,10 @@ dotfiles/
 │   │   └── Brewfile             # GUI applications (macOS only)
 │   └── install.sh               # Application installation logic
 ├── configs/
-│   ├── antigravity/             # Antigravity configuration
+│   ├── ai-agents/               # AI agents configuration (Antigravity, Copilot, OpenCode)
 │   │   ├── install.sh
-│   │   ├── GEMINI.md
-│   │   └── skills/              # Antigravity skills
+│   │   ├── rules.md             # Shared AI agent rules
+│   │   └── skills/              # AI agent skills
 │   ├── docker/                  # Docker configuration
 │   │   ├── install.sh
 │   │   └── config.json
