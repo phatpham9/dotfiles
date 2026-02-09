@@ -45,11 +45,11 @@ configure_starship() {
   echo "-> Starship configured!"
 }
 
-# configure antigravity
-configure_antigravity() {
-  "${DIR}/antigravity/install.sh"
+# configure ai agents
+configure_ai_agents() {
+  "${DIR}/ai-agents/install.sh"
   
-  echo "-> Antigravity configured!"
+  echo "-> AI agents configured!"
 }
 
 # Main script execution
@@ -59,4 +59,4 @@ configure_gh
 configure_docker
 configure_zsh
 configure_starship
-configure_antigravity
+configure_ai_agents
