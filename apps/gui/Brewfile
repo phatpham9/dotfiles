@@ -9,7 +9,6 @@ cask "google-chrome"
 ### ide
 cask "visual-studio-code"
 cask "antigravity"
-cask "zed"
 
 ### cloud
 cask "gcloud-cli"
@@ -17,7 +16,6 @@ cask "gcloud-cli"
 ## utilities
 
 ### ai tools
-cask "chatgpt"
 cask "lm-studio"
 cask "anythingllm"
 
