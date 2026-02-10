@@ -17,7 +17,6 @@ cask "gcloud-cli"
 
 ### ai tools
 cask "lm-studio"
-cask "anythingllm"
 
 ### microsoft office
 cask "microsoft-word"

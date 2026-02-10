@@ -45,10 +45,10 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 **GUI Applications** (macOS only):
 
-- **Browser**: Brave Browser
+- **Browser**: Brave Browser, Google Chrome
 - **IDE**: Visual Studio Code, Antigravity
 - **Cloud**: gcloud-cli
-- **AI Tools**: LM Studio, AnythingLLM
+- **AI Tools**: LM Studio
 - **Microsoft Office**: Word, Excel, PowerPoint
 - **Utilities**: Cloudflare WARP, Rectangle, Keka, Kap, IINA, Motrix, UTM
 
