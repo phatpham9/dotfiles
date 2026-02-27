@@ -22,7 +22,6 @@ brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
 brew "kubectl"
-brew "kustomize"
 brew "k3d"
 
 ### infrastructure as code

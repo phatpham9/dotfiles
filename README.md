@@ -33,7 +33,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Version Control**: git, git-lfs, gh (GitHub CLI)
 - **Shell**: zsh with completions and syntax highlighting
 - **Languages & Runtimes**: fnm (Node.js), uv (Python)
-- **Containers**: docker, docker-compose, kubectl, kustomize, k3d
+- **Containers**: docker, docker-compose, kubectl, k3d
 - **Infrastructure**: terraform
 - **Cloud**: awscli
 - **Utilities**: starship (prompt), direnv, jq, yq, bat
