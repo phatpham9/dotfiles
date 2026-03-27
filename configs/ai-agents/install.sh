@@ -7,6 +7,7 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 AGENTS_DIR="${HOME}/.agents"
 
 # Tool-specific locations
+COPILOT_DIR="${HOME}/.copilot"
 GEMINI_DIR="${HOME}/.gemini"
 
 # source utils
@@ -16,6 +17,10 @@ configure_ai_agents() {
   # Shared Skills (cross-compatible standard)
   mkdir -p "${AGENTS_DIR}"
   create_symlink "${DIR}/skills" "${AGENTS_DIR}/skills"
+
+  # GitHub Copilot (VS Code extension + Copilot CLI)
+  mkdir -p "${COPILOT_DIR}"
+  create_symlink "${DIR}/agents" "${COPILOT_DIR}/agents"
 
   # Antigravity (Gemini)
   mkdir -p "${GEMINI_DIR}/antigravity"
