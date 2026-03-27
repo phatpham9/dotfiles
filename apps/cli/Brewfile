@@ -32,6 +32,10 @@ brew "awscli"
 
 ## utilities
 
+### ai tools
+brew "copilot-cli"
+
+### others
 brew "jq"
 brew "yq"
 brew "bat"
