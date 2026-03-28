@@ -29,11 +29,13 @@ brew "terraform"
 
 ### cloud
 brew "awscli"
-
-## utilities
+cask "gcloud-cli"
+brew "azure-cli"
 
 ### ai tools
-brew "copilot-cli"
+cask "copilot-cli"
+
+## utilities
 
 ### others
 brew "jq"

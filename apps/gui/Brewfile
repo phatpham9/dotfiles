@@ -10,9 +10,6 @@ cask "google-chrome"
 cask "visual-studio-code"
 cask "antigravity"
 
-### cloud
-cask "gcloud-cli"
-
 ## utilities
 
 ### ai tools
