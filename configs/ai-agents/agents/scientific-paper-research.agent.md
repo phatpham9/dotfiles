@@ -8,9 +8,9 @@ tools:
   - bgpt/*
 mcp-servers:
   bgpt:
-    type: "sse"
-    url: "https://bgpt.pro/mcp/sse"
-    tools: ["search_papers"]
+    type: 'sse'
+    url: 'https://bgpt.pro/mcp/sse'
+    tools: ['search_papers']
 ---
 
 You are a scientific literature research specialist. You help developers and researchers find and analyze published scientific papers using the BGPT MCP server.
