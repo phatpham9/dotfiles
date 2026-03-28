@@ -32,10 +32,11 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - **Version Control**: git, git-lfs, gh (GitHub CLI)
 - **Shell**: zsh with completions and syntax highlighting
-- **Languages & Runtimes**: fnm (Node.js), uv (Python)
+- **Languages & Runtimes**: fnm (Node.js), pnpm, uv (Python)
 - **Containers**: docker, docker-compose, kubectl, k3d
 - **Infrastructure**: terraform
-- **Cloud**: awscli
+- **Cloud**: awscli, gcloud-cli, azure-cli
+- **AI Tools**: GitHub Copilot CLI
 - **Utilities**: starship (prompt), direnv, jq, yq, bat
 
 **macOS-Specific CLI**:
@@ -47,7 +48,6 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - **Browser**: Brave Browser, Google Chrome
 - **IDE**: Visual Studio Code, Antigravity
-- **Cloud**: gcloud-cli
 - **AI Tools**: LM Studio
 - **Microsoft Office**: Word, Excel, PowerPoint
 - **Utilities**: Cloudflare WARP, Rectangle, Keka, Kap, IINA, Motrix, UTM
@@ -82,9 +82,23 @@ The following tools are automatically configured via symlinks:
 6. **Starship** (`~/.config/starship.toml`)
    - Cross-shell prompt configuration
 
-7. **AI Agents** (Antigravity, VS Code GitHub Copilot, OpenCode)
+7. **AI Agents** (`~/.agents`, `~/.copilot`, `~/.gemini`)
    - **Core Rules** (`rules.md`): Engineering standards, architecture principles, and security guidelines
-   - **Skills**: Specialized AI capabilities (Database Design, System Planning, Review, etc.)
+   - **Agents** (symlinked to `~/.copilot/agents`):
+     - SWE Subagent (senior engineer — implementation, debugging, refactoring)
+     - SE: System Architecture Reviewer
+     - SE: GitOps/CI Specialist
+     - SE: Product Manager Advisor
+     - SE: Security Reviewer
+     - Scientific Paper Research
+   - **Skills** (symlinked to `~/.agents/skills` and `~/.gemini/antigravity/skills`):
+     architecture-blueprint-generator, chrome-devtools, cloud-design-patterns,
+     conventional-commit, create-architectural-decision-record, create-implementation-plan,
+     database-schema-designer, devops-rollout-plan, docker-k8s-optimizer,
+     draw-io-diagram-generator, jest-testing-generator, kafka-stream-designer,
+     nest-backend-service-builder, nextjs-react-engineering, senior-code-review,
+     sql-code-review, system-planning-assistant, telemetry-opentelemetry-integrator,
+     terraform-aws-builder
 
 ## Installation
 
