@@ -6,6 +6,7 @@
 brew "git"
 brew "git-lfs"
 brew "gh"
+brew "hf"
 
 ### shell enhancements (zsh is installed by default on macOS and Linux)
 brew "zsh-completions"
@@ -32,7 +33,7 @@ brew "awscli"
 cask "gcloud-cli"
 brew "azure-cli"
 
-### ai tools
+### ai/ml tools
 cask "copilot-cli"
 
 ## utilities
