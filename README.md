@@ -37,7 +37,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Infrastructure**: terraform
 - **Cloud**: awscli, gcloud-cli, azure-cli
 - **AI/ML Tools**: GitHub Copilot CLI
-- **Utilities**: starship (prompt), direnv, jq, yq, bat
+- **Utilities**: starship (prompt), direnv, jq, yq, bat, ffmpeg
 
 **macOS-Specific CLI**:
 

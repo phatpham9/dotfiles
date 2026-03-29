@@ -39,6 +39,7 @@ cask "copilot-cli"
 ## utilities
 
 ### others
+brew "ffmpeg"
 brew "jq"
 brew "yq"
 brew "bat"
