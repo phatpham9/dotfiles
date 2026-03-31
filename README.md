@@ -84,6 +84,15 @@ The following tools are automatically configured via symlinks:
 
 7. **AI Agents** (`~/.agents`, `~/.copilot`, `~/.gemini`)
    - **Core Rules** (`rules.md`): Engineering standards, architecture principles, and security guidelines
+   - **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp.json`): MCP server definitions used by Copilot agents, including:
+     - `github-mcp-server` — GitHub API via HTTP
+     - `huggingface` — Hugging Face Hub via HTTP
+     - `next-devtools` — Next.js DevTools via stdio (pnpm)
+     - `chrome-devtools` — Chrome DevTools automation via stdio (pnpm)
+     - `markitdown` — Markdown conversion via stdio (uvx)
+     - `context7` — Context7 documentation via HTTP
+     - `deepwiki` — DeepWiki repository docs via HTTP
+     - `arxiv-mcp-server` — arXiv paper search/download via stdio (uv)
    - **Agents** (symlinked to `~/.copilot/agents`):
      - SWE Subagent (senior engineer — implementation, debugging, refactoring)
      - SE: System Architecture Reviewer
