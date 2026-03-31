@@ -1,7 +1,19 @@
 ---
 name: 'SWE'
 description: 'Senior software engineer subagent for implementation tasks: feature development, debugging, refactoring, and testing.'
-tools: ['vscode', 'execute', 'read', 'agent', 'edit', 'search', 'web', 'todo']
+tools:
+  [
+    'vscode',
+    'execute',
+    'read',
+    'codebase',
+    'agent',
+    'edit',
+    'search',
+    'web',
+    'todo',
+    'problems',
+  ]
 ---
 
 ## Identity
