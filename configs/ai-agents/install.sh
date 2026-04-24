@@ -21,6 +21,8 @@ configure_ai_agents() {
   # GitHub Copilot (VS Code extension + Copilot CLI)
   mkdir -p "${COPILOT_DIR}"
   create_symlink "${DIR}/agents" "${COPILOT_DIR}/agents"
+  mkdir -p "${COPILOT_DIR}/instructions"
+  create_symlink "${DIR}/copilot-instructions.md" "${COPILOT_DIR}/instructions/copilot-instructions.instructions.md"
   # MCP config for Copilot CLI. VS Code extension mcp-config is managed separately in the VS Code settings
   create_symlink "${DIR}/mcp-config.json" "${COPILOT_DIR}/mcp-config.json"
 

@@ -1,3 +1,11 @@
+---
+applyTo: '**'
+---
+
+<!-- This file is symlinked to ~/.copilot/instructions/copilot-instructions.instructions.md -->
+<!-- It applies globally to all GitHub Copilot interactions across all workspaces. -->
+<!-- Source of truth: dotfiles/configs/ai-agents/copilot-instructions.md -->
+
 # Core Engineering Rules
 
 - Always prefer **TypeScript** with strict typing enabled.
@@ -58,9 +66,6 @@
 - Kubernetes manifests must define resource requests/limits and probes.
 - Prefer health checks alongside readiness probes.
 - Use semantic versioning for container images.
-- Terraform must use remote state and state locking.
-- Always include observability: logs, metrics, and traces.
-- Prefer immutable infrastructure and declarative configuration.
 
 # Coding Behavior Rules
 
