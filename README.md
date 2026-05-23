@@ -36,7 +36,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Containers**: docker, docker-compose, kubectl, k3d
 - **Infrastructure**: terraform
 - **Cloud**: awscli, gcloud-cli, azure-cli
-- **AI/ML Tools**: GitHub Copilot CLI
+- **AI/ML Tools**: GitHub Copilot CLI, CodeGraph CLI
 - **Utilities**: starship (prompt), direnv, jq, yq, bat, ffmpeg
 
 **macOS-Specific CLI**:
@@ -84,31 +84,33 @@ The following tools are automatically configured via symlinks:
 
 7. **AI Agents** (`~/.agents`, `~/.copilot`)
    - **Core Rules** (`rules.md`): Engineering standards, architecture principles, and security guidelines
-   - **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp-config.json`): MCP server definitions used by Copilot CLI agents, including:
-     - `github-mcp-server` — GitHub API via HTTP
-     - `codegraph` — local semantic code graph via stdio (`codegraph serve --mcp`)
-     - `huggingface` — Hugging Face Hub via HTTP
-     - `next-devtools` — Next.js DevTools via stdio (pnpm)
-     - `chrome-devtools` — Chrome DevTools automation via stdio (pnpm)
-     - `markitdown` — Markdown conversion via stdio (uvx)
-     - `context7` — Context7 documentation via HTTP
-     - `deepwiki` — DeepWiki repository docs via HTTP
-     - `arxiv-mcp-server` — arXiv paper search/download via stdio (uv)
-   - **Agents** (symlinked to `~/.copilot/agents`):
-     - SWE Subagent (senior engineer — implementation, debugging, refactoring)
-     - SE: System Architecture Reviewer
-     - SE: GitOps/CI Specialist
-     - SE: Product Manager Advisor
-     - SE: Security Reviewer
-     - Scientific Paper Research
-   - **Skills** (symlinked to `~/.agents/skills`):
-     architecture-blueprint-generator, chrome-devtools, cloud-design-patterns,
-     conventional-commit, create-architectural-decision-record, create-implementation-plan,
-     database-schema-designer, devops-rollout-plan, docker-k8s-optimizer,
-     draw-io-diagram-generator, jest-testing-generator, kafka-stream-designer,
-     nest-backend-service-builder, nextjs-react-engineering, senior-code-review,
-     sql-code-review, system-planning-assistant, telemetry-opentelemetry-integrator,
-     terraform-aws-builder
+
+- **CodeGraph CLI** (`codegraph`): installed by `apps/cli/install.sh` via the upstream installer and used for local code graph indexing and MCP serving
+- **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp-config.json`): MCP server definitions used by Copilot CLI agents, including:
+  - `github-mcp-server` — GitHub API via HTTP
+  - `codegraph` — local semantic code graph via stdio (`codegraph serve --mcp`)
+  - `huggingface` — Hugging Face Hub via HTTP
+  - `next-devtools` — Next.js DevTools via stdio (pnpm)
+  - `chrome-devtools` — Chrome DevTools automation via stdio (pnpm)
+  - `markitdown` — Markdown conversion via stdio (uvx)
+  - `context7` — Context7 documentation via HTTP
+  - `deepwiki` — DeepWiki repository docs via HTTP
+  - `arxiv-mcp-server` — arXiv paper search/download via stdio (uv)
+- **Agents** (symlinked to `~/.copilot/agents`):
+  - SWE Subagent (senior engineer — implementation, debugging, refactoring)
+  - SE: System Architecture Reviewer
+  - SE: GitOps/CI Specialist
+  - SE: Product Manager Advisor
+  - SE: Security Reviewer
+  - Scientific Paper Research
+- **Skills** (symlinked to `~/.agents/skills`):
+  architecture-blueprint-generator, chrome-devtools, cloud-design-patterns,
+  conventional-commit, create-architectural-decision-record, create-implementation-plan,
+  database-schema-designer, devops-rollout-plan, docker-k8s-optimizer,
+  draw-io-diagram-generator, jest-testing-generator, kafka-stream-designer,
+  nest-backend-service-builder, nextjs-react-engineering, senior-code-review,
+  sql-code-review, system-planning-assistant, telemetry-opentelemetry-integrator,
+  terraform-aws-builder
 
 ## Installation
 
@@ -131,7 +133,7 @@ The installation script will:
 
 1. Request sudo password (required for system-level changes)
 2. Install Homebrew (if not already installed)
-3. Install all applications from `apps/cli/Brewfile` (and `apps/gui/Brewfile` on macOS)
+3. Install CLI applications from `apps/cli/Brewfile`, then install CodeGraph CLI via its upstream installer (and `apps/gui/Brewfile` on macOS)
 4. Create symlinks for all configuration files
 5. Generate SSH keys (if they don't exist)
 
@@ -284,6 +286,8 @@ Edit the appropriate Brewfile:
 
 - `apps/cli/Brewfile` - Add CLI tools with `brew "package-name"`
 - `apps/gui/Brewfile` - Add GUI apps with `cask "app-name"` (macOS only)
+
+The current exception is CodeGraph CLI, which is installed in `apps/cli/install.sh` via the upstream installer because it is not managed through the Brewfile.
 
 ### Adding New Configurations
 

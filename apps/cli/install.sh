@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -o pipefail
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -20,4 +21,13 @@ install_cli_apps() {
   fi
 }
 
+install_codegraph() {
+  if command -v codegraph >/dev/null 2>&1; then
+    return
+  fi
+
+  curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
+}
+
 install_cli_apps
+install_codegraph

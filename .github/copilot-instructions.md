@@ -28,6 +28,7 @@ Keep changes aligned with this delegation model. Top-level scripts should orches
 - Config files under `configs/` are the tracked source of truth. Installed files under `~`, `~/.config`, `~/.agents`, and `~/.copilot` are symlink targets and should not be edited directly from this repo.
 - `configs/*/install.sh` scripts create symlinks with `utils/create_symlink.sh`.
 - `apps/cli/Brewfile` and `apps/gui/Brewfile` own package lists. Avoid hardcoding package installs in unrelated scripts.
+- `apps/cli/Brewfile` and `apps/gui/Brewfile` own package lists for Homebrew-managed software. `apps/cli/install.sh` also installs CodeGraph CLI via its upstream installer; keep that exception local to the CLI installer and avoid hardcoding package installs in unrelated scripts.
 - `configs/ai-agents/copilot-instructions.md` is the user-level global Copilot instruction source. This `.github/copilot-instructions.md` file is repo-scoped guidance for working on the dotfiles repo itself.
 
 ## Profile Management
@@ -68,6 +69,7 @@ source "${DIR}/../../utils/create_symlink.sh"
 Key patterns:
 
 - Use `set -e` in scripts.
+- Add `set -o pipefail` when a script uses piped commands and the pipeline should fail fast.
 - Compute `DIR` from `${BASH_SOURCE[0]}` and use absolute paths for `source` calls.
 - Source only the helpers a script needs from `utils/`.
 - Use `is_macos()` from `utils/is_macos.sh` for platform checks.
