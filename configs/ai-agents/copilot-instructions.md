@@ -152,6 +152,13 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Prefer integration tests for API boundaries, unit tests for domain logic.
 - Mock external dependencies at adapter boundaries, not deep in business logic.
 
+# CodeGraph MCP Usage
+
+- When `codegraph_*` tools are available, prefer CodeGraph for structural code questions: symbol definitions, signatures, callers, callees, dependency impact, related context, and indexed file structure.
+- Use `codegraph_context` first for broad feature or task exploration, then narrow with `codegraph_search`, `codegraph_node`, `codegraph_callers`, `codegraph_callees`, or `codegraph_impact`.
+- Use native file search/read tools for literal text, comments, logs, config keys, or when CodeGraph is unavailable or the project has no `.codegraph/` index.
+- If CodeGraph is configured but the index is missing, tell the user to run `codegraph init -i` from the project root.
+
 # AI Behavior Rules
 
 - Assume the user is a senior engineer; avoid basic explanations.

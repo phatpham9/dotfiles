@@ -1,5 +1,10 @@
 {
   "mcpServers": {
+    "codegraph": {
+      "type": "stdio",
+      "command": "codegraph",
+      "args": ["serve", "--mcp"]
+    },
     "github-mcp-server": {
       "type": "http",
       "url": "https://api.githubcopilot.com/mcp/"

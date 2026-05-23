@@ -84,8 +84,9 @@ The following tools are automatically configured via symlinks:
 
 7. **AI Agents** (`~/.agents`, `~/.copilot`)
    - **Core Rules** (`rules.md`): Engineering standards, architecture principles, and security guidelines
-   - **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp.json`): MCP server definitions used by Copilot agents, including:
+   - **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp-config.json`): MCP server definitions used by Copilot CLI agents, including:
      - `github-mcp-server` — GitHub API via HTTP
+     - `codegraph` — local semantic code graph via stdio (`codegraph serve --mcp`)
      - `huggingface` — Hugging Face Hub via HTTP
      - `next-devtools` — Next.js DevTools via stdio (pnpm)
      - `chrome-devtools` — Chrome DevTools automation via stdio (pnpm)
