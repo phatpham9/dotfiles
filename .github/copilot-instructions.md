@@ -18,14 +18,14 @@ install.sh
     ├── configs/docker/
     ├── configs/zsh/
     ├── configs/starship/
-    └── configs/ai-agents/   # Symlinks to ~/.agents, ~/.copilot, ~/.gemini
+    └── configs/ai-agents/   # Symlinks to ~/.agents and ~/.copilot
 ```
 
 **Profile management** (`add_profile.sh` / `remove_profile.sh`): Creates per-account Git/SSH configs. Profile names are normalized to snake_case. Template files use `[profile]`, `[your-name]`, `[your-email]` placeholders. Git uses `includeIf "gitdir:~/code/[profile]/"` to activate the right identity per directory.
 
 **Config symlink pattern**: Each `configs/*/install.sh` symlinks tracked source files into `~` or `~/.config`. Edits to the symlink targets are immediately effective and git-tracked.
 
-**AI agents layer** (`configs/ai-agents/`): Symlinks skills/agents to three destinations simultaneously — `~/.agents/skills`, `~/.copilot/agents`, and `~/.gemini/antigravity/skills`.
+**AI agents layer** (`configs/ai-agents/`): Symlinks shared skills to `~/.agents/skills` and Copilot agents to `~/.copilot/agents`.
 
 ## Shell Scripting Conventions
 

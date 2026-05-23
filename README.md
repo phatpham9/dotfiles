@@ -82,7 +82,7 @@ The following tools are automatically configured via symlinks:
 6. **Starship** (`~/.config/starship.toml`)
    - Cross-shell prompt configuration
 
-7. **AI Agents** (`~/.agents`, `~/.copilot`, `~/.gemini`)
+7. **AI Agents** (`~/.agents`, `~/.copilot`)
    - **Core Rules** (`rules.md`): Engineering standards, architecture principles, and security guidelines
    - **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp.json`): MCP server definitions used by Copilot agents, including:
      - `github-mcp-server` — GitHub API via HTTP
@@ -100,7 +100,7 @@ The following tools are automatically configured via symlinks:
      - SE: Product Manager Advisor
      - SE: Security Reviewer
      - Scientific Paper Research
-   - **Skills** (symlinked to `~/.agents/skills` and `~/.gemini/antigravity/skills`):
+   - **Skills** (symlinked to `~/.agents/skills`):
      architecture-blueprint-generator, chrome-devtools, cloud-design-patterns,
      conventional-commit, create-architectural-decision-record, create-implementation-plan,
      database-schema-designer, devops-rollout-plan, docker-k8s-optimizer,
