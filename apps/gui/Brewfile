@@ -8,7 +8,6 @@ cask "google-chrome"
 
 ### ide
 cask "visual-studio-code"
-cask "antigravity"
 
 ### ai/ml tools
 cask "lm-studio"
@@ -24,7 +23,6 @@ cask "microsoft-powerpoint"
 cask "cloudflare-warp"
 cask "rectangle"
 cask "keka"
-cask "kap"
 cask "iina"
 cask "motrix"
 cask "utm"

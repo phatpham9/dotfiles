@@ -47,10 +47,10 @@ A fully automated dotfiles repository that sets up a complete development enviro
 **GUI Applications** (macOS only):
 
 - **Browser**: Brave Browser, Google Chrome
-- **IDE**: Visual Studio Code, Antigravity
+- **IDE**: Visual Studio Code
 - **AI/ML Tools**: LM Studio
 - **Microsoft Office**: Word, Excel, PowerPoint
-- **Utilities**: Cloudflare WARP, Rectangle, Keka, Kap, IINA, Motrix, UTM
+- **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix, UTM
 
 ### ⚙️ Configurations
 
@@ -235,7 +235,7 @@ dotfiles/
 │   │   └── Brewfile             # GUI applications (macOS only)
 │   └── install.sh               # Application installation logic
 ├── configs/
-│   ├── ai-agents/               # AI agents configuration (Antigravity, Copilot, OpenCode)
+│   ├── ai-agents/               # AI agents configuration (Copilot)
 │   │   ├── install.sh
 │   │   ├── rules.md             # Shared AI agent rules
 │   │   └── skills/              # AI agent skills
