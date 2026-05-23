@@ -50,7 +50,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **IDE**: Visual Studio Code
 - **AI/ML Tools**: LM Studio
 - **Microsoft Office**: Word, Excel, PowerPoint
-- **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix, UTM
+- **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix
 
 ### ⚙️ Configurations
 
