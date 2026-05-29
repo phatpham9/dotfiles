@@ -49,7 +49,8 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Browser**: Brave Browser, Google Chrome
 - **IDE**: Visual Studio Code
 - **AI/ML Tools**: LM Studio
-- **Microsoft Office**: Word, Excel, PowerPoint
+- **Office**: Word, Excel, PowerPoint, LibreOffice
+- **Reference Management**: Zotero
 - **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix
 
 ### ⚙️ Configurations

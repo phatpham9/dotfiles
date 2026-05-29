@@ -14,10 +14,14 @@ cask "lm-studio"
 
 ## utilities
 
-### microsoft office
+### office
 cask "microsoft-word"
 cask "microsoft-excel"
 cask "microsoft-powerpoint"
+cask "libreoffice"
+
+### reference management
+cask "zotero"
 
 ### others
 cask "cloudflare-warp"
