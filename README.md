@@ -105,7 +105,7 @@ The following tools are automatically configured via symlinks:
   - SE: Security Reviewer
   - Scientific Paper Research
 - **Skills** (symlinked to `~/.agents/skills`):
-  architecture-blueprint-generator, chrome-devtools, cloud-design-patterns,
+  ai-smell-detector, architecture-blueprint-generator, chrome-devtools, cloud-design-patterns,
   conventional-commit, create-architectural-decision-record, create-implementation-plan,
   database-schema-designer, devops-rollout-plan, docker-k8s-optimizer,
   draw-io-diagram-generator, jest-testing-generator, kafka-stream-designer,
