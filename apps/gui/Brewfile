@@ -20,6 +20,9 @@ cask "microsoft-excel"
 cask "microsoft-powerpoint"
 cask "libreoffice"
 
+### knowledge management
+cask "obsidian"
+
 ### reference management
 cask "zotero"
 

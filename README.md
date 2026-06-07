@@ -50,6 +50,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **IDE**: Visual Studio Code
 - **AI/ML Tools**: LM Studio
 - **Office**: Word, Excel, PowerPoint, LibreOffice
+- **Knowledge Management**: Obsidian
 - **Reference Management**: Zotero
 - **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix
 
