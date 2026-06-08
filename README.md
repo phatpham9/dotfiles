@@ -35,9 +35,9 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Languages & Runtimes**: fnm (Node.js), pnpm, uv (Python)
 - **Containers**: docker, docker-compose, kubectl, k3d
 - **Infrastructure**: terraform
-- **Cloud**: awscli, gcloud-cli, azure-cli
+- **Cloud**: awscli, gcloud-cli, azure-cli, tailscale
 - **AI/ML Tools**: GitHub Copilot CLI, CodeGraph CLI
-- **Utilities**: starship (prompt), direnv, jq, yq, bat, ffmpeg
+- **Utilities**: starship (prompt), direnv, jq, yq, bat, ripgrep, ffmpeg
 
 **macOS-Specific CLI**:
 
