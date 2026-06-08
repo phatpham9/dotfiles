@@ -34,7 +34,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Shell**: zsh with completions and syntax highlighting
 - **Languages & Runtimes**: fnm (Node.js), pnpm, uv (Python)
 - **Containers**: docker, docker-compose, kubectl, k3d
-- **Infrastructure**: terraform
+- **Infrastructure**: opentofu
 - **Cloud**: awscli, gcloud-cli, azure-cli, tailscale
 - **AI/ML Tools**: GitHub Copilot CLI, CodeGraph CLI
 - **Utilities**: starship (prompt), direnv, jq, yq, bat, ripgrep, ffmpeg
@@ -60,9 +60,10 @@ The following tools are automatically configured via symlinks:
 
 1. **Zsh** (`.zshrc`, `.zsh_aliases`)
    - Starship prompt theme
-   - oh-my-zsh with plugins (git, gh, fnm, npm, uv, docker, kubectl, terraform, direnv)
-   - Platform-specific Homebrew initialization
-   - fnm auto-switching on directory change
+
+- oh-my-zsh with plugins (git, gh, fnm, npm, uv, docker, kubectl, opentofu, direnv)
+- Platform-specific Homebrew initialization
+- fnm auto-switching on directory change
 
 2. **Git** (`.gitconfig`, `.gitignore_global`)
    - SSH-based GPG signing

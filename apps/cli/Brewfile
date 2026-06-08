@@ -26,7 +26,7 @@ brew "kubectl"
 brew "k3d"
 
 ### infrastructure as code
-brew "terraform"
+brew "opentofu"
 
 ### cloud
 brew "awscli"

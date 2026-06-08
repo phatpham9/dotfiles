@@ -21,7 +21,7 @@ case ":$PATH:" in
 esac
 
 # zsh plugins
-plugins=(git gh fnm uv docker docker-compose kubectl terraform direnv starship)
+plugins=(git gh fnm uv docker docker-compose kubectl opentofu direnv starship)
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 # zsh aliases
