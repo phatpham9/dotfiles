@@ -39,3 +39,6 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# hermes, feynman, hindsight, etc...
+export PATH="$HOME/.local/bin:$PATH"
