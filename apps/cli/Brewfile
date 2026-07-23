@@ -6,11 +6,12 @@
 brew "git"
 brew "git-lfs"
 brew "gh"
-brew "hf"
 
 ### shell enhancements (zsh is installed by default on macOS and Linux)
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
+brew "starship"
+brew "direnv"
 
 ### programming languages & runtimes
 brew "fnm"
@@ -28,6 +29,9 @@ brew "k3d"
 ### infrastructure as code
 brew "opentofu"
 
+### secrets management
+brew "sops"
+
 ### cloud
 brew "awscli"
 cask "gcloud-cli"
@@ -36,15 +40,18 @@ brew "tailscale"
 
 ### ai/ml tools
 cask "copilot-cli"
+brew "hf"
 
 ## utilities
 
-### others
+### media & data processing
 brew "ffmpeg"
 brew "jq"
 brew "yq"
+
+### cli tools
 brew "bat"
 brew "ripgrep"
-brew "direnv"
-brew "starship"
+
+### system monitoring
 brew "macmon"

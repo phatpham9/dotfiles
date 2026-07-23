@@ -30,13 +30,14 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 **CLI Tools** (Both macOS & Ubuntu):
 
-- **Version Control**: git, git-lfs, gh (GitHub CLI), hf (Hugging Face CLI)
+- **Version Control**: git, git-lfs, gh (GitHub CLI)
 - **Shell**: zsh with completions and syntax highlighting
 - **Languages & Runtimes**: fnm (Node.js), pnpm, uv (Python)
 - **Containers**: docker, docker-compose, kubectl, k3d
 - **Infrastructure**: opentofu
+- **Secrets Management**: sops
 - **Cloud**: awscli, gcloud-cli, azure-cli, tailscale
-- **AI/ML Tools**: GitHub Copilot CLI, CodeGraph CLI
+- **AI/ML Tools**: GitHub Copilot CLI, CodeGraph CLI, hf (Hugging Face CLI)
 - **Utilities**: starship (prompt), direnv, jq, yq, bat, ripgrep, ffmpeg
 
 **macOS-Specific CLI**:
@@ -52,6 +53,8 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Office**: Word, Excel, PowerPoint, LibreOffice
 - **Knowledge Management**: Obsidian
 - **Reference Management**: Zotero
+- **Virtualization & Remote Desktop**: UTM, Windows App
+- **System Monitoring**: CoconutBattery
 - **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix
 
 ### ⚙️ Configurations

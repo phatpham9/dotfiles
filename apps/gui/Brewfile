@@ -3,14 +3,25 @@
 ## software development
 
 ### browser
-cask "brave-browser"
+cask "helium-browser"
 cask "google-chrome"
 
 ### ide
 cask "visual-studio-code"
 
+### container & orchestration
+cask "davit"
+
 ### ai/ml tools
+cask "claude"
+cask "claude-code"
+cask "codex"
+cask "codex-app"
 cask "lm-studio"
+
+### research & paper writing
+cask "quarto"
+cask "zotero"
 
 ## utilities
 
@@ -18,13 +29,17 @@ cask "lm-studio"
 cask "microsoft-word"
 cask "microsoft-excel"
 cask "microsoft-powerpoint"
-cask "libreoffice"
 
-### knowledge management
+### knowledge base
 cask "obsidian"
+cask "tolaria"
 
-### reference management
-cask "zotero"
+### virtualization & remote desktop
+cask "utm"
+cask "windows-app"
+
+### system monitoring
+cask "coconutbattery"
 
 ### others
 cask "cloudflare-warp"
