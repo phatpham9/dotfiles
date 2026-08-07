@@ -36,8 +36,8 @@ A fully automated dotfiles repository that sets up a complete development enviro
 - **Containers**: docker, docker-compose, kubectl, k3d
 - **Infrastructure**: opentofu
 - **Secrets Management**: sops
-- **Cloud**: awscli, gcloud-cli, azure-cli, tailscale
-- **AI/ML Tools**: GitHub Copilot CLI, CodeGraph CLI, hf (Hugging Face CLI)
+- **Cloud** (commented out by default; uncomment in `apps/cli/Brewfile` to enable): awscli, gcloud-cli, azure-cli, tailscale
+- **AI/ML Tools**: CodeGraph CLI, hf (Hugging Face CLI)
 - **Utilities**: starship (prompt), direnv, jq, yq, bat, ripgrep, ffmpeg
 
 **macOS-Specific CLI**:
@@ -47,14 +47,13 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 **GUI Applications** (macOS only):
 
-- **Browser**: Brave Browser, Google Chrome
+- **Browser**: Helium Browser, Google Chrome
 - **IDE**: Visual Studio Code
-- **AI/ML Tools**: LM Studio
-- **Office**: Word, Excel, PowerPoint, LibreOffice
+- **AI/ML Tools**: Claude, Codex, GitHub Copilot CLI (cask), LM Studio
+- **Research & Paper Writing**: Quarto, Zotero
+- **Office**: Word, Excel, PowerPoint
 - **Knowledge Management**: Obsidian
-- **Reference Management**: Zotero
 - **Virtualization & Remote Desktop**: UTM, Windows App
-- **System Monitoring**: CoconutBattery
 - **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix
 
 ### ⚙️ Configurations
@@ -89,7 +88,7 @@ The following tools are automatically configured via symlinks:
    - Cross-shell prompt configuration
 
 7. **AI Agents** (`~/.agents`, `~/.copilot`)
-   - **Core Rules** (`rules.md`): Engineering standards, architecture principles, and security guidelines
+   - **Global Copilot Instructions** (`copilot-instructions.md`, symlinked to `~/.copilot/instructions/copilot-instructions.instructions.md`): Engineering standards, architecture principles, and security guidelines applied across all Copilot interactions
 
 - **CodeGraph CLI** (`codegraph`): installed by `apps/cli/install.sh` via the upstream installer and used for local code graph indexing and MCP serving
 - **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp-config.json`): MCP server definitions used by Copilot CLI agents, including:
@@ -110,7 +109,7 @@ The following tools are automatically configured via symlinks:
   - SE: Security Reviewer
   - Scientific Paper Research
 - **Skills** (symlinked to `~/.agents/skills`):
-  ai-smell-detector, architecture-blueprint-generator, chrome-devtools, cloud-design-patterns,
+  ai-smell-detector, architecture-blueprint-generator, autoresearch, chrome-devtools, cloud-design-patterns,
   conventional-commit, create-architectural-decision-record, create-implementation-plan,
   database-schema-designer, devops-rollout-plan, docker-k8s-optimizer,
   draw-io-diagram-generator, jest-testing-generator, kafka-stream-designer,
@@ -123,7 +122,7 @@ The following tools are automatically configured via symlinks:
 ### Prerequisites
 
 - **macOS**: Xcode Command Line Tools (installed automatically)
-- **Ubuntu**: curl, git, and build-essential (installed automatically)
+- **Ubuntu**: curl, git, zsh, and build-essential (installed automatically)
 
 ### Quick Start
 
@@ -140,8 +139,9 @@ The installation script will:
 1. Request sudo password (required for system-level changes)
 2. Install Homebrew (if not already installed)
 3. Install CLI applications from `apps/cli/Brewfile`, then install CodeGraph CLI via its upstream installer (and `apps/gui/Brewfile` on macOS)
-4. Create symlinks for all configuration files
-5. Generate SSH keys (if they don't exist)
+4. Install oh-my-zsh (if not already installed)
+5. Create symlinks for all configuration files
+6. Generate SSH keys (if they don't exist)
 
 **Platform Detection:**
 
@@ -245,9 +245,12 @@ dotfiles/
 │   └── install.sh               # Application installation logic
 ├── configs/
 │   ├── ai-agents/               # AI agents configuration (Copilot)
+│   │   ├── agents/              # Subagent definitions (symlinked to ~/.copilot/agents)
+│   │   ├── skills/              # AI agent skills (symlinked to ~/.agents/skills)
+│   │   ├── copilot-instructions.md  # Global Copilot instructions (symlinked)
 │   │   ├── install.sh
-│   │   ├── rules.md             # Shared AI agent rules
-│   │   └── skills/              # AI agent skills
+│   │   ├── mcp-config.json      # MCP server definitions (symlinked to ~/.copilot/mcp-config.json)
+│   │   └── rules.md             # Reference copy of engineering rules (not symlinked)
 │   ├── docker/                  # Docker configuration
 │   │   ├── install.sh
 │   │   └── config.json

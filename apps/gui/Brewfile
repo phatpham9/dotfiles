@@ -9,14 +9,10 @@ cask "google-chrome"
 ### ide
 cask "visual-studio-code"
 
-### container & orchestration
-cask "davit"
-
 ### ai/ml tools
 cask "claude"
-cask "claude-code"
 cask "codex"
-cask "codex-app"
+cask "copilot-cli"
 cask "lm-studio"
 
 ### research & paper writing
@@ -32,14 +28,10 @@ cask "microsoft-powerpoint"
 
 ### knowledge base
 cask "obsidian"
-cask "tolaria"
 
 ### virtualization & remote desktop
 cask "utm"
 cask "windows-app"
-
-### system monitoring
-cask "coconutbattery"
 
 ### others
 cask "cloudflare-warp"

@@ -33,13 +33,12 @@ brew "opentofu"
 brew "sops"
 
 ### cloud
-brew "awscli"
-cask "gcloud-cli"
-brew "azure-cli"
-brew "tailscale"
+# brew "awscli"
+# cask "gcloud-cli"
+# brew "azure-cli"
+# brew "tailscale"
 
 ### ai/ml tools
-cask "copilot-cli"
 brew "hf"
 
 ## utilities
