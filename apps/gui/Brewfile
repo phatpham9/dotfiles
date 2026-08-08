@@ -11,7 +11,9 @@ cask "visual-studio-code"
 
 ### ai/ml tools
 cask "claude"
+cask "claude-code"
 cask "codex"
+cask "codex-app"
 cask "copilot-cli"
 cask "lm-studio"
 

@@ -49,7 +49,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - **Browser**: Helium Browser, Google Chrome
 - **IDE**: Visual Studio Code
-- **AI/ML Tools**: Claude, Codex, GitHub Copilot CLI (cask), LM Studio
+- **AI/ML Tools**: Claude, Claude Code, Codex, Codex App, GitHub Copilot CLI (cask), LM Studio
 - **Research & Paper Writing**: Quarto, Zotero
 - **Office**: Word, Excel, PowerPoint
 - **Knowledge Management**: Obsidian
