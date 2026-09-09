@@ -15,13 +15,18 @@
     },
     "next-devtools": {
       "type": "stdio",
-      "command": "pnpm",
-      "args": ["dlx", "next-devtools-mcp"]
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"]
     },
     "chrome-devtools": {
       "type": "stdio",
-      "command": "pnpm",
-      "args": ["dlx", "chrome-devtools-mcp"]
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "playwright-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
     },
     "markitdown": {
       "type": "stdio",
@@ -46,6 +51,10 @@
         "--storage-path",
         "~/.cache/arxiv-mcp-server"
       ]
+    },
+    "bgpt": {
+      "type": "sse",
+      "url": "https://bgpt.pro/mcp/sse"
     }
   }
 }

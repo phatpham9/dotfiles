@@ -92,16 +92,18 @@ The following tools are automatically configured via symlinks:
    - **Global Copilot Instructions** (`copilot-instructions.md`, symlinked to `~/.copilot/instructions/copilot-instructions.instructions.md`): Engineering standards, architecture principles, and security guidelines applied across all Copilot interactions
 
 - **CodeGraph CLI** (`codegraph`): installed by `apps/cli/install.sh` via the upstream installer and used for local code graph indexing and MCP serving
-- **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp-config.json`): MCP server definitions used by Copilot CLI agents, including:
+- **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp-config.json`): MCP server definitions used by Copilot CLI agents, mirroring the servers configured in Claude Code (`~/.claude.json`), including:
   - `github-mcp-server` — GitHub API via HTTP
   - `codegraph` — local semantic code graph via stdio (`codegraph serve --mcp`)
   - `huggingface` — Hugging Face Hub via HTTP
-  - `next-devtools` — Next.js DevTools via stdio (pnpm)
-  - `chrome-devtools` — Chrome DevTools automation via stdio (pnpm)
+  - `next-devtools` — Next.js DevTools via stdio (npx)
+  - `chrome-devtools` — Chrome DevTools automation via stdio (npx)
+  - `playwright-mcp` — Playwright browser automation via stdio (npx)
   - `markitdown` — Markdown conversion via stdio (uvx)
   - `context7` — Context7 documentation via HTTP
   - `deepwiki` — DeepWiki repository docs via HTTP
   - `arxiv-mcp-server` — arXiv paper search/download via stdio (uv)
+  - `bgpt` — BGPT scientific evidence layer via SSE
 - **Agents** (symlinked to `~/.copilot/agents`):
   - SWE Subagent (senior engineer — implementation, debugging, refactoring)
   - SE: System Architecture Reviewer
