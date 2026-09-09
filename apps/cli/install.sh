@@ -17,7 +17,7 @@ install_cli_apps() {
     chmod -R go-w "/opt/homebrew/share/zsh"
   else
     # Install packages, skipping macOS-specific ones
-    HOMEBREW_BUNDLE_BREW_SKIP="colima macmon" brew bundle --file="${DIR}/Brewfile"
+    HOMEBREW_BUNDLE_BREW_SKIP="colima macmon omlx" brew bundle --file="${DIR}/Brewfile"
   fi
 }
 

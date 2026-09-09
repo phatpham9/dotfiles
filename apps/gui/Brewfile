@@ -34,6 +34,7 @@ cask "obsidian"
 ### virtualization & remote desktop
 cask "utm"
 cask "windows-app"
+cask "amazon-workspaces"
 
 ### others
 cask "cloudflare-warp"
@@ -41,3 +42,5 @@ cask "rectangle"
 cask "keka"
 cask "iina"
 cask "motrix"
+cask "itsycal"
+cask "lulu"

@@ -40,6 +40,8 @@ brew "sops"
 
 ### ai/ml tools
 brew "hf"
+tap "jundot/omlx"
+brew "omlx"
 
 ## utilities
 

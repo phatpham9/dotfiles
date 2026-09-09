@@ -43,5 +43,11 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # lm-studio (lms)
 export PATH="$HOME/.lmstudio/bin:$PATH"
 
-# hermes, feynman, hindsight, etc...
+# oMLX: CLI shim path begin
+case ":$PATH:" in
+  *":$HOME/.omlx/bin:"*) ;;
+  *) export PATH="$HOME/.omlx/bin:$PATH" ;;
+esac
+
+# hermes, feynman, etc…
 export PATH="$HOME/.local/bin:$PATH"

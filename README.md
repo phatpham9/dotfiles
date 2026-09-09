@@ -44,17 +44,18 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - colima (container runtime)
 - macmon (system monitoring)
+- omlx (Apple Silicon LLM inference server, via the `jundot/omlx` tap)
 
 **GUI Applications** (macOS only):
 
 - **Browser**: Helium Browser, Google Chrome
 - **IDE**: Visual Studio Code
-- **AI/ML Tools**: Claude, Claude Code, Codex, Codex App, GitHub Copilot CLI (cask), LM Studio
+- **AI/ML Tools**: Claude, Claude Code, Codex, Codex App, GitHub Copilot CLI (cask), LM Studio, oMLX App (desktop)
 - **Research & Paper Writing**: Quarto, Zotero
 - **Office**: Word, Excel, PowerPoint
 - **Knowledge Management**: Obsidian
-- **Virtualization & Remote Desktop**: UTM, Windows App
-- **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix
+- **Virtualization & Remote Desktop**: UTM, Windows App, Amazon WorkSpaces
+- **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix, Itsycal, LuLu
 
 ### ⚙️ Configurations
 
@@ -146,7 +147,7 @@ The installation script will:
 **Platform Detection:**
 
 - On **macOS**: Installs all CLI and GUI applications
-- On **Ubuntu**: Installs CLI applications only, automatically skips macOS-specific packages (colima, macmon, and all casks)
+- On **Ubuntu**: Installs CLI applications only, automatically skips macOS-specific packages (colima, macmon, omlx, and all casks)
 
 ### Git-Free Installation
 
@@ -296,7 +297,7 @@ Edit the appropriate Brewfile:
 - `apps/cli/Brewfile` - Add CLI tools with `brew "package-name"`
 - `apps/gui/Brewfile` - Add GUI apps with `cask "app-name"` (macOS only)
 
-The current exception is CodeGraph CLI, which is installed in `apps/cli/install.sh` via the upstream installer because it is not managed through the Brewfile.
+The current exceptions are CodeGraph CLI, installed in `apps/cli/install.sh` via the upstream installer, and the oMLX desktop app, installed in `apps/gui/install.sh` from the upstream GitHub Releases dmg — neither is available as a Brewfile entry.
 
 ### Adding New Configurations
 
