@@ -15,7 +15,6 @@ brew "direnv"
 
 ### programming languages & runtimes
 brew "fnm"
-brew "pnpm"
 brew "uv"
 
 ### container & orchestration

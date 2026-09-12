@@ -32,7 +32,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - **Version Control**: git, git-lfs, gh (GitHub CLI)
 - **Shell**: zsh with completions and syntax highlighting
-- **Languages & Runtimes**: fnm (Node.js), pnpm, uv (Python)
+- **Languages & Runtimes**: fnm (Node.js), uv (Python)
 - **Containers**: docker, docker-compose, kubectl, k3d
 - **Infrastructure**: opentofu
 - **Secrets Management**: sops
