@@ -5,6 +5,10 @@
       "command": "codegraph",
       "args": ["serve", "--mcp"]
     },
+    "openviking": {
+      "type": "http",
+      "url": "http://127.0.0.1:1933/mcp"
+    },
     "github-mcp-server": {
       "type": "http",
       "url": "https://api.githubcopilot.com/mcp/"
