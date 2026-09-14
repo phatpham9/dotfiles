@@ -50,7 +50,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - **Browser**: Helium Browser, Google Chrome
 - **IDE**: Visual Studio Code
-- **AI/ML Tools**: Claude, Claude Code, Codex, Codex App, GitHub Copilot CLI (cask), LM Studio, oMLX App (desktop)
+- **AI/ML Tools**: Claude, Claude Code, Codex, Codex App, GitHub Copilot CLI (cask), Hermes Desktop, LM Studio, oMLX App (desktop)
 - **Research & Paper Writing**: Quarto, Zotero
 - **Office**: Word, Excel, PowerPoint
 - **Knowledge Management**: Obsidian
@@ -95,6 +95,7 @@ The following tools are automatically configured via symlinks:
 - **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp-config.json`): MCP server definitions used by Copilot CLI agents, mirroring the servers configured in Claude Code (`~/.claude.json`), including:
   - `github-mcp-server` — GitHub API via HTTP
   - `codegraph` — local semantic code graph via stdio (`codegraph serve --mcp`)
+  - `openviking` — local OpenViking context database via HTTP (`http://127.0.0.1:1933/mcp`)
   - `huggingface` — Hugging Face Hub via HTTP
   - `next-devtools` — Next.js DevTools via stdio (npx)
   - `chrome-devtools` — Chrome DevTools automation via stdio (npx)

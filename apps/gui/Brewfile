@@ -15,6 +15,7 @@ cask "claude-code"
 cask "codex"
 cask "codex-app"
 cask "copilot-cli"
+cask "hermes-desktop"
 cask "lm-studio"
 
 ### research & paper writing
