@@ -15,7 +15,14 @@ brew "direnv"
 
 ### programming languages & runtimes
 brew "fnm"
+brew "go"
+brew "rust"
 brew "uv"
+
+### language servers & linters
+brew "gopls"
+brew "rust-analyzer"
+brew "golangci-lint"
 
 ### container & orchestration
 brew "colima"

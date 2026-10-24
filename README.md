@@ -32,12 +32,13 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - **Version Control**: git, git-lfs, gh (GitHub CLI)
 - **Shell**: zsh with completions and syntax highlighting
-- **Languages & Runtimes**: fnm (Node.js), uv (Python)
+- **Languages & Runtimes**: fnm (Node.js), go, rust, uv (Python)
 - **Containers**: docker, docker-compose, kubectl, k3d
 - **Infrastructure**: opentofu
 - **Secrets Management**: sops
 - **Cloud** (commented out by default; uncomment in `apps/cli/Brewfile` to enable): awscli, gcloud-cli, azure-cli, tailscale
-- **AI/ML Tools**: CodeGraph CLI, hf (Hugging Face CLI)
+- **AI/ML Tools**: CodeGraph CLI, hf (Hugging Face CLI), OpenViking, MarkItDown
+- **Language Servers & Linters**: gopls (Go), rust-analyzer (Rust), golangci-lint, tofu-ls (OpenTofu)
 - **Utilities**: starship (prompt), direnv, jq, yq, bat, ripgrep, ffmpeg
 
 **macOS-Specific CLI**:
@@ -50,16 +51,16 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - **Browser**: Helium Browser, Google Chrome
 - **IDE**: Visual Studio Code
-- **AI/ML Tools**: Claude, Claude Code, Codex, Codex App, GitHub Copilot CLI (cask), Hermes Desktop, LM Studio, oMLX App (desktop)
+- **AI/ML Tools**: Claude Code, Codex, Hermes Desktop, oMLX App (desktop)
 - **Research & Paper Writing**: Quarto, Zotero
 - **Office**: Word, Excel, PowerPoint
 - **Knowledge Management**: Obsidian
-- **Virtualization & Remote Desktop**: UTM, Windows App, Amazon WorkSpaces
-- **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix, Itsycal, LuLu
+- **Virtualization**: UTM
+- **Utilities**: Cloudflare WARP, Rectangle, Keka, IINA, Motrix, Itsycal, CoconutBattery, Homebrew
 
 ### ⚙️ Configurations
 
-The following tools are automatically configured via symlinks:
+The following tools are automatically configured:
 
 1. **Zsh** (`.zshrc`, `.zsh_aliases`)
    - Starship prompt theme
@@ -88,38 +89,20 @@ The following tools are automatically configured via symlinks:
 6. **Starship** (`~/.config/starship.toml`)
    - Cross-shell prompt configuration
 
-7. **AI Agents** (`~/.agents`, `~/.copilot`)
-   - **Global Copilot Instructions** (`copilot-instructions.md`, symlinked to `~/.copilot/instructions/copilot-instructions.instructions.md`): Engineering standards, architecture principles, and security guidelines applied across all Copilot interactions
+7. **AI (Claude Code)** (`configs/ai`)
+   - Installs the Superpowers and Matt Pocock skill plugins from the official Claude Code marketplace
+   - Adds companion plugins (`frontend-design`, `typescript-lsp`, `claude-md-management`, `security-guidance`, `hookify`)
+   - Adds subagent packs: `pr-review-toolkit`, `claude-security`, and selected `wshobson/agents` domain plugins (TypeScript, Python, Go/Rust, security, Kubernetes, observability, Terraform/cloud)
+   - Adds language servers: `gopls-lsp`, `rust-analyzer-lsp`, and a local `tofu-ls` LSP plugin
+   - Configures the MCP servers from `configs/ai/mcp.json` plus the GitHub, Context7, Playwright, and Chrome DevTools MCP plugins
+   - Symlinks `configs/ai/CLAUDE.md` to `~/.claude/CLAUDE.md` and upserts the skill and agent routing block
+   - Optional `--with-hooks` adds guardrail, formatting, and TypeScript verification hooks
+   - **CodeGraph CLI** (`codegraph`): installed by `apps/cli/install.sh` via the upstream installer and used for local code graph indexing and MCP serving
 
-- **CodeGraph CLI** (`codegraph`): installed by `apps/cli/install.sh` via the upstream installer and used for local code graph indexing and MCP serving
-- **MCP Config** (`mcp-config.json`, symlinked to `~/.copilot/mcp-config.json`): MCP server definitions used by Copilot CLI agents, mirroring the servers configured in Claude Code (`~/.claude.json`), including:
-  - `github-mcp-server` — GitHub API via HTTP
-  - `codegraph` — local semantic code graph via stdio (`codegraph serve --mcp`)
-  - `openviking` — local OpenViking context database via HTTP (`http://127.0.0.1:1933/mcp`)
-  - `huggingface` — Hugging Face Hub via HTTP
-  - `next-devtools` — Next.js DevTools via stdio (npx)
-  - `chrome-devtools` — Chrome DevTools automation via stdio (npx)
-  - `playwright-mcp` — Playwright browser automation via stdio (npx)
-  - `markitdown` — Markdown conversion via stdio (uvx)
-  - `context7` — Context7 documentation via HTTP
-  - `deepwiki` — DeepWiki repository docs via HTTP
-  - `arxiv-mcp-server` — arXiv paper search/download via stdio (uv)
-  - `bgpt` — BGPT scientific evidence layer via SSE
-- **Agents** (symlinked to `~/.copilot/agents`):
-  - SWE Subagent (senior engineer — implementation, debugging, refactoring)
-  - SE: System Architecture Reviewer
-  - SE: GitOps/CI Specialist
-  - SE: Product Manager Advisor
-  - SE: Security Reviewer
-  - Scientific Paper Research
-- **Skills** (symlinked to `~/.agents/skills`):
-  ai-smell-detector, architecture-blueprint-generator, autoresearch, chrome-devtools, cloud-design-patterns,
-  conventional-commit, create-architectural-decision-record, create-implementation-plan,
-  database-schema-designer, devops-rollout-plan, docker-k8s-optimizer,
-  draw-io-diagram-generator, jest-testing-generator, kafka-stream-designer,
-  nest-backend-service-builder, nextjs-react-engineering, senior-code-review,
-  sql-code-review, system-planning-assistant, telemetry-opentelemetry-integrator,
-  terraform-aws-builder
+8. **OpenViking** (`~/.openviking`)
+   - CLI config (`ovcli.conf`, `ovcli.settings.conf`) symlinked from `configs/openviking`
+   - `openviking-server` launch agent (`ai.openviking.server`) on macOS
+   - `ov.conf` holds provider API keys, is created locally with `ov config`, and is not tracked by this repo
 
 ## Installation
 
@@ -142,9 +125,9 @@ The installation script will:
 
 1. Request sudo password (required for system-level changes)
 2. Install Homebrew (if not already installed)
-3. Install CLI applications from `apps/cli/Brewfile`, then install CodeGraph CLI via its upstream installer (and `apps/gui/Brewfile` on macOS)
+3. Install CLI applications from `apps/cli/Brewfile`, then install uv tools (OpenViking, MarkItDown), `tofu-ls`, and CodeGraph CLI (and `apps/gui/Brewfile` on macOS)
 4. Install oh-my-zsh (if not already installed)
-5. Create symlinks for all configuration files
+5. Create symlinks for configuration files and install the Claude Code AI stack
 6. Generate SSH keys (if they don't exist)
 
 **Platform Detection:**
@@ -186,6 +169,7 @@ After installation completes:
 1. Log out and log back in (or restart your terminal)
 2. Verify installations: `brew list`
 3. Check zsh configuration: `echo $SHELL` (should be `/bin/zsh`)
+4. Verify Claude Code setup (macOS): `claude plugin list` and `claude mcp list`
 
 ## Profile Management
 
@@ -242,19 +226,23 @@ dotfiles/
 ├── apps/
 │   ├── cli/
 │   │   ├── install.sh
+│   │   ├── upgrade.sh           # Upgrade CodeGraph, OpenViking, MarkItDown
 │   │   └── Brewfile             # CLI applications (cross-platform)
 │   ├── gui/
 │   │   ├── install.sh
 │   │   └── Brewfile             # GUI applications (macOS only)
 │   └── install.sh               # Application installation logic
 ├── configs/
-│   ├── ai-agents/               # AI agents configuration (Copilot)
-│   │   ├── agents/              # Subagent definitions (symlinked to ~/.copilot/agents)
-│   │   ├── skills/              # AI agent skills (symlinked to ~/.agents/skills)
-│   │   ├── copilot-instructions.md  # Global Copilot instructions (symlinked)
+│   ├── ai/                      # Claude Code plugins, MCP, LSP, routing, hooks
 │   │   ├── install.sh
-│   │   ├── mcp-config.json      # MCP server definitions (symlinked to ~/.copilot/mcp-config.json)
-│   │   └── rules.md             # Reference copy of engineering rules (not symlinked)
+│   │   ├── upgrade.sh
+│   │   ├── plugins.txt
+│   │   ├── plugins.optional.txt
+│   │   ├── mcp.json
+│   │   ├── CLAUDE.md            # Symlinked to ~/.claude/CLAUDE.md
+│   │   ├── routing.md
+│   │   ├── lsp/                 # Local ai-lsp marketplace (tofu-ls)
+│   │   └── hooks/
 │   ├── docker/                  # Docker configuration
 │   │   ├── install.sh
 │   │   └── config.json
@@ -267,6 +255,11 @@ dotfiles/
 │   │   ├── gitconfig
 │   │   ├── gitconfig_[profile]  # Profile-specific Git config template
 │   │   └── gitignore_global
+│   ├── openviking/              # OpenViking CLI and server configuration
+│   │   ├── install.sh
+│   │   ├── ovcli.conf
+│   │   ├── ovcli.settings.conf
+│   │   └── ai.openviking.server.plist.template
 │   ├── ssh/                     # SSH configuration
 │   │   ├── install.sh
 │   │   ├── config
@@ -285,6 +278,7 @@ dotfiles/
 │   ├── generate_ssh_key.sh      # SSH key generation helper
 │   └── to_snake_case.sh         # String to snake_case converter
 ├── .gitignore                   # Git ignore rules
+├── AGENTS.md                    # Repo-scoped guidance for coding agents
 ├── add_profile.sh               # Add new Git/SSH profile
 ├── install.sh                   # Main installation script
 ├── LICENSE                      # MIT License
@@ -300,7 +294,7 @@ Edit the appropriate Brewfile:
 - `apps/cli/Brewfile` - Add CLI tools with `brew "package-name"`
 - `apps/gui/Brewfile` - Add GUI apps with `cask "app-name"` (macOS only)
 
-The current exceptions are CodeGraph CLI, installed in `apps/cli/install.sh` via the upstream installer, and the oMLX desktop app, installed in `apps/gui/install.sh` from the upstream GitHub Releases dmg — neither is available as a Brewfile entry.
+The current exceptions are CodeGraph CLI (upstream installer), OpenViking (`openviking[local-embed]`) and MarkItDown (`markitdown[all]`) as uv tools, `tofu-ls` (checksum-verified GitHub Releases archive), and the oMLX desktop app (upstream dmg) — all installed by `apps/cli/install.sh` or `apps/gui/install.sh`. Go, gopls, rust-analyzer, and golangci-lint are Brewfile formulae.
 
 ### Adding New Configurations
 
@@ -313,7 +307,7 @@ The current exceptions are CodeGraph CLI, installed in `apps/cli/install.sh` via
 To skip a package on Ubuntu, add it to the `HOMEBREW_BUNDLE_BREW_SKIP` variable in `apps/cli/install.sh`:
 
 ```bash
-HOMEBREW_BUNDLE_BREW_SKIP="colima macmon other-macos-only-package" brew bundle --file="${DIR}/Brewfile"
+HOMEBREW_BUNDLE_BREW_SKIP="colima macmon omlx" brew bundle --file="${DIR}/Brewfile"
 ```
 
 ## Maintenance
@@ -328,6 +322,19 @@ brew update && brew upgrade
 brew upgrade <package-name>
 ```
 
+### Upgrading Non-Homebrew Tools
+
+```bash
+# Upgrade CodeGraph, OpenViking, and MarkItDown
+./apps/cli/upgrade.sh
+
+# Upgrade Claude Code plugins and marketplaces
+./configs/ai/upgrade.sh
+
+# Refresh tofu-ls (re-runs the checksum-verified release install)
+./apps/cli/install.sh
+```
+
 ### Updating Configurations
 
 Since configs are symlinked, simply pull the latest changes:
@@ -337,7 +344,7 @@ cd dotfiles
 git pull
 ```
 
-Changes take effect immediately (you may need to restart your shell for some changes).
+Changes take effect immediately (you may need to restart your shell for some changes). For Claude Code plugins and marketplaces, also run `./configs/ai/upgrade.sh` after pulling.
 
 ## Troubleshooting
 
@@ -370,6 +377,15 @@ mv ~/.zshrc ~/.zshrc.backup
 ```
 
 Then re-run the installation.
+
+### Claude Code CLAUDE.md Not Linked
+
+If `~/.claude/CLAUDE.md` already exists as a regular file, `configs/ai/install.sh` leaves it untouched. Back it up, then re-run the AI installer:
+
+```bash
+mv ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.backup
+./configs/ai/install.sh
+```
 
 ## Contributing
 
