@@ -1,0 +1,32 @@
+# Core skills
+superpowers@claude-plugins-official
+mattpocock-skills@claude-plugins-official
+
+# Companions
+frontend-design@claude-plugins-official
+typescript-lsp@claude-plugins-official
+claude-md-management@claude-plugins-official
+security-guidance@claude-plugins-official
+hookify@claude-plugins-official
+
+# Subagent packs
+pr-review-toolkit@claude-plugins-official
+claude-security@claude-plugins-official
+javascript-typescript@claude-code-workflows
+python-development@claude-code-workflows
+security-scanning@claude-code-workflows
+kubernetes-operations@claude-code-workflows
+observability-monitoring@claude-code-workflows
+systems-programming@claude-code-workflows
+cloud-infrastructure@claude-code-workflows
+
+# Language servers
+gopls-lsp@claude-plugins-official
+rust-analyzer-lsp@claude-plugins-official
+tofu-ls@ai-lsp
+
+# MCP servers available as official plugins
+github@claude-plugins-official
+context7@claude-plugins-official
+playwright@claude-plugins-official
+chrome-devtools-mcp@claude-plugins-official

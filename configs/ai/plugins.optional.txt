@@ -1,0 +1,11 @@
+# AI/ML
+pyright-lsp@claude-plugins-official
+huggingface-skills@claude-plugins-official
+
+# Authoring — pick one of skill-creator or plugin-dev
+skill-creator@claude-plugins-official
+# plugin-dev@claude-plugins-official
+
+# Writing and plugin development (Superpowers marketplace)
+elements-of-style@superpowers-marketplace
+superpowers-developing-for-claude-code@superpowers-marketplace

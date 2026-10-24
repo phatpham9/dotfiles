@@ -45,11 +45,22 @@ configure_starship() {
   echo "-> Starship configured!"
 }
 
-# configure ai agents
-configure_ai_agents() {
-  "${DIR}/ai-agents/install.sh"
-  
-  echo "-> AI agents configured!"
+# configure openviking
+configure_openviking() {
+  "${DIR}/openviking/install.sh"
+
+  echo "-> OpenViking configured!"
+}
+
+# configure ai (Claude Code)
+configure_ai() {
+  if command -v claude >/dev/null 2>&1; then
+    "${DIR}/ai/install.sh"
+
+    echo "-> AI configured!"
+  else
+    echo "-> claude CLI not found; skipping AI configuration"
+  fi
 }
 
 # Main script execution
@@ -59,4 +70,5 @@ configure_gh
 configure_docker
 configure_zsh
 configure_starship
-configure_ai_agents
+configure_openviking
+configure_ai

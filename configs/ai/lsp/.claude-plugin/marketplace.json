@@ -1,0 +1,28 @@
+{
+  "name": "ai-lsp",
+  "description": "Local LSP plugins for the Claude Code AI stack",
+  "owner": {
+    "name": "Phat Pham"
+  },
+  "plugins": [
+    {
+      "name": "tofu-ls",
+      "description": "OpenTofu language server for .tf, .tofu, and .tfvars files",
+      "version": "1.0.0",
+      "category": "development",
+      "source": "./tofu-ls",
+      "strict": false,
+      "lspServers": {
+        "tofu-ls": {
+          "command": "tofu-ls",
+          "args": ["serve"],
+          "extensionToLanguage": {
+            ".tf": "opentofu",
+            ".tofu": "opentofu",
+            ".tfvars": "opentofu-vars"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -10,13 +10,9 @@ cask "google-chrome"
 cask "visual-studio-code"
 
 ### ai/ml tools
-cask "claude"
+cask "hermes-desktop"
 cask "claude-code"
 cask "codex"
-cask "codex-app"
-cask "copilot-cli"
-cask "hermes-desktop"
-cask "lm-studio"
 
 ### research & paper writing
 cask "quarto"
@@ -32,16 +28,15 @@ cask "microsoft-powerpoint"
 ### knowledge base
 cask "obsidian"
 
-### virtualization & remote desktop
+### virtualization
 cask "utm"
-cask "windows-app"
-cask "amazon-workspaces"
 
 ### others
 cask "cloudflare-warp"
 cask "rectangle"
+cask "itsycal"
 cask "keka"
 cask "iina"
 cask "motrix"
-cask "itsycal"
-cask "lulu"
+cask "coconutbattery"
+cask "homebrew-app"
