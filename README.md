@@ -102,7 +102,9 @@ The following tools are automatically configured:
 8. **OpenViking** (`~/.openviking`)
    - CLI config (`ovcli.conf`, `ovcli.settings.conf`) symlinked from `configs/openviking`
    - `openviking-server` launch agent (`ai.openviking.server`) on macOS
+   - `ingest.json` is merged into `ov.conf` to replay Claude Code session logs, and the `ai.openviking.ingest` launch agent backfills then watches for changes
    - `ov.conf` holds provider API keys, is created locally with `ov config`, and is not tracked by this repo
+   - Check ingest progress with `openviking-server ingest status`
 
 ## Installation
 
@@ -257,9 +259,11 @@ dotfiles/
 │   │   └── gitignore_global
 │   ├── openviking/              # OpenViking CLI and server configuration
 │   │   ├── install.sh
+│   │   ├── ingest.json
 │   │   ├── ovcli.conf
 │   │   ├── ovcli.settings.conf
-│   │   └── ai.openviking.server.plist.template
+│   │   ├── ai.openviking.server.plist.template
+│   │   └── ai.openviking.ingest.plist.template
 │   ├── ssh/                     # SSH configuration
 │   │   ├── install.sh
 │   │   ├── config
