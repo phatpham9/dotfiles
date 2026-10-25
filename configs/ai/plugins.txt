@@ -26,7 +26,5 @@ rust-analyzer-lsp@claude-plugins-official
 tofu-ls@ai-lsp
 
 # MCP servers available as official plugins
-github@claude-plugins-official
 context7@claude-plugins-official
 playwright@claude-plugins-official
-chrome-devtools-mcp@claude-plugins-official

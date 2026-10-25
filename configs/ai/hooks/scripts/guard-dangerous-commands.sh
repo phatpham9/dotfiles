@@ -13,7 +13,7 @@ patterns=(
   'rm[[:space:]]+(-[^[:space:]]+[[:space:]]+)*(~|\$HOME)($|[[:space:]])'
   'git[[:space:]]+push[[:space:]]+.*(--force([[:space:]]|$)|-f([[:space:]]|$))'
   '(kubectl|oc)[[:space:]]+delete[[:space:]]+(namespace|ns|pv|pvc|clusterrole|clusterrolebinding)'
-  'terraform[[:space:]]+apply[[:space:]]+.*-auto-approve'
+  '(terraform|tofu)[[:space:]]+apply[[:space:]]+.*-auto-approve'
   'DROP[[:space:]]+(DATABASE|TABLE|SCHEMA)'
 )
 

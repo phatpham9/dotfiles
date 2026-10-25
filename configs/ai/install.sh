@@ -167,6 +167,21 @@ install_mcp_servers() {
   done < <(jq -c '.mcpServers | to_entries[]' "${DIR}/mcp.json")
 }
 
+install_mcp_headers() {
+  local bin_dir="${HOME}/.local/bin" src
+  if [ "$DRY_RUN" -eq 1 ]; then
+    log "[dry-run] Would install MCP header helpers to ${bin_dir}"
+    return
+  fi
+  mkdir -p "$bin_dir"
+  for src in "${DIR}/mcp-headers/"*.sh; do
+    [ -f "$src" ] || continue
+    cp "$src" "$bin_dir/"
+    chmod +x "$bin_dir/$(basename "$src")"
+    log "Installed $(basename "$src") -> ${bin_dir}"
+  done
+}
+
 resolve_routing_target() {
   local target="$ROUTING_FILE"
 
@@ -288,6 +303,7 @@ install_hooks() {
 
 install_plugins
 cleanup_legacy_mcp
+install_mcp_headers
 install_mcp_servers
 if [ "$WITH_ROUTING" -eq 1 ]; then
   link_claude_md
