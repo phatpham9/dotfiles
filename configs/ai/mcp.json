@@ -1,5 +1,10 @@
 {
   "mcpServers": {
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
     "codegraph": {
       "type": "stdio",
       "command": "codegraph",
@@ -9,9 +14,15 @@
       "type": "http",
       "url": "http://127.0.0.1:1933/mcp"
     },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp",
+      "headersHelper": "${HOME}/.local/bin/github-mcp-auth.sh"
+    },
     "huggingface": {
       "type": "http",
-      "url": "https://huggingface.co/mcp?login"
+      "url": "https://huggingface.co/mcp",
+      "headersHelper": "${HOME}/.local/bin/hf-mcp-auth.sh"
     },
     "next-devtools": {
       "type": "stdio",

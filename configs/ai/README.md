@@ -20,6 +20,7 @@ from the previous MCP configuration.
 | `hooks/settings.snippet.json` | Hook definitions merged into `~/.claude/settings.json` |
 | `hooks/scripts/` | Hook scripts copied to `~/.claude/hooks/ai/` |
 | `lsp/` | Local `ai-lsp` marketplace with the `tofu-ls` LSP plugin |
+| `mcp-headers/` | Header-helper scripts copied to `~/.local/bin/` for token-based MCP auth |
 | `install.sh` | Idempotent installer (supports `--dry-run`) |
 | `upgrade.sh` | Updates the installed plugins/marketplaces |
 
@@ -97,30 +98,35 @@ Toolchain (installed by `apps/cli`): `go`, `gopls`, `rust-analyzer`,
 
 ### MCP servers
 
-Four are provided by official plugins (one source per server, no user-scope
+Two are provided by official plugins (one source per server, no user-scope
 duplicates):
 
 | Server | Source |
 |---|---|
-| `github` | `github@claude-plugins-official` (uses `${GITHUB_PERSONAL_ACCESS_TOKEN}`) |
 | `context7` | `context7@claude-plugins-official` |
 | `playwright` | `playwright@claude-plugins-official` |
-| `chrome-devtools` | `chrome-devtools-mcp@claude-plugins-official` |
 
-The remaining eight are installed at **user scope** from `mcp.json`:
+Ten are installed at **user scope** from `mcp.json`:
 
 | Server | Notes |
 |---|---|
-| `codegraph` | Requires `codegraph` on PATH; `apps/cli/install.sh` installs it |
-| `openviking` | Requires `openviking-server` running on `127.0.0.1:1933` |
-| `huggingface` | Run `claude mcp login huggingface` after install |
-| `next-devtools` | `npx -y next-devtools-mcp@latest` |
-| `markitdown` | `uvx markitdown-mcp`; install the CLI with `uv tool install 'markitdown[all]'` |
-| `deepwiki` | Remote HTTP |
 | `arxiv-mcp-server` | `uv tool run`; storage under `~/.cache/arxiv-mcp-server` |
 | `bgpt` | Remote SSE; 50 free results per network |
+| `chrome-devtools` | `npx -y chrome-devtools-mcp@latest` |
+| `codegraph` | Requires `codegraph` on PATH; `apps/cli/install.sh` installs it |
+| `deepwiki` | Remote HTTP |
+| `github` | Auth via `mcp-headers/github-mcp-auth.sh` → `gh auth token` (keyring) |
+| `huggingface` | Auth via `mcp-headers/hf-mcp-auth.sh` → `hf auth token` |
+| `markitdown` | `uvx markitdown-mcp`; install the CLI with `uv tool install 'markitdown[all]'` |
+| `next-devtools` | `npx -y next-devtools-mcp@latest` |
+| `openviking` | Requires `openviking-server` running on `127.0.0.1:1933` |
 
 `markitdown-ocr-mcp` is not managed by this config and is left untouched.
+
+The `github` and `huggingface` servers authenticate through `headersHelper`
+scripts in `mcp-headers/` (deployed to `~/.local/bin/` by `install.sh`) that
+read the `gh` and `hf` CLI tokens at connect time — no token is stored in this
+repo or in `~/.claude.json`.
 
 ### Routing rule
 
@@ -141,7 +147,7 @@ Scripts are copied to `~/.claude/hooks/ai/` and merged into
 
 | Hook | Event | Effect |
 |---|---|---|
-| `guard-dangerous-commands.sh` | `PreToolUse` (`Bash`) | Blocks destructive commands (`rm -rf /`, force-push, namespace/PV deletes, `-auto-approve`, `DROP DATABASE`) |
+| `guard-dangerous-commands.sh` | `PreToolUse` (`Bash`) | Blocks destructive commands (`rm -rf /`, force-push, namespace/PV deletes, `terraform`/`tofu apply -auto-approve`, `DROP DATABASE`) |
 | `protect-secrets.sh` | `PreToolUse` (`Edit\|Write\|MultiEdit`) | Blocks edits to `.env*` (except examples), keys, `.ssh`, `.aws/credentials`, `.docker/config.json`, `.kube/config`, `.npmrc`, `.envrc` |
 | `format-edited-files.sh` | `PostToolUse` (`Edit\|Write\|MultiEdit`) | Runs project-local Prettier then ESLint on supported files |
 | `verify-typescript.sh` | `Stop` | Runs the project's `typecheck` script (or local `tsc --noEmit`); optional tests via `AI_HOOK_RUN_TESTS=1` |
@@ -202,9 +208,9 @@ The previous AI configuration directory has been removed from this repo; the com
 
 ## Environment
 
-- `GITHUB_PERSONAL_ACCESS_TOKEN` — required by the `github` plugin.
 - `CONTEXT7_API_KEY` — optional; higher Context7 rate limits.
-- Hugging Face — run `claude mcp login huggingface` after install.
+- GitHub and Hugging Face MCP auth reuses the `gh` and `hf` CLI logins via the
+  `mcp-headers/` helper scripts; no API token is stored in config or this repo.
 - No secrets are stored in this directory.
 
 ## Context budget

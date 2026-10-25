@@ -94,7 +94,7 @@ The following tools are automatically configured:
    - Adds companion plugins (`frontend-design`, `typescript-lsp`, `claude-md-management`, `security-guidance`, `hookify`)
    - Adds subagent packs: `pr-review-toolkit`, `claude-security`, and selected `wshobson/agents` domain plugins (TypeScript, Python, Go/Rust, security, Kubernetes, observability, Terraform/cloud)
    - Adds language servers: `gopls-lsp`, `rust-analyzer-lsp`, and a local `tofu-ls` LSP plugin
-   - Configures the MCP servers from `configs/ai/mcp.json` plus the GitHub, Context7, Playwright, and Chrome DevTools MCP plugins
+   - Configures MCP servers from `configs/ai/mcp.json` (GitHub and Hugging Face via header-helper scripts that reuse the `gh`/`hf` CLI logins; Chrome DevTools via `npx`) plus the Context7 and Playwright MCP plugins
    - Symlinks `configs/ai/CLAUDE.md` to `~/.claude/CLAUDE.md` and upserts the skill and agent routing block
    - Optional `--with-hooks` adds guardrail, formatting, and TypeScript verification hooks
    - **CodeGraph CLI** (`codegraph`): installed by `apps/cli/install.sh` via the upstream installer and used for local code graph indexing and MCP serving
@@ -244,6 +244,7 @@ dotfiles/
 │   │   ├── CLAUDE.md            # Symlinked to ~/.claude/CLAUDE.md
 │   │   ├── routing.md
 │   │   ├── lsp/                 # Local ai-lsp marketplace (tofu-ls)
+│   │   ├── mcp-headers/         # MCP header-helper scripts (gh/hf auth)
 │   │   └── hooks/
 │   ├── docker/                  # Docker configuration
 │   │   ├── install.sh
