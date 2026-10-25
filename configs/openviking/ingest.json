@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "server_url": "http://127.0.0.1:1933",
+  "account": "default",
+  "user": "default",
+  "harnesses": {
+    "claude_code": {
+      "enabled": true,
+      "mode": "both"
+    }
+  }
+}
