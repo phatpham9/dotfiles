@@ -277,6 +277,11 @@ apply_settings() {
     return
   fi
 
+  if [ ! -f "${DIR}/settings.json" ]; then
+    echo "-> ${DIR}/settings.json not found; skipping settings merge" >&2
+    return 0
+  fi
+
   mkdir -p "$CLAUDE_DIR"
   [ -f "$SETTINGS_FILE" ] || echo '{}' > "$SETTINGS_FILE"
 
