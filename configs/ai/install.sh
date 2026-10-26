@@ -154,7 +154,7 @@ install_mcp_servers() {
   while IFS= read -r row; do
     name="$(jq -r '.key' <<<"$row")"
     cfg="$(jq -c '.value' <<<"$row")"
-    cfg="$(printf '%s' "$cfg" | sed "s|\${HOME}|${HOME}|g")"
+    cfg="$(jq -c --arg home "$HOME" 'walk(if type == "string" then gsub("\\$\\{HOME\\}"; $home) else . end)' <<<"$cfg")"
 
     log "Configuring MCP server ${name}"
     if [ "$DRY_RUN" -eq 1 ]; then
