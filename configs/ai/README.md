@@ -91,7 +91,8 @@ Toolchain (installed by `apps/cli`): `go`, `gopls`, `rust-analyzer`,
 
 ### Optional (`--with-optional`)
 
-- `pyright-lsp`, `huggingface-skills` — AI/ML Python work.
+- `pyright-lsp` (requires `pyright` from `apps/cli/Brewfile`) and
+  `huggingface-skills` — AI/ML Python work.
 - `skill-creator` — authoring skills with evals (`plugin-dev` is the commented
   alternative).
 - `elements-of-style`, `superpowers-developing-for-claude-code` — writing and
