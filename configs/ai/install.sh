@@ -199,11 +199,11 @@ resolve_routing_target() {
 link_claude_md() {
   local source="${DIR}/CLAUDE.md"
 
-  [ -f "$source" ] || return 0
+  [ -f "$source" ] || return 1
 
   if [ "$DRY_RUN" -eq 1 ]; then
     log "[dry-run] Would link ${ROUTING_FILE} -> ${source} if absent"
-    return
+    return 0
   fi
 
   if [ -L "$ROUTING_FILE" ]; then
@@ -211,12 +211,12 @@ link_claude_md() {
       return 0
     fi
     echo "-> ${ROUTING_FILE} is a symlink to $(readlink "$ROUTING_FILE"); leaving it unchanged" >&2
-    return 0
+    return 1
   fi
 
   if [ -e "$ROUTING_FILE" ]; then
     echo "-> ${ROUTING_FILE} exists and is not a symlink; leaving it unchanged" >&2
-    return 0
+    return 1
   fi
 
   mkdir -p "$(dirname "$ROUTING_FILE")"
@@ -330,8 +330,9 @@ install_mcp_headers
 install_mcp_servers
 apply_settings
 if [ "$WITH_ROUTING" -eq 1 ]; then
-  link_claude_md
-  apply_routing
+  if link_claude_md; then
+    apply_routing
+  fi
 fi
 [ "$WITH_HOOKS" -eq 1 ] && install_hooks
 
