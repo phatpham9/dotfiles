@@ -50,7 +50,7 @@ Keep changes aligned with this delegation model. Top-level scripts should orches
 
 - `plugins.txt` / `plugins.optional.txt` — marketplace plugins (Superpowers, Matt Pocock skills, companions, subagent packs, LSP and MCP plugins)
 - `mcp.json` — user-scope MCP servers not shipped as plugins
-- `settings.json` — user-scope Claude Code settings merged into `~/.claude/settings.json` (default model)
+- `settings.json` — user-scope Claude Code settings merged into `~/.claude/settings.json` (default model and credential-path permission deny rules)
 - `lsp/` — local `ai-lsp` marketplace for the `tofu-ls` OpenTofu language server
 - `routing.md` — skill and agent routing block upserted into `CLAUDE.md`
 - `CLAUDE.md` — tracked user-level instructions, symlinked to `~/.claude/CLAUDE.md`

@@ -15,7 +15,7 @@ from the previous MCP configuration.
 | `plugins.txt` | Required plugins (skills, companions, subagent packs, LSP/MCP plugins) |
 | `plugins.optional.txt` | Optional AI/ML, authoring, and writing plugins |
 | `mcp.json` | MCP servers installed at user scope (the ones not shipped as official plugins) |
-| `settings.json` | User-scope Claude Code settings merged into `~/.claude/settings.json` (default model) |
+| `settings.json` | User-scope Claude Code settings merged into `~/.claude/settings.json` (default model and permission deny rules) |
 | `CLAUDE.md` | User-level Claude Code instructions, symlinked to `~/.claude/CLAUDE.md` |
 | `routing.md` | Skill and agent routing block upserted into `CLAUDE.md` |
 | `hooks/settings.snippet.json` | Hook definitions merged into `~/.claude/settings.json` |
@@ -233,10 +233,14 @@ The previous AI configuration directory has been removed from this repo; the com
 
 ## Context budget
 
-Both skill plugins cost roughly 1,700 tokens/turn plus ~570 tokens of
+The two core skill plugins cost roughly 1,700 tokens/turn plus ~570 tokens of
 Superpowers startup context. The user-level `CLAUDE.md` adds roughly 2.5k
-tokens per session. The five companions and the subagent packs add their
-descriptions on every turn; install optional packs only while actively doing
-that work. LSP plugins add no model-context cost. Individual plugin
-skills/agents cannot be disabled — disable a whole plugin with
-`claude plugin disable <plugin>` if the stack becomes noisy.
+tokens per session. The full installed set measured ~11.6k always-on tokens
+before the startup injection; the largest contributors are
+`huggingface-skills` (~3.2k), `pr-review-toolkit` (~1.3k), `mattpocock-skills`
+(~1.1k), `python-development` (~1.0k), `cloud-infrastructure` (~1.0k), and
+`superpowers` (~0.6k). Install optional packs only while actively doing that
+work; `claude plugin details <plugin>` reports the current cost. LSP plugins
+add no model-context cost. Individual plugin skills/agents cannot be disabled
+— disable a whole plugin with `claude plugin disable <plugin>` if the stack
+becomes noisy.

@@ -95,6 +95,7 @@ The following tools are automatically configured:
    - Adds subagent packs: `pr-review-toolkit`, `claude-security`, and selected `wshobson/agents` domain plugins (TypeScript, Python, Go/Rust, security, Kubernetes, observability, Terraform/cloud)
    - Adds language servers: `gopls-lsp`, `rust-analyzer-lsp`, and a local `tofu-ls` LSP plugin
    - Configures MCP servers from `configs/ai/mcp.json` (GitHub via a header-helper script that reuses the `gh` CLI login; Chrome DevTools via `npx`) plus the Context7 and Playwright MCP plugins; the optional `huggingface-skills` plugin supplies the Hugging Face MCP server
+   - Merges `configs/ai/settings.json` into `~/.claude/settings.json` as defaults, including the default model and credential-path permission deny rules
    - Symlinks `configs/ai/CLAUDE.md` to `~/.claude/CLAUDE.md` and upserts the skill and agent routing block
    - Optional `--with-hooks` adds guardrail, formatting, and TypeScript verification hooks
    - **CodeGraph CLI** (`codegraph`): installed by `apps/cli/install.sh` via the upstream installer and used for local code graph indexing and MCP serving
