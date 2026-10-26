@@ -168,7 +168,7 @@ Scripts are copied to `~/.claude/hooks/ai/` and merged into
 |---|---|---|
 | `guard-dangerous-commands.sh` | `PreToolUse` (`Bash`) | Blocks destructive commands (`rm -rf /`, force-push, namespace/PV deletes, `terraform`/`tofu apply -auto-approve`, `DROP DATABASE`) |
 | `protect-secrets.sh` | `PreToolUse` (`Edit\|Write\|MultiEdit`) | Blocks edits to `.env*` (except examples), keys, `.ssh`, `.aws`, `.config/gh/hosts.yml`, Hugging Face tokens, `.claude/.credentials.json`, gcloud/container auth, `.docker/config.json`, `.kube/config`, `.npmrc`, `.envrc` |
-| `format-edited-files.sh` | `PostToolUse` (`Edit\|Write\|MultiEdit`) | Runs project-local Prettier then ESLint on supported files |
+| `format-edited-files.sh` | `PostToolUse` (`Edit\|Write`) | Runs project-local Prettier then ESLint; reports failures to Claude (exit 2) without reverting the edit |
 | `verify-typescript.sh` | `Stop` | Runs the project's `typecheck` script (or local `tsc --noEmit`); optional tests via `AI_HOOK_RUN_TESTS=1` |
 
 Disable a hook at runtime with `AI_HOOK_VERIFY=0` or `AI_HOOK_FORMAT=0`; remove
