@@ -298,9 +298,22 @@ apply_settings() {
   mkdir -p "$(dirname "$settings_file")"
   [ -f "$settings_file" ] || echo '{}' > "$settings_file"
 
+  if ! jq empty "$settings_file" >/dev/null 2>&1; then
+    echo "-> ${settings_file} is not valid JSON; skipping settings merge" >&2
+    return 0
+  fi
+
   tmp="$(mktemp "${settings_file}.XXXXXX")"
-  jq -s '.[1] * .[0]' "$settings_file" "${DIR}/settings.json" > "$tmp"
-  jq empty "$tmp"
+  if ! jq -s '.[1] * .[0]' "$settings_file" "${DIR}/settings.json" > "$tmp" 2>/dev/null; then
+    rm -f "$tmp"
+    echo "-> failed to merge settings; leaving ${settings_file} unchanged" >&2
+    return 0
+  fi
+  if ! jq empty "$tmp" >/dev/null 2>&1; then
+    rm -f "$tmp"
+    echo "-> merged settings are invalid; leaving ${settings_file} unchanged" >&2
+    return 0
+  fi
   mv "$tmp" "$settings_file"
   log "Applied ${DIR}/settings.json to ${settings_file}"
 }
@@ -323,8 +336,13 @@ install_hooks() {
   mkdir -p "$HOOKS_DIR" "$(dirname "$settings_file")"
   [ -f "$settings_file" ] || echo '{}' > "$settings_file"
 
+  if ! jq empty "$settings_file" >/dev/null 2>&1; then
+    echo "-> ${settings_file} is not valid JSON; skipping hook merge" >&2
+    return 0
+  fi
+
   tmp="$(mktemp "${settings_file}.XXXXXX")"
-  jq --argjson snippet "$snippet" --arg hooks_dir "$HOOKS_DIR" '
+  if ! jq --argjson snippet "$snippet" --arg hooks_dir "$HOOKS_DIR" '
     .hooks = (.hooks // {}) |
     reduce ($snippet.hooks | to_entries[]) as $entry (.;
       .hooks[$entry.key] = (
@@ -333,8 +351,16 @@ install_hooks() {
         ))) + $entry.value
       )
     )
-  ' "$settings_file" > "$tmp"
-  jq empty "$tmp"
+  ' "$settings_file" > "$tmp"; then
+    rm -f "$tmp"
+    echo "-> failed to merge hooks; leaving ${settings_file} unchanged" >&2
+    return 0
+  fi
+  if ! jq empty "$tmp" >/dev/null 2>&1; then
+    rm -f "$tmp"
+    echo "-> merged hooks are invalid; leaving ${settings_file} unchanged" >&2
+    return 0
+  fi
   mv "$tmp" "$settings_file"
   log "Installed hooks into ${settings_file}"
 }
