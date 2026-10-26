@@ -141,7 +141,9 @@ precedence, so a model chosen with `/model` or `/config` is preserved.
 Currently the tracked default is `"model": "sonnet"`.
 
 The file also denies Read/Edit access to SSH and AWS keys, the GitHub,
-Hugging Face, Claude, and gcloud credential stores, and project `.env` files.
+Hugging Face, Claude, and gcloud credential stores, and project `.env` files,
+including `.env.local`, `.env.*.local`, `.env.production`, `.env.development`,
+`.env.test`, and `.env.staging`; `.env.example` stays readable.
 Array values replace rather than merge, so keep any local `permissions.deny`
 list complete.
 
