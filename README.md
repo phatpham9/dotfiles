@@ -242,10 +242,11 @@ dotfiles/
 │   │   ├── plugins.txt
 │   │   ├── plugins.optional.txt
 │   │   ├── mcp.json
+│   │   ├── settings.json        # User-scope settings (model, permission denies)
 │   │   ├── CLAUDE.md            # Symlinked to ~/.claude/CLAUDE.md
 │   │   ├── routing.md
 │   │   ├── lsp/                 # Local ai-lsp marketplace (tofu-ls)
-│   │   ├── mcp-headers/         # MCP header-helper scripts (gh/hf auth)
+│   │   ├── mcp-headers/         # MCP header-helper scripts (gh auth)
 │   │   └── hooks/
 │   ├── docker/                  # Docker configuration
 │   │   ├── install.sh
