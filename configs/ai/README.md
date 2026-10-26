@@ -15,6 +15,7 @@ from the previous MCP configuration.
 | `plugins.txt` | Required plugins (skills, companions, subagent packs, LSP/MCP plugins) |
 | `plugins.optional.txt` | Optional AI/ML, authoring, and writing plugins |
 | `mcp.json` | MCP servers installed at user scope (the ones not shipped as official plugins) |
+| `settings.json` | User-scope Claude Code settings merged into `~/.claude/settings.json` (default model and permission deny rules) |
 | `CLAUDE.md` | User-level Claude Code instructions, symlinked to `~/.claude/CLAUDE.md` |
 | `routing.md` | Skill and agent routing block upserted into `CLAUDE.md` |
 | `hooks/settings.snippet.json` | Hook definitions merged into `~/.claude/settings.json` |
@@ -90,7 +91,8 @@ Toolchain (installed by `apps/cli`): `go`, `gopls`, `rust-analyzer`,
 
 ### Optional (`--with-optional`)
 
-- `pyright-lsp`, `huggingface-skills` — AI/ML Python work.
+- `pyright-lsp` (requires `pyright` from `apps/cli/Brewfile`) and
+  `huggingface-skills` — AI/ML Python work.
 - `skill-creator` — authoring skills with evals (`plugin-dev` is the commented
   alternative).
 - `elements-of-style`, `superpowers-developing-for-claude-code` — writing and
@@ -106,7 +108,7 @@ duplicates):
 | `context7` | `context7@claude-plugins-official` |
 | `playwright` | `playwright@claude-plugins-official` |
 
-Ten are installed at **user scope** from `mcp.json`:
+Nine are installed at **user scope** from `mcp.json`:
 
 | Server | Notes |
 |---|---|
@@ -116,17 +118,37 @@ Ten are installed at **user scope** from `mcp.json`:
 | `codegraph` | Requires `codegraph` on PATH; `apps/cli/install.sh` installs it |
 | `deepwiki` | Remote HTTP |
 | `github` | Auth via `mcp-headers/github-mcp-auth.sh` → `gh auth token` (keyring) |
-| `huggingface` | Auth via `mcp-headers/hf-mcp-auth.sh` → `hf auth token` |
 | `markitdown` | `uvx markitdown-mcp`; install the CLI with `uv tool install 'markitdown[all]'` |
 | `next-devtools` | `npx -y next-devtools-mcp@latest` |
 | `openviking` | Requires `openviking-server` running on `127.0.0.1:1933` |
 
+The optional `huggingface-skills` plugin supplies the Hugging Face MCP server;
+it is not duplicated in `mcp.json`.
+
 `markitdown-ocr-mcp` is not managed by this config and is left untouched.
 
-The `github` and `huggingface` servers authenticate through `headersHelper`
-scripts in `mcp-headers/` (deployed to `~/.local/bin/` by `install.sh`) that
-read the `gh` and `hf` CLI tokens at connect time — no token is stored in this
-repo or in `~/.claude.json`.
+The `github` server authenticates through the `headersHelper` script in
+`mcp-headers/` (deployed to `~/.local/bin/` by `install.sh`) that reads the `gh`
+CLI token at connect time — no token is stored in this repo or in
+`~/.claude.json`.
+
+### Settings
+
+`settings.json` holds user-scope Claude Code settings that are not plugin or
+hook related. `install.sh` merges it into `~/.claude/settings.json` on every
+run as defaults: keys already present in `~/.claude/settings.json` take
+precedence, so a model chosen with `/model` or `/config` is preserved.
+Currently the tracked default is `"model": "sonnet"`. If
+`~/.claude/settings.json` is a symlink, the merge writes through it only when
+the resolved target stays under `$HOME`; targets outside `$HOME` are skipped
+with a warning.
+
+The file also denies Read/Edit access to SSH and AWS keys, the GitHub,
+Hugging Face, Claude, and gcloud credential stores, and project `.env` files,
+including `.env.local`, `.env.*.local`, `.env.production`, `.env.development`,
+`.env.test`, and `.env.staging`; `.env.example` stays readable.
+Array values replace rather than merge, so keep any local `permissions.deny`
+list complete.
 
 ### Routing rule
 
@@ -148,8 +170,8 @@ Scripts are copied to `~/.claude/hooks/ai/` and merged into
 | Hook | Event | Effect |
 |---|---|---|
 | `guard-dangerous-commands.sh` | `PreToolUse` (`Bash`) | Blocks destructive commands (`rm -rf /`, force-push, namespace/PV deletes, `terraform`/`tofu apply -auto-approve`, `DROP DATABASE`) |
-| `protect-secrets.sh` | `PreToolUse` (`Edit\|Write\|MultiEdit`) | Blocks edits to `.env*` (except examples), keys, `.ssh`, `.aws/credentials`, `.docker/config.json`, `.kube/config`, `.npmrc`, `.envrc` |
-| `format-edited-files.sh` | `PostToolUse` (`Edit\|Write\|MultiEdit`) | Runs project-local Prettier then ESLint on supported files |
+| `protect-secrets.sh` | `PreToolUse` (`Edit\|Write`) | Blocks edits to `.env*` (except examples), keys, `.ssh`, `.aws/credentials`, `.config/gh/hosts.yml`, Hugging Face tokens, `.claude/.credentials.json`, gcloud/container auth, `.docker/config.json`, `.kube/config`, `.npmrc`, `.envrc`, including backup suffixes |
+| `format-edited-files.sh` | `PostToolUse` (`Edit\|Write`) | Runs project-local Prettier then ESLint; reports failures to Claude (exit 2) without reverting the edit |
 | `verify-typescript.sh` | `Stop` | Runs the project's `typecheck` script (or local `tsc --noEmit`); optional tests via `AI_HOOK_RUN_TESTS=1` |
 
 Disable a hook at runtime with `AI_HOOK_VERIFY=0` or `AI_HOOK_FORMAT=0`; remove
@@ -209,16 +231,21 @@ The previous AI configuration directory has been removed from this repo; the com
 ## Environment
 
 - `CONTEXT7_API_KEY` — optional; higher Context7 rate limits.
-- GitHub and Hugging Face MCP auth reuses the `gh` and `hf` CLI logins via the
-  `mcp-headers/` helper scripts; no API token is stored in config or this repo.
+- GitHub MCP auth reuses the `gh` CLI login via the `mcp-headers/` helper
+  script; no API token is stored in config or this repo. Hugging Face is
+  provided by the optional `huggingface-skills` plugin.
 - No secrets are stored in this directory.
 
 ## Context budget
 
-Both skill plugins cost roughly 1,700 tokens/turn plus ~570 tokens of
+The two core skill plugins cost roughly 1,700 tokens/turn plus ~570 tokens of
 Superpowers startup context. The user-level `CLAUDE.md` adds roughly 2.5k
-tokens per session. The five companions and the subagent packs add their
-descriptions on every turn; install optional packs only while actively doing
-that work. LSP plugins add no model-context cost. Individual plugin
-skills/agents cannot be disabled — disable a whole plugin with
-`claude plugin disable <plugin>` if the stack becomes noisy.
+tokens per session. The full installed set measured ~11.6k always-on tokens
+before the startup injection; the largest contributors are
+`huggingface-skills` (~3.2k), `pr-review-toolkit` (~1.3k), `mattpocock-skills`
+(~1.1k), `python-development` (~1.0k), `cloud-infrastructure` (~1.0k), and
+`superpowers` (~0.6k). Install optional packs only while actively doing that
+work; `claude plugin details <plugin>` reports the current cost. LSP plugins
+add no model-context cost. Individual plugin skills/agents cannot be disabled
+— disable a whole plugin with `claude plugin disable <plugin>` if the stack
+becomes noisy.

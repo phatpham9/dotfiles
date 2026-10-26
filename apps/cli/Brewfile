@@ -22,6 +22,7 @@ brew "uv"
 ### language servers & linters
 brew "gopls"
 brew "rust-analyzer"
+brew "pyright"
 brew "golangci-lint"
 
 ### container & orchestration

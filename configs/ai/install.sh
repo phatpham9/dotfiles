@@ -140,7 +140,7 @@ install_plugins() {
 # Remove user-scope copies of servers now provided by official plugins.
 cleanup_legacy_mcp() {
   local name
-  for name in github-mcp-server context7 playwright-mcp chrome-devtools chrome-devtools-mcp; do
+  for name in github-mcp-server context7 playwright-mcp chrome-devtools-mcp huggingface; do
     if [ "$DRY_RUN" -eq 1 ]; then
       printf '   [dry-run] claude mcp remove %s --scope user (if present)\n' "$name"
     else
@@ -154,7 +154,7 @@ install_mcp_servers() {
   while IFS= read -r row; do
     name="$(jq -r '.key' <<<"$row")"
     cfg="$(jq -c '.value' <<<"$row")"
-    cfg="$(printf '%s' "$cfg" | sed "s|\${HOME}|${HOME}|g")"
+    cfg="$(jq -c --arg home "$HOME" 'walk(if type == "string" then gsub("\\$\\{HOME\\}"; $home) else . end)' <<<"$cfg")"
 
     log "Configuring MCP server ${name}"
     if [ "$DRY_RUN" -eq 1 ]; then
@@ -199,11 +199,11 @@ resolve_routing_target() {
 link_claude_md() {
   local source="${DIR}/CLAUDE.md"
 
-  [ -f "$source" ] || return 0
+  [ -f "$source" ] || return 1
 
   if [ "$DRY_RUN" -eq 1 ]; then
     log "[dry-run] Would link ${ROUTING_FILE} -> ${source} if absent"
-    return
+    return 0
   fi
 
   if [ -L "$ROUTING_FILE" ]; then
@@ -211,12 +211,12 @@ link_claude_md() {
       return 0
     fi
     echo "-> ${ROUTING_FILE} is a symlink to $(readlink "$ROUTING_FILE"); leaving it unchanged" >&2
-    return 0
+    return 1
   fi
 
   if [ -e "$ROUTING_FILE" ]; then
     echo "-> ${ROUTING_FILE} exists and is not a symlink; leaving it unchanged" >&2
-    return 0
+    return 1
   fi
 
   mkdir -p "$(dirname "$ROUTING_FILE")"
@@ -269,8 +269,83 @@ apply_routing() {
   fi
 }
 
+resolve_file_target() {
+  local target="$1" link canonical home_canonical i=0
+
+  if [ ! -L "$target" ]; then
+    printf '%s\n' "$target"
+    return 0
+  fi
+
+  while [ -L "$target" ] && [ "$i" -lt 10 ]; do
+    link="$(readlink "$target")"
+    case "$link" in
+      /*) target="$link" ;;
+      *) target="$(dirname "$target")/$link" ;;
+    esac
+    i=$((i + 1))
+  done
+
+  if [ -L "$target" ]; then
+    echo "-> ${1} has too many symlink levels; skipping settings write" >&2
+    return 1
+  fi
+
+  canonical="$(cd "$(dirname "$target")" 2>/dev/null && pwd -P)" || {
+    echo "-> cannot resolve the directory for ${target}; skipping settings write" >&2
+    return 1
+  }
+  canonical="${canonical}/$(basename "$target")"
+  home_canonical="$(cd "$HOME" 2>/dev/null && pwd -P)" || home_canonical="$HOME"
+
+  case "$canonical" in
+    "$home_canonical"/*) printf '%s\n' "$canonical" ;;
+    *)
+      echo "-> ${1} points outside ${home_canonical}; skipping settings write" >&2
+      return 1
+      ;;
+  esac
+}
+
+apply_settings() {
+  local tmp settings_file
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    log "[dry-run] Would merge ${DIR}/settings.json into ${SETTINGS_FILE}"
+    return
+  fi
+
+  if [ ! -f "${DIR}/settings.json" ]; then
+    echo "-> ${DIR}/settings.json not found; skipping settings merge" >&2
+    return 0
+  fi
+
+  settings_file="$(resolve_file_target "$SETTINGS_FILE")" || return 0
+  mkdir -p "$(dirname "$settings_file")"
+  [ -f "$settings_file" ] || echo '{}' > "$settings_file"
+
+  if ! jq empty "$settings_file" >/dev/null 2>&1; then
+    echo "-> ${settings_file} is not valid JSON; skipping settings merge" >&2
+    return 0
+  fi
+
+  tmp="$(mktemp "${settings_file}.XXXXXX")"
+  if ! jq -s '.[1] * .[0]' "$settings_file" "${DIR}/settings.json" > "$tmp" 2>/dev/null; then
+    rm -f "$tmp"
+    echo "-> failed to merge settings; leaving ${settings_file} unchanged" >&2
+    return 0
+  fi
+  if ! jq empty "$tmp" >/dev/null 2>&1; then
+    rm -f "$tmp"
+    echo "-> merged settings are invalid; leaving ${settings_file} unchanged" >&2
+    return 0
+  fi
+  mv "$tmp" "$settings_file"
+  log "Applied ${DIR}/settings.json to ${settings_file}"
+}
+
 install_hooks() {
-  local snippet tmp
+  local snippet tmp settings_file
 
   if [ "$DRY_RUN" -eq 1 ]; then
     log "[dry-run] Would copy hooks to ${HOOKS_DIR} and merge them into ${SETTINGS_FILE}"
@@ -283,10 +358,17 @@ install_hooks() {
 
   snippet="$(sed "s#__HOOKS_DIR__#${HOOKS_DIR}#g" "${DIR}/hooks/settings.snippet.json")"
 
-  [ -f "$SETTINGS_FILE" ] || echo '{}' > "$SETTINGS_FILE"
+  settings_file="$(resolve_file_target "$SETTINGS_FILE")" || return 0
+  mkdir -p "$HOOKS_DIR" "$(dirname "$settings_file")"
+  [ -f "$settings_file" ] || echo '{}' > "$settings_file"
 
-  tmp="$(mktemp "${SETTINGS_FILE}.XXXXXX")"
-  jq --argjson snippet "$snippet" --arg hooks_dir "$HOOKS_DIR" '
+  if ! jq empty "$settings_file" >/dev/null 2>&1; then
+    echo "-> ${settings_file} is not valid JSON; skipping hook merge" >&2
+    return 0
+  fi
+
+  tmp="$(mktemp "${settings_file}.XXXXXX")"
+  if ! jq --argjson snippet "$snippet" --arg hooks_dir "$HOOKS_DIR" '
     .hooks = (.hooks // {}) |
     reduce ($snippet.hooks | to_entries[]) as $entry (.;
       .hooks[$entry.key] = (
@@ -295,19 +377,29 @@ install_hooks() {
         ))) + $entry.value
       )
     )
-  ' "$SETTINGS_FILE" > "$tmp"
-  jq empty "$tmp"
-  mv "$tmp" "$SETTINGS_FILE"
-  log "Installed hooks into ${SETTINGS_FILE}"
+  ' "$settings_file" > "$tmp"; then
+    rm -f "$tmp"
+    echo "-> failed to merge hooks; leaving ${settings_file} unchanged" >&2
+    return 0
+  fi
+  if ! jq empty "$tmp" >/dev/null 2>&1; then
+    rm -f "$tmp"
+    echo "-> merged hooks are invalid; leaving ${settings_file} unchanged" >&2
+    return 0
+  fi
+  mv "$tmp" "$settings_file"
+  log "Installed hooks into ${settings_file}"
 }
 
 install_plugins
 cleanup_legacy_mcp
 install_mcp_headers
 install_mcp_servers
+apply_settings
 if [ "$WITH_ROUTING" -eq 1 ]; then
-  link_claude_md
-  apply_routing
+  if link_claude_md; then
+    apply_routing
+  fi
 fi
 [ "$WITH_HOOKS" -eq 1 ] && install_hooks
 

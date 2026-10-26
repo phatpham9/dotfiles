@@ -31,7 +31,7 @@ Keep changes aligned with this delegation model. Top-level scripts should orches
 - Config files under `configs/` are the tracked source of truth. Installed files under `~` and `~/.config` are symlink targets and should not be edited directly from this repo.
 - Most `configs/*/install.sh` scripts create symlinks with `utils/create_symlink.sh`; `configs/ai/install.sh` manages plugins/MCP and the `~/.claude/CLAUDE.md` symlink instead.
 - `apps/cli/Brewfile` and `apps/gui/Brewfile` own package lists for Homebrew-managed software. `apps/cli/install.sh` also installs CodeGraph CLI via its upstream installer and `tofu-ls` from GitHub Releases; keep those exceptions local to the CLI installer.
-- `configs/ai/` is the Claude Code AI stack: plugin lists, MCP servers, LSP plugins, routing rules, and hooks. `configs/ai/install.sh` installs plugins and MCP servers and updates the user-level `CLAUDE.md` through its symlink.
+- `configs/ai/` is the Claude Code AI stack: plugin lists, MCP servers, user settings, LSP plugins, routing rules, and hooks. `configs/ai/install.sh` installs plugins and MCP servers, merges `settings.json` into `~/.claude/settings.json`, and updates the user-level `CLAUDE.md` through its symlink.
 - `configs/ai/CLAUDE.md` is the tracked user-level Claude Code memory. `~/.claude/CLAUDE.md` should be a symlink to it; `configs/ai/routing.md` is the routing block upserted into that file.
 
 ## Profile Management
@@ -50,6 +50,7 @@ Keep changes aligned with this delegation model. Top-level scripts should orches
 
 - `plugins.txt` / `plugins.optional.txt` — marketplace plugins (Superpowers, Matt Pocock skills, companions, subagent packs, LSP and MCP plugins)
 - `mcp.json` — user-scope MCP servers not shipped as plugins
+- `settings.json` — user-scope Claude Code settings merged into `~/.claude/settings.json` (default model and credential-path permission deny rules)
 - `lsp/` — local `ai-lsp` marketplace for the `tofu-ls` OpenTofu language server
 - `routing.md` — skill and agent routing block upserted into `CLAUDE.md`
 - `CLAUDE.md` — tracked user-level instructions, symlinked to `~/.claude/CLAUDE.md`
