@@ -167,7 +167,7 @@ Scripts are copied to `~/.claude/hooks/ai/` and merged into
 | Hook | Event | Effect |
 |---|---|---|
 | `guard-dangerous-commands.sh` | `PreToolUse` (`Bash`) | Blocks destructive commands (`rm -rf /`, force-push, namespace/PV deletes, `terraform`/`tofu apply -auto-approve`, `DROP DATABASE`) |
-| `protect-secrets.sh` | `PreToolUse` (`Edit\|Write\|MultiEdit`) | Blocks edits to `.env*` (except examples), keys, `.ssh`, `.aws`, `.config/gh/hosts.yml`, Hugging Face tokens, `.claude/.credentials.json`, gcloud/container auth, `.docker/config.json`, `.kube/config`, `.npmrc`, `.envrc` |
+| `protect-secrets.sh` | `PreToolUse` (`Edit\|Write`) | Blocks edits to `.env*` (except examples), keys, `.ssh`, `.aws/credentials`, `.config/gh/hosts.yml`, Hugging Face tokens, `.claude/.credentials.json`, gcloud/container auth, `.docker/config.json`, `.kube/config`, `.npmrc`, `.envrc`, including backup suffixes |
 | `format-edited-files.sh` | `PostToolUse` (`Edit\|Write`) | Runs project-local Prettier then ESLint; reports failures to Claude (exit 2) without reverting the edit |
 | `verify-typescript.sh` | `Stop` | Runs the project's `typecheck` script (or local `tsc --noEmit`); optional tests via `AI_HOOK_RUN_TESTS=1` |
 
