@@ -138,7 +138,10 @@ CLI token at connect time — no token is stored in this repo or in
 hook related. `install.sh` merges it into `~/.claude/settings.json` on every
 run as defaults: keys already present in `~/.claude/settings.json` take
 precedence, so a model chosen with `/model` or `/config` is preserved.
-Currently the tracked default is `"model": "sonnet"`.
+Currently the tracked default is `"model": "sonnet"`. If
+`~/.claude/settings.json` is a symlink, the merge writes through it only when
+the resolved target stays under `$HOME`; targets outside `$HOME` are skipped
+with a warning.
 
 The file also denies Read/Edit access to SSH and AWS keys, the GitHub,
 Hugging Face, Claude, and gcloud credential stores, and project `.env` files,

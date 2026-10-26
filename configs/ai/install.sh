@@ -270,15 +270,41 @@ apply_routing() {
 }
 
 resolve_file_target() {
-  local target="$1" link
-  if [ -L "$target" ]; then
+  local target="$1" link canonical home_canonical i=0
+
+  if [ ! -L "$target" ]; then
+    printf '%s\n' "$target"
+    return 0
+  fi
+
+  while [ -L "$target" ] && [ "$i" -lt 10 ]; do
     link="$(readlink "$target")"
     case "$link" in
       /*) target="$link" ;;
       *) target="$(dirname "$target")/$link" ;;
     esac
+    i=$((i + 1))
+  done
+
+  if [ -L "$target" ]; then
+    echo "-> ${1} has too many symlink levels; skipping settings write" >&2
+    return 1
   fi
-  printf '%s\n' "$target"
+
+  canonical="$(cd "$(dirname "$target")" 2>/dev/null && pwd -P)" || {
+    echo "-> cannot resolve the directory for ${target}; skipping settings write" >&2
+    return 1
+  }
+  canonical="${canonical}/$(basename "$target")"
+  home_canonical="$(cd "$HOME" 2>/dev/null && pwd -P)" || home_canonical="$HOME"
+
+  case "$canonical" in
+    "$home_canonical"/*) printf '%s\n' "$canonical" ;;
+    *)
+      echo "-> ${1} points outside ${home_canonical}; skipping settings write" >&2
+      return 1
+      ;;
+  esac
 }
 
 apply_settings() {
@@ -294,7 +320,7 @@ apply_settings() {
     return 0
   fi
 
-  settings_file="$(resolve_file_target "$SETTINGS_FILE")"
+  settings_file="$(resolve_file_target "$SETTINGS_FILE")" || return 0
   mkdir -p "$(dirname "$settings_file")"
   [ -f "$settings_file" ] || echo '{}' > "$settings_file"
 
@@ -332,7 +358,7 @@ install_hooks() {
 
   snippet="$(sed "s#__HOOKS_DIR__#${HOOKS_DIR}#g" "${DIR}/hooks/settings.snippet.json")"
 
-  settings_file="$(resolve_file_target "$SETTINGS_FILE")"
+  settings_file="$(resolve_file_target "$SETTINGS_FILE")" || return 0
   mkdir -p "$HOOKS_DIR" "$(dirname "$settings_file")"
   [ -f "$settings_file" ] || echo '{}' > "$settings_file"
 
