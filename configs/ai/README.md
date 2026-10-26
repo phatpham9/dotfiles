@@ -133,8 +133,9 @@ repo or in `~/.claude.json`.
 
 `settings.json` holds user-scope Claude Code settings that are not plugin or
 hook related. `install.sh` merges it into `~/.claude/settings.json` on every
-run, so the keys it defines take precedence — currently `"model": "sonnet"`.
-A model chosen with `/config` stays in effect until the installer runs again.
+run as defaults: keys already present in `~/.claude/settings.json` take
+precedence, so a model chosen with `/model` or `/config` is preserved.
+Currently the tracked default is `"model": "sonnet"`.
 
 ### Routing rule
 

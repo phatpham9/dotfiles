@@ -286,7 +286,7 @@ apply_settings() {
   [ -f "$SETTINGS_FILE" ] || echo '{}' > "$SETTINGS_FILE"
 
   tmp="$(mktemp "${SETTINGS_FILE}.XXXXXX")"
-  jq -s '.[0] * .[1]' "$SETTINGS_FILE" "${DIR}/settings.json" > "$tmp"
+  jq -s '.[1] * .[0]' "$SETTINGS_FILE" "${DIR}/settings.json" > "$tmp"
   jq empty "$tmp"
   mv "$tmp" "$SETTINGS_FILE"
   log "Applied ${DIR}/settings.json to ${SETTINGS_FILE}"
