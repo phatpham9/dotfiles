@@ -1,3 +1,21 @@
 {
-  "model": "sonnet"
+  "model": "sonnet",
+  "permissions": {
+    "deny": [
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gh/hosts.yml)",
+      "Read(~/.cache/huggingface/token)",
+      "Read(~/.claude/.credentials.json)",
+      "Read(~/.config/gcloud/application_default_credentials.json)",
+      "Read(**/.env)",
+      "Edit(~/.ssh/**)",
+      "Edit(~/.aws/**)",
+      "Edit(~/.config/gh/hosts.yml)",
+      "Edit(~/.cache/huggingface/token)",
+      "Edit(~/.claude/.credentials.json)",
+      "Edit(~/.config/gcloud/application_default_credentials.json)",
+      "Edit(**/.env)"
+    ]
+  }
 }

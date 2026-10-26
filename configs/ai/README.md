@@ -140,6 +140,11 @@ run as defaults: keys already present in `~/.claude/settings.json` take
 precedence, so a model chosen with `/model` or `/config` is preserved.
 Currently the tracked default is `"model": "sonnet"`.
 
+The file also denies Read/Edit access to SSH and AWS keys, the GitHub,
+Hugging Face, Claude, and gcloud credential stores, and project `.env` files.
+Array values replace rather than merge, so keep any local `permissions.deny`
+list complete.
+
 ### Routing rule
 
 `configs/ai/CLAUDE.md` is the tracked user-level Claude Code memory.
