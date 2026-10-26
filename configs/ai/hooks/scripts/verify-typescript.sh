@@ -25,7 +25,7 @@ if [ -f pnpm-lock.yaml ]; then
   pm="pnpm"
 elif [ -f yarn.lock ]; then
   pm="yarn"
-elif [ -f bun.lockb ]; then
+elif [ -f bun.lockb ] || [ -f bun.lock ]; then
   pm="bun"
 elif [ -f package-lock.json ]; then
   pm="npm"
