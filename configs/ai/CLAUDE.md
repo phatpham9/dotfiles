@@ -137,9 +137,13 @@
 <!-- AI-ROUTING-START -->
 ## Skill routing: Superpowers + Matt Pocock
 
-- Requirements / ambiguous scope: `mattpocock-skills:grilling` (or
-  `grill-with-docs`) first, then `to-spec` -> `to-tickets`.
-- Issue triage / PR flow: `mattpocock-skills:triage`, `pr`, `retro`.
+- Requirements / ambiguous scope: use `mattpocock-skills:grilling` for the
+  interview. For documented grilling or spec/ticket handoff, ask the user to
+  run `/mattpocock-skills:grill-with-docs`,
+  `/mattpocock-skills:to-spec`, or `/mattpocock-skills:to-tickets`.
+- Issue triage / PR flow: use `mattpocock-skills:pr` for PR bodies. For triage
+  or retro, ask the user to run `/mattpocock-skills:triage` or
+  `/mattpocock-skills:retro`.
 - Execution with an approved spec: `superpowers:writing-plans` ->
   `executing-plans` or `subagent-driven-development`; use
   `superpowers:test-driven-development`.
@@ -149,8 +153,9 @@
 - Code review: `mattpocock-skills:code-review` for a single pass;
   `superpowers:requesting-code-review` / `receiving-code-review` for subagent
   review loops.
-- Architecture / domain: `mattpocock-skills:domain-modeling`,
-  `codebase-design`, `improve-codebase-architecture`.
+- Architecture / domain: use `mattpocock-skills:domain-modeling` and
+  `codebase-design`. For a repo-wide scan, ask the user to run
+  `/mattpocock-skills:improve-codebase-architecture`.
 - Never run both TDD skills on the same task; use Matt's `tdd` only when
   explicitly requested.
 - Always finish with `superpowers:verification-before-completion`; use
