@@ -269,8 +269,20 @@ apply_routing() {
   fi
 }
 
+resolve_file_target() {
+  local target="$1" link
+  if [ -L "$target" ]; then
+    link="$(readlink "$target")"
+    case "$link" in
+      /*) target="$link" ;;
+      *) target="$(dirname "$target")/$link" ;;
+    esac
+  fi
+  printf '%s\n' "$target"
+}
+
 apply_settings() {
-  local tmp
+  local tmp settings_file
 
   if [ "$DRY_RUN" -eq 1 ]; then
     log "[dry-run] Would merge ${DIR}/settings.json into ${SETTINGS_FILE}"
@@ -282,18 +294,19 @@ apply_settings() {
     return 0
   fi
 
-  mkdir -p "$CLAUDE_DIR"
-  [ -f "$SETTINGS_FILE" ] || echo '{}' > "$SETTINGS_FILE"
+  settings_file="$(resolve_file_target "$SETTINGS_FILE")"
+  mkdir -p "$(dirname "$settings_file")"
+  [ -f "$settings_file" ] || echo '{}' > "$settings_file"
 
-  tmp="$(mktemp "${SETTINGS_FILE}.XXXXXX")"
-  jq -s '.[1] * .[0]' "$SETTINGS_FILE" "${DIR}/settings.json" > "$tmp"
+  tmp="$(mktemp "${settings_file}.XXXXXX")"
+  jq -s '.[1] * .[0]' "$settings_file" "${DIR}/settings.json" > "$tmp"
   jq empty "$tmp"
-  mv "$tmp" "$SETTINGS_FILE"
-  log "Applied ${DIR}/settings.json to ${SETTINGS_FILE}"
+  mv "$tmp" "$settings_file"
+  log "Applied ${DIR}/settings.json to ${settings_file}"
 }
 
 install_hooks() {
-  local snippet tmp
+  local snippet tmp settings_file
 
   if [ "$DRY_RUN" -eq 1 ]; then
     log "[dry-run] Would copy hooks to ${HOOKS_DIR} and merge them into ${SETTINGS_FILE}"
@@ -306,9 +319,11 @@ install_hooks() {
 
   snippet="$(sed "s#__HOOKS_DIR__#${HOOKS_DIR}#g" "${DIR}/hooks/settings.snippet.json")"
 
-  [ -f "$SETTINGS_FILE" ] || echo '{}' > "$SETTINGS_FILE"
+  settings_file="$(resolve_file_target "$SETTINGS_FILE")"
+  mkdir -p "$HOOKS_DIR" "$(dirname "$settings_file")"
+  [ -f "$settings_file" ] || echo '{}' > "$settings_file"
 
-  tmp="$(mktemp "${SETTINGS_FILE}.XXXXXX")"
+  tmp="$(mktemp "${settings_file}.XXXXXX")"
   jq --argjson snippet "$snippet" --arg hooks_dir "$HOOKS_DIR" '
     .hooks = (.hooks // {}) |
     reduce ($snippet.hooks | to_entries[]) as $entry (.;
@@ -318,10 +333,10 @@ install_hooks() {
         ))) + $entry.value
       )
     )
-  ' "$SETTINGS_FILE" > "$tmp"
+  ' "$settings_file" > "$tmp"
   jq empty "$tmp"
-  mv "$tmp" "$SETTINGS_FILE"
-  log "Installed hooks into ${SETTINGS_FILE}"
+  mv "$tmp" "$settings_file"
+  log "Installed hooks into ${settings_file}"
 }
 
 install_plugins
