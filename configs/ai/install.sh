@@ -269,6 +269,24 @@ apply_routing() {
   fi
 }
 
+apply_settings() {
+  local tmp
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    log "[dry-run] Would merge ${DIR}/settings.json into ${SETTINGS_FILE}"
+    return
+  fi
+
+  mkdir -p "$CLAUDE_DIR"
+  [ -f "$SETTINGS_FILE" ] || echo '{}' > "$SETTINGS_FILE"
+
+  tmp="$(mktemp "${SETTINGS_FILE}.XXXXXX")"
+  jq -s '.[0] * .[1]' "$SETTINGS_FILE" "${DIR}/settings.json" > "$tmp"
+  jq empty "$tmp"
+  mv "$tmp" "$SETTINGS_FILE"
+  log "Applied ${DIR}/settings.json to ${SETTINGS_FILE}"
+}
+
 install_hooks() {
   local snippet tmp
 
@@ -305,6 +323,7 @@ install_plugins
 cleanup_legacy_mcp
 install_mcp_headers
 install_mcp_servers
+apply_settings
 if [ "$WITH_ROUTING" -eq 1 ]; then
   link_claude_md
   apply_routing

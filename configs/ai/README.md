@@ -15,6 +15,7 @@ from the previous MCP configuration.
 | `plugins.txt` | Required plugins (skills, companions, subagent packs, LSP/MCP plugins) |
 | `plugins.optional.txt` | Optional AI/ML, authoring, and writing plugins |
 | `mcp.json` | MCP servers installed at user scope (the ones not shipped as official plugins) |
+| `settings.json` | User-scope Claude Code settings merged into `~/.claude/settings.json` (default model) |
 | `CLAUDE.md` | User-level Claude Code instructions, symlinked to `~/.claude/CLAUDE.md` |
 | `routing.md` | Skill and agent routing block upserted into `CLAUDE.md` |
 | `hooks/settings.snippet.json` | Hook definitions merged into `~/.claude/settings.json` |
@@ -127,6 +128,13 @@ The `github` and `huggingface` servers authenticate through `headersHelper`
 scripts in `mcp-headers/` (deployed to `~/.local/bin/` by `install.sh`) that
 read the `gh` and `hf` CLI tokens at connect time — no token is stored in this
 repo or in `~/.claude.json`.
+
+### Settings
+
+`settings.json` holds user-scope Claude Code settings that are not plugin or
+hook related. `install.sh` merges it into `~/.claude/settings.json` on every
+run, so the keys it defines take precedence — currently `"model": "sonnet"`.
+A model chosen with `/config` stays in effect until the installer runs again.
 
 ### Routing rule
 
