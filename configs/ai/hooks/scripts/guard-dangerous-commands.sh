@@ -8,9 +8,9 @@ raw_command="$(jq -r '.tool_input.command // empty' <<<"$input" 2>/dev/null || t
 [ -z "$raw_command" ] && exit 0
 
 # Remove quotes and normalize ${HOME} so quoting cannot hide a target.
-command="${raw_command//\"/}"
-command="${command//\'/}"
-command="${command//\$\{HOME\}/\$HOME}"
+normalized_command="${raw_command//\"/}"
+normalized_command="${normalized_command//\'/}"
+normalized_command="${normalized_command//\$\{HOME\}/\$HOME}"
 
 # Deliberately narrow patterns: routine cleanup (rm -rf node_modules) is
 # allowed. Each pattern runs per shell segment so a trailing ;, |, or &
@@ -39,6 +39,6 @@ while IFS= read -r segment; do
       exit 2
     fi
   done
-done < <(printf '%s\n' "$command" | tr ';|&' '\n')
+done < <(printf '%s\n' "$normalized_command" | tr ';|&' '\n')
 
 exit 0
