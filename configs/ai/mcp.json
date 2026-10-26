@@ -19,11 +19,6 @@
       "url": "https://api.githubcopilot.com/mcp",
       "headersHelper": "${HOME}/.local/bin/github-mcp-auth.sh"
     },
-    "huggingface": {
-      "type": "http",
-      "url": "https://huggingface.co/mcp",
-      "headersHelper": "${HOME}/.local/bin/hf-mcp-auth.sh"
-    },
     "next-devtools": {
       "type": "stdio",
       "command": "npx",

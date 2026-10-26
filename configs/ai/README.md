@@ -107,7 +107,7 @@ duplicates):
 | `context7` | `context7@claude-plugins-official` |
 | `playwright` | `playwright@claude-plugins-official` |
 
-Ten are installed at **user scope** from `mcp.json`:
+Nine are installed at **user scope** from `mcp.json`:
 
 | Server | Notes |
 |---|---|
@@ -117,17 +117,19 @@ Ten are installed at **user scope** from `mcp.json`:
 | `codegraph` | Requires `codegraph` on PATH; `apps/cli/install.sh` installs it |
 | `deepwiki` | Remote HTTP |
 | `github` | Auth via `mcp-headers/github-mcp-auth.sh` → `gh auth token` (keyring) |
-| `huggingface` | Auth via `mcp-headers/hf-mcp-auth.sh` → `hf auth token` |
 | `markitdown` | `uvx markitdown-mcp`; install the CLI with `uv tool install 'markitdown[all]'` |
 | `next-devtools` | `npx -y next-devtools-mcp@latest` |
 | `openviking` | Requires `openviking-server` running on `127.0.0.1:1933` |
 
+The optional `huggingface-skills` plugin supplies the Hugging Face MCP server;
+it is not duplicated in `mcp.json`.
+
 `markitdown-ocr-mcp` is not managed by this config and is left untouched.
 
-The `github` and `huggingface` servers authenticate through `headersHelper`
-scripts in `mcp-headers/` (deployed to `~/.local/bin/` by `install.sh`) that
-read the `gh` and `hf` CLI tokens at connect time — no token is stored in this
-repo or in `~/.claude.json`.
+The `github` server authenticates through the `headersHelper` script in
+`mcp-headers/` (deployed to `~/.local/bin/` by `install.sh`) that reads the `gh`
+CLI token at connect time — no token is stored in this repo or in
+`~/.claude.json`.
 
 ### Settings
 
@@ -218,8 +220,9 @@ The previous AI configuration directory has been removed from this repo; the com
 ## Environment
 
 - `CONTEXT7_API_KEY` — optional; higher Context7 rate limits.
-- GitHub and Hugging Face MCP auth reuses the `gh` and `hf` CLI logins via the
-  `mcp-headers/` helper scripts; no API token is stored in config or this repo.
+- GitHub MCP auth reuses the `gh` CLI login via the `mcp-headers/` helper
+  script; no API token is stored in config or this repo. Hugging Face is
+  provided by the optional `huggingface-skills` plugin.
 - No secrets are stored in this directory.
 
 ## Context budget

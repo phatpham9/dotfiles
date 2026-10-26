@@ -1,4 +1,5 @@
 # AI/ML
+# huggingface-skills also supplies the Hugging Face MCP server.
 pyright-lsp@claude-plugins-official
 huggingface-skills@claude-plugins-official
 

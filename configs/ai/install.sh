@@ -140,7 +140,7 @@ install_plugins() {
 # Remove user-scope copies of servers now provided by official plugins.
 cleanup_legacy_mcp() {
   local name
-  for name in github-mcp-server context7 playwright-mcp chrome-devtools chrome-devtools-mcp; do
+  for name in github-mcp-server context7 playwright-mcp chrome-devtools chrome-devtools-mcp huggingface; do
     if [ "$DRY_RUN" -eq 1 ]; then
       printf '   [dry-run] claude mcp remove %s --scope user (if present)\n' "$name"
     else
