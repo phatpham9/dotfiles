@@ -9,9 +9,10 @@ command="$(jq -r '.tool_input.command // empty' <<<"$input" 2>/dev/null || true)
 
 # Deliberately narrow patterns: routine cleanup (rm -rf node_modules) is allowed.
 patterns=(
-  'rm[[:space:]]+(-[^[:space:]]+[[:space:]]+)*/($|[[:space:]])'
-  'rm[[:space:]]+(-[^[:space:]]+[[:space:]]+)*(~|\$HOME)($|[[:space:]])'
-  'git[[:space:]]+push[[:space:]]+.*(--force([[:space:]]|$)|-f([[:space:]]|$))'
+  'rm[[:space:]]+(-[^[:space:]]+[[:space:]]+)*/(\*)?($|[[:space:]])'
+  'rm[[:space:]]+(-[^[:space:]]+[[:space:]]+)*(~|\$HOME)(/?\*?)?($|[[:space:]])'
+  'rm[[:space:]]+(-[^[:space:]]+[[:space:]]+)*(/Users|/home)/[^/[:space:]]+($|[[:space:]])'
+  'git[[:space:]]+push[[:space:]]+.*(--force([[:space:]]|$)|-f([[:space:]]|$)|[[:space:]]\+[^[:space:]]+)'
   '(kubectl|oc)[[:space:]]+delete[[:space:]]+(namespace|ns|pv|pvc|clusterrole|clusterrolebinding)'
   '(terraform|tofu)[[:space:]]+apply[[:space:]]+.*-auto-approve'
   'DROP[[:space:]]+(DATABASE|TABLE|SCHEMA)'
