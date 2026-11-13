@@ -51,7 +51,7 @@ A fully automated dotfiles repository that sets up a complete development enviro
 
 - **Browser**: Helium Browser, Google Chrome
 - **IDE**: Visual Studio Code
-- **AI/ML Tools**: Claude Code, Codex, Hermes Desktop, oMLX App (desktop)
+- **AI/ML Tools**: Claude Code, Hermes Desktop, oMLX App (desktop)
 - **Research & Paper Writing**: Quarto, Zotero
 - **Office**: Word, Excel, PowerPoint
 - **Knowledge Management**: Obsidian
