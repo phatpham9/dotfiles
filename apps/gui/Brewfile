@@ -12,7 +12,6 @@ cask "visual-studio-code"
 ### ai/ml tools
 cask "hermes-desktop"
 cask "claude-code"
-cask "codex"
 
 ### research & paper writing
 cask "quarto"
