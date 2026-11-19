@@ -229,12 +229,13 @@ dotfiles/
 ├── apps/
 │   ├── cli/
 │   │   ├── install.sh
-│   │   ├── upgrade.sh           # Upgrade CodeGraph, OpenViking, MarkItDown
+│   │   ├── upgrade.sh           # Upgrade CodeGraph, OpenViking, MarkItDown, tofu-ls
 │   │   └── Brewfile             # CLI applications (cross-platform)
 │   ├── gui/
 │   │   ├── install.sh
 │   │   └── Brewfile             # GUI applications (macOS only)
-│   └── install.sh               # Application installation logic
+│   ├── install.sh               # Application installation logic
+│   └── upgrade.sh               # Homebrew, CLI tools, and oh-my-zsh upgrades
 ├── configs/
 │   ├── ai/                      # Claude Code plugins, MCP, LSP, routing, hooks
 │   │   ├── install.sh
@@ -278,7 +279,8 @@ dotfiles/
 │   │   ├── install.sh
 │   │   ├── zshrc
 │   │   └── zsh_aliases
-│   └── install.sh               # Configuration symlink setup
+│   ├── install.sh               # Configuration symlink setup
+│   └── upgrade.sh               # Config relink and Claude Code plugin upgrades
 ├── utils/                       # Utility functions
 │   ├── is_macos.sh              # macOS detection helper
 │   ├── create_symlink.sh        # Symlink creation helper
@@ -288,6 +290,7 @@ dotfiles/
 ├── AGENTS.md                    # Repo-scoped guidance for coding agents
 ├── add_profile.sh               # Add new Git/SSH profile
 ├── install.sh                   # Main installation script
+├── upgrade.sh                   # Main upgrade script
 ├── LICENSE                      # MIT License
 └── remove_profile.sh            # Remove existing Git/SSH profile
 ```
@@ -319,39 +322,48 @@ HOMEBREW_BUNDLE_BREW_SKIP="colima macmon omlx" brew bundle --file="${DIR}/Brewfi
 
 ## Maintenance
 
-### Updating Applications
+### Upgrading Everything
+
+Pull the latest config changes, then run the upgrade script:
 
 ```bash
-# Update Homebrew and upgrade all packages
-brew update && brew upgrade
-
-# Or update specific package
-brew upgrade <package-name>
+cd dotfiles
+git pull
+./upgrade.sh
 ```
 
-### Upgrading Non-Homebrew Tools
+The script:
+
+1. Updates Homebrew, upgrades packages, installs new Brewfile entries, and restarts the omlx service when it is running
+2. Upgrades CodeGraph, OpenViking, MarkItDown, tofu-ls, and oh-my-zsh
+3. Relinks configs, refreshes OpenViking launch agents, and updates the Claude Code AI stack
+4. Upgrades Claude Code plugins and marketplaces
+
+Restart your shell and Claude Code afterwards.
+
+### Upgrading Individual Components
 
 ```bash
-# Upgrade CodeGraph, OpenViking, and MarkItDown
+# Upgrade Homebrew packages only
+brew update && brew upgrade
+
+# Upgrade CodeGraph, OpenViking, MarkItDown, and tofu-ls
 ./apps/cli/upgrade.sh
 
 # Upgrade Claude Code plugins and marketplaces
 ./configs/ai/upgrade.sh
-
-# Refresh tofu-ls (re-runs the checksum-verified release install)
-./apps/cli/install.sh
 ```
 
 ### Updating Configurations
 
-Since configs are symlinked, simply pull the latest changes:
+Since configs are symlinked, pulling the latest changes is usually enough:
 
 ```bash
 cd dotfiles
 git pull
 ```
 
-Changes take effect immediately (you may need to restart your shell for some changes). For Claude Code plugins and marketplaces, also run `./configs/ai/upgrade.sh` after pulling.
+Run `./configs/upgrade.sh` after pulling to link newly added configs, refresh generated files, and upgrade Claude Code plugins.
 
 ## Troubleshooting
 
