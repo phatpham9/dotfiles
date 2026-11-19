@@ -58,9 +58,9 @@ Keep changes aligned with this delegation model. Top-level scripts should orches
 
 Toolchain installed by `apps/cli`: Go, `gopls`, `rust-analyzer`, `golangci-lint`, and `tofu-ls`.
 
-Upgrade with `apps/cli/upgrade.sh` (CodeGraph, OpenViking, MarkItDown),
-`configs/ai/upgrade.sh` (Claude Code plugins), and `apps/cli/install.sh`
-(refreshes `tofu-ls`).
+Upgrade with `./upgrade.sh`; it delegates to `apps/upgrade.sh` (Homebrew, CLI
+tools, oh-my-zsh) and `configs/upgrade.sh` (config relink plus
+`configs/ai/upgrade.sh` for Claude Code plugins).
 
 The installer is idempotent. Do not add loose skill/agent symlinks to `~/.claude`; use plugins instead.
 

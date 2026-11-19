@@ -96,7 +96,9 @@ install_codegraph() {
   curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
 }
 
-install_cli_apps
-install_uv_tools
-install_tofu_ls
-install_codegraph
+if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+  install_cli_apps
+  install_uv_tools
+  install_tofu_ls
+  install_codegraph
+fi

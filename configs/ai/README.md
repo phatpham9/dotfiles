@@ -214,8 +214,8 @@ project-scope `.mcp.json` files.
 Refreshes all configured marketplaces (official, Superpowers, wshobson, and the
 local `ai-lsp` marketplace) and updates every installed plugin from both lists.
 MCP servers fetched by `npx`/`uvx` resolve on demand; `codegraph`, `openviking`,
-and `markitdown` are upgraded by `apps/cli/upgrade.sh`. Re-run
-`apps/cli/install.sh` to refresh `tofu-ls`.
+`markitdown`, and `tofu-ls` are upgraded by `apps/cli/upgrade.sh`. The root
+`./upgrade.sh` runs this script as part of a full environment upgrade.
 
 ## Manual cleanup (not done by the installer)
 

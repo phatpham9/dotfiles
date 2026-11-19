@@ -117,12 +117,14 @@
 - Mock external dependencies at adapter boundaries, not deep in business logic.
 
 <!-- CODEGRAPH_START -->
-# CodeGraph
+## CodeGraph
 
-- In repos with a `.codegraph/` index, use `codegraph_explore` (MCP) or `codegraph explore` (shell) before grep/find for symbol, call-path, and impact questions.
-- Use native search/read tools for literal text, logs, config keys, or when CodeGraph is unavailable.
-- If CodeGraph is configured but the index is missing, tell the user to run `codegraph init -i`.
-- If there is no `.codegraph/`, skip CodeGraph entirely.
+In repositories indexed by CodeGraph (a `.codegraph/` directory exists at the repo root), reach for it BEFORE grep/find or reading files when you need to understand or locate code:
+
+- **MCP tool** (when available): `codegraph_explore` answers most code questions in one call — the relevant symbols' verbatim source plus the call paths between them, including dynamic-dispatch hops grep can't follow. Name a file or symbol in the query to read its current line-numbered source. If it's listed but deferred, load it by name via tool search.
+- **Shell** (always works): `codegraph explore "<symbol names or question>"` prints the same output.
+
+If there is no `.codegraph/` directory, skip CodeGraph entirely — indexing is the user's decision.
 <!-- CODEGRAPH_END -->
 
 # AI Behavior Rules
