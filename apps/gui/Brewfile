@@ -11,6 +11,7 @@ cask "visual-studio-code"
 
 ### ai/ml tools
 cask "hermes-desktop"
+cask "claude"
 cask "claude-code"
 
 ### research & paper writing
