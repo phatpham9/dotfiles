@@ -37,7 +37,22 @@ upgrade_tofu_ls() {
   install_tofu_ls
 }
 
+upgrade_playwright_cli() {
+  if ! command -v playwright-cli >/dev/null 2>&1; then
+    echo "-> playwright-cli not installed; run ${DIR}/install.sh first"
+    return
+  fi
+
+  if ! command -v npm >/dev/null 2>&1; then
+    echo "-> npm not found; cannot upgrade playwright-cli" >&2
+    return
+  fi
+
+  npm install -g @playwright/cli@latest
+}
+
 upgrade_codegraph
 upgrade_uv_tool openviking
 upgrade_uv_tool markitdown
 upgrade_tofu_ls
+upgrade_playwright_cli

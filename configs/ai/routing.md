@@ -10,6 +10,9 @@
 - Execution with an approved spec: `superpowers:writing-plans` ->
   `executing-plans` or `subagent-driven-development`; use
   `superpowers:test-driven-development`.
+- Browser automation / UI verification: use the `playwright-cli` skill. Reserve
+  the `chrome-devtools` MCP for performance traces, Lighthouse, heap snapshots,
+  network, and CSS debugging.
 - Debugging: `mattpocock-skills:diagnosing-bugs` for hypothesis-driven work in
   known code; `superpowers:systematic-debugging` for unfamiliar code or
   regressions.

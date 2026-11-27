@@ -85,9 +85,9 @@ Deliberately **not** installed because they overlap Superpowers/Matt:
   local `ai-lsp` marketplace (`configs/ai/lsp`); requires `tofu-ls`.
 
 Toolchain (installed by `apps/cli`): `go`, `gopls`, `rust-analyzer`,
-`golangci-lint`, and `tofu-ls` from the upstream GitHub Releases archive into
-`~/.local/bin` (checksum-verified; `go install` does not work because its
-`go.mod` uses replace directives).
+`golangci-lint`, and `playwright-cli` (npm), plus `tofu-ls` from the upstream
+GitHub Releases archive into `~/.local/bin` (checksum-verified; `go install`
+does not work because its `go.mod` uses replace directives).
 
 ### Optional (`--with-optional`)
 
@@ -100,13 +100,11 @@ Toolchain (installed by `apps/cli`): `go`, `gopls`, `rust-analyzer`,
 
 ### MCP servers
 
-Two are provided by official plugins (one source per server, no user-scope
-duplicates):
+One is provided by an official plugin:
 
 | Server | Source |
 |---|---|
 | `context7` | `context7@claude-plugins-official` |
-| `playwright` | `playwright@claude-plugins-official` |
 
 Nine are installed at **user scope** from `mcp.json`:
 
@@ -124,6 +122,15 @@ Nine are installed at **user scope** from `mcp.json`:
 
 The optional `huggingface-skills` plugin supplies the Hugging Face MCP server;
 it is not duplicated in `mcp.json`.
+
+Browser automation is provided by Microsoft's Playwright CLI rather than the
+Playwright MCP server. `apps/cli/install.sh` installs `@playwright/cli`
+(`playwright-cli`), and `configs/ai/install.sh` runs
+`playwright-cli install --skills --global` to copy the version-matched skill to
+`~/.claude/skills/playwright-cli/`; the copy is tool-managed, not a repo
+symlink. The installer also uninstalls the legacy
+`playwright@claude-plugins-official` MCP plugin. Chrome DevTools MCP remains for
+performance traces, Lighthouse, heap snapshots, network, and CSS debugging.
 
 `markitdown-ocr-mcp` is not managed by this config and is left untouched.
 
@@ -213,9 +220,11 @@ project-scope `.mcp.json` files.
 
 Refreshes all configured marketplaces (official, Superpowers, wshobson, and the
 local `ai-lsp` marketplace) and updates every installed plugin from both lists.
-MCP servers fetched by `npx`/`uvx` resolve on demand; `codegraph`, `openviking`,
-`markitdown`, and `tofu-ls` are upgraded by `apps/cli/upgrade.sh`. The root
-`./upgrade.sh` runs this script as part of a full environment upgrade.
+MCP servers fetched by `npx`/`uvx` resolve on demand; `playwright-cli`,
+`codegraph`, `openviking`, `markitdown`, and `tofu-ls` are upgraded by
+`apps/cli/upgrade.sh`, after which this script refreshes the Playwright skill
+with `playwright-cli install --skills --global`. The root `./upgrade.sh` runs
+this script as part of a full environment upgrade.
 
 ## Manual cleanup (not done by the installer)
 
@@ -249,3 +258,7 @@ work; `claude plugin details <plugin>` reports the current cost. LSP plugins
 add no model-context cost. Individual plugin skills/agents cannot be disabled
 — disable a whole plugin with `claude plugin disable <plugin>` if the stack
 becomes noisy.
+
+The Playwright MCP plugin was replaced by the `playwright-cli` skill to avoid
+its 72-tool MCP surface; that skill adds one listing entry, with its body
+loaded only when invoked.

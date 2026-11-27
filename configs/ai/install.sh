@@ -149,6 +149,15 @@ cleanup_legacy_mcp() {
   done
 }
 
+# Remove the Playwright MCP plugin replaced by the Playwright CLI + skill.
+cleanup_legacy_plugins() {
+  if [ "$DRY_RUN" -eq 1 ]; then
+    printf '   [dry-run] claude plugin uninstall playwright@claude-plugins-official --scope user (if present)\n'
+  else
+    claude plugin uninstall playwright@claude-plugins-official --scope user >/dev/null 2>&1 || true
+  fi
+}
+
 install_mcp_servers() {
   local row name cfg
   while IFS= read -r row; do
@@ -165,6 +174,16 @@ install_mcp_servers() {
       claude mcp add-json "$name" "$cfg" --scope user
     fi
   done < <(jq -c '.mcpServers | to_entries[]' "${DIR}/mcp.json")
+}
+
+install_playwright_skill() {
+  if ! command -v playwright-cli >/dev/null 2>&1; then
+    echo "-> playwright-cli not found; skipping Playwright skill (run apps/cli/install.sh)" >&2
+    return
+  fi
+
+  log "Installing Playwright CLI skill"
+  run playwright-cli install --skills --global
 }
 
 install_mcp_headers() {
@@ -392,9 +411,11 @@ install_hooks() {
 }
 
 install_plugins
+cleanup_legacy_plugins
 cleanup_legacy_mcp
 install_mcp_headers
 install_mcp_servers
+install_playwright_skill
 apply_settings
 if [ "$WITH_ROUTING" -eq 1 ]; then
   if link_claude_md; then
