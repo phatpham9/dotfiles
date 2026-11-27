@@ -56,7 +56,7 @@ Keep changes aligned with this delegation model. Top-level scripts should orches
 - `CLAUDE.md` — tracked user-level instructions, symlinked to `~/.claude/CLAUDE.md`
 - `hooks/` — optional guardrail, formatting, and verification hooks (`--with-hooks`)
 
-Toolchain installed by `apps/cli`: Go, `gopls`, `rust-analyzer`, `golangci-lint`, and `tofu-ls`.
+Toolchain installed by `apps/cli`: Go, `gopls`, `rust-analyzer`, `golangci-lint`, `playwright-cli` (npm), and `tofu-ls`.
 
 Upgrade with `./upgrade.sh`; it delegates to `apps/upgrade.sh` (Homebrew, CLI
 tools, oh-my-zsh) and `configs/upgrade.sh` (config relink plus

@@ -48,5 +48,12 @@ upgrade_file() {
 upgrade_file "${DIR}/plugins.txt"
 upgrade_file "${DIR}/plugins.optional.txt"
 
+if command -v playwright-cli >/dev/null 2>&1; then
+  echo "-> Refreshing Playwright CLI skill"
+  playwright-cli install --skills --global
+else
+  echo "-> playwright-cli not installed; skipping skill refresh"
+fi
+
 echo "-> MCP servers using npx/uvx resolve on demand."
-echo "-> Upgrade codegraph/openviking with apps/cli/upgrade.sh."
+echo "-> Upgrade codegraph/openviking/playwright-cli with apps/cli/upgrade.sh."

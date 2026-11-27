@@ -27,4 +27,3 @@ tofu-ls@ai-lsp
 
 # MCP servers available as official plugins
 context7@claude-plugins-official
-playwright@claude-plugins-official

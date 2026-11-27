@@ -96,9 +96,24 @@ install_codegraph() {
   curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
 }
 
+install_playwright_cli() {
+  if command -v playwright-cli >/dev/null 2>&1; then
+    return
+  fi
+
+  if ! command -v npm >/dev/null 2>&1; then
+    echo "-> npm not found; skipping Playwright CLI (install Node 20+ first)" >&2
+    return
+  fi
+
+  npm install -g @playwright/cli@latest
+  echo "-> playwright-cli installed"
+}
+
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then
   install_cli_apps
   install_uv_tools
   install_tofu_ls
   install_codegraph
+  install_playwright_cli
 fi
